@@ -15,6 +15,7 @@ public class XAccessTokenInterceptor implements Interceptor {
     @Override
     @NonNull
     public Response intercept(@NonNull final Interceptor.Chain chain) throws IOException {
+        System.out.println("인터셉트 진입");
         final Request.Builder builder = chain.request().newBuilder();
         final String jwtToken = sSharedPreferences.getString(X_ACCESS_TOKEN, null);
         if (jwtToken != null) {

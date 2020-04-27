@@ -1,14 +1,20 @@
 package com.example.zigzag.src.main.store;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.zigzag.R;
+import com.example.zigzag.src.main.MainActivity;
+import com.google.android.material.tabs.TabLayout;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,12 +22,16 @@ import com.example.zigzag.R;
  * create an instance of this fragment.
  */
 public class StoreFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    MainActivity activity;
+    private TabLayout mTabLayout;
+    private ViewPager mViewPager;
+    private ContentsPagerAdapter mContentPagerAdapter;
 
-    // TODO: Rename and change types of parameters
+
+
     private String mParam1;
     private String mParam2;
 
@@ -29,15 +39,7 @@ public class StoreFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment StoreFragment.
-     */
-    // TODO: Rename and change types and number of parameters
+
     public static StoreFragment newInstance(String param1, String param2) {
         StoreFragment fragment = new StoreFragment();
         Bundle args = new Bundle();
@@ -54,12 +56,75 @@ public class StoreFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
     }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        activity = (MainActivity) getActivity();
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        activity = null;
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_store, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_store, container, false);
+
+        mTabLayout = (TabLayout) view.findViewById(R.id.store_tl_tab);
+        System.out.println("탭 메뉴 생성");
+        mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("랭킹")));
+        mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("즐겨찾기")));
+        mTabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+
+        mViewPager = (ViewPager) view.findViewById(R.id.store_vp_body);
+
+        mContentPagerAdapter = new ContentsPagerAdapter(getActivity().getSupportFragmentManager(), mTabLayout.getTabCount());
+
+        mViewPager.setAdapter(mContentPagerAdapter);
+
+        mViewPager.addOnPageChangeListener(
+                new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
+
+
+
+        //페이지가 변경될 때 알려주는 리스너너
+       mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+           //탭이 선택되었을 때, 호출되는 메서드
+           @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                mViewPager.setCurrentItem(tab.getPosition());
+            }
+           //탭이 해제되었을 때, 호출되는 메서드
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+           //탭이 다시 선택되었을 때, 호출되는 메서드
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+
+        });
+
+
+        return view;
+    }
+
+    private View createTabView(String tabName){
+        View tabView = LayoutInflater.from(activity).inflate(R.layout.custom_tab, null);
+        TextView txt_name = (TextView) tabView.findViewById(R.id.txt_name);
+        txt_name.setText(tabName);
+
+        return tabView;
     }
 }

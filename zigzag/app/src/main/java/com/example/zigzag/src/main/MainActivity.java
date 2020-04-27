@@ -82,19 +82,20 @@ public class MainActivity extends BaseActivity implements MainActivityView {
     public void fragmentOnClick(View view) {
         switch (view.getId()) {
             case R.id.main_ib_menu_today:
-                tryPostSignIn();
+               // tryPostSignIn();
                 break;
             case R.id.main_ib_menu_store:
-                tryPostSignIn();
+                System.out.println("가게 메뉴 클릭");
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_fl_page, mStoreFragment).commit();
                 break;
             case R.id.main_ib_menu_moa:
-                tryPostSignIn();
+               // tryPostSignIn();
                 break;
             case R.id.main_ib_menu_zzim:
-                tryPostSignIn();
+              //  tryPostSignIn();
                 break;
             case R.id.main_ib_menu_mypage:
-                tryPostSignIn();
+              //  tryPostSignIn();
                 break;
             default:
                 break;
