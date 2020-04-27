@@ -89,7 +89,7 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                 getSupportFragmentManager().beginTransaction().replace(R.id.main_fl_page, mStoreFragment).commit();
                 break;
             case R.id.main_ib_menu_moa:
-               // tryPostSignIn();
+                moveMoa();
                 break;
             case R.id.main_ib_menu_zzim:
               //  tryPostSignIn();

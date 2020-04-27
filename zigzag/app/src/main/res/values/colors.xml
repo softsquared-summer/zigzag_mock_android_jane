@@ -6,5 +6,5 @@
     <color name="colorBackground">#191B1E</color>
     <color name="colorMenuBackground">#212428</color>
     <color name="colorAdGray">#D1D5E4</color>
-
+    <color name="rankNumColor">#AEB5BC</color>
 </resources>
