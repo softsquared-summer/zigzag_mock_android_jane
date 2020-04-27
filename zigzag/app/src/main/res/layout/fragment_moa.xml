@@ -1,115 +1,300 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorBackground"
     tools:context=".src.main.moa.MoaFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/moa_tv_nav"
+    <View
+        android:id="@+id/moa_v_title"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@color/colorMenuBackground"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="600dp"
-        android:background="@color/colorMenuBackground"/>
+        app:layout_constraintVertical_weight="1"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView"/>
+
     <ImageView
-        android:background="@color/colorMenuBackground"
         android:id="@+id/moa_iv_title"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:src="@drawable/moa_title"
-        app:layout_constraintStart_toStartOf="@+id/moa_tv_nav"
-        app:layout_constraintTop_toTopOf="@+id/moa_tv_nav"
+        android:layout_marginVertical="15dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="15dp"/>
+        android:background="@color/colorMenuBackground"
+        android:src="@drawable/moa_title"
+        app:layout_constraintTop_toTopOf="@+id/moa_v_title"
+        app:layout_constraintBottom_toBottomOf="@+id/moa_v_title"
+        app:layout_constraintStart_toStartOf="@+id/moa_v_title"
+        />
 
-    <HorizontalScrollView
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="0dp"
-        android:layout_margin="0dp"
-        app:layout_constraintStart_toStartOf="@+id/moa_tv_nav"
-        app:layout_constraintEnd_toEndOf="@+id/moa_tv_nav"
-        app:layout_constraintTop_toBottomOf="@+id/moa_iv_title"
-        app:layout_constraintbottom_toBottomOf="@+id/moa_tv_nav"
-        android:layout_height="80dp">
-        <LinearLayout
-            android:background="@color/colorMenuBackground"
-            android:id="@+id/moa_ll_category"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/moa_v_title"
+        app:layout_constraintVertical_weight="10">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/moa_cl_body"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            >
 
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/outer"/>
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/top"/>
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/onepiece"/>
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/pants"/>
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/skirt"/>
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/shoes"/>
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/bag"/>
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/acce"/>
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/fashionstuff"/>
+            <HorizontalScrollView
+                android:id="@+id/moa_sb_category"
+                android:layout_width="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/moa_cl_body"
+                app:layout_constraintBottom_toTopOf="@+id/moa_iv_ad_top"
+                android:layout_height="80dp"
+                android:layout_marginBottom="5dp"
+                >
 
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/beachwear"/>
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/pazama"/>
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/training"/>
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/bigsize"/>
-        </LinearLayout>
-        
-        <ImageView
-            android:layout_width=""
-            android:layout_height=""
-    </HorizontalScrollView>
+                <LinearLayout
+                    android:id="@+id/moa_ll_category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorMenuBackground"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="75dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/outer" />
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/top" />
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/onepiece" />
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/pants" />
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/skirt" />
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/shoes" />
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/bag" />
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/acce" />
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/fashionstuff" />
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/beachwear" />
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/pazama" />
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/training" />
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/bigsize" />
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+
+            <ImageView
+                android:id="@+id/moa_iv_ad_top"
+                android:layout_width="0dp"
+                android:layout_height="220dp"
+                android:layout_marginTop="5dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ad_top"
+                app:layout_constraintBottom_toTopOf="@+id/moa_tv_video"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/moa_sb_category"
+                app:layout_constraintVertical_weight="3.3" />
+
+            <TextView
+                android:id="@+id/moa_tv_video"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:background="@color/colorAdGray"
+                app:layout_constraintBottom_toTopOf="@+id/moa_ll_ad"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/moa_iv_ad_top"
+                app:layout_constraintVertical_weight="1.2" />
+
+            <ImageView
+                android:id="@+id/moa_iv_video_title"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="40dp"
+                android:src="@drawable/videoplay"
+                app:layout_constraintEnd_toStartOf="@+id/moa_sb_video"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="@+id/moa_tv_video"
+                app:layout_constraintTop_toTopOf="@+id/moa_tv_video" />
+
+
+            <HorizontalScrollView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:id="@+id/moa_sb_video"
+                app:layout_constraintTop_toTopOf="@+id/moa_tv_video"
+                app:layout_constraintHorizontal_weight="4"
+                app:layout_constraintStart_toEndOf="@+id/moa_iv_video_title"
+                app:layout_constraintEnd_toEndOf="@+id/moa_tv_video"
+                app:layout_constraintBottom_toBottomOf="@+id/moa_tv_video">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:layout_width="100dp"
+                        android:layout_margin="10dp"
+                        android:scaleType="centerCrop"
+                        android:background="@drawable/round_shape_transparent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ad_top2_1"/>
+                    <ImageButton
+                        android:layout_width="100dp"
+                        android:layout_margin="10dp"
+                        android:scaleType="centerCrop"
+                        android:background="@drawable/round_shape_transparent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ad_top2_2"/>
+                    <ImageButton
+                        android:layout_width="100dp"
+                        android:layout_margin="10dp"
+                        android:scaleType="centerCrop"
+                        android:background="@drawable/round_shape_transparent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ad_top2_3"/>
+                    <ImageButton
+                        android:layout_width="100dp"
+                        android:layout_margin="10dp"
+                        android:scaleType="centerCrop"
+                        android:background="@drawable/round_shape_transparent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ad_top2_4"/>
+
+                </LinearLayout>
+
+
+            </HorizontalScrollView>
 
 
 
+            <LinearLayout
+                android:id="@+id/moa_ll_ad"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="@+id/moa_cl_body"
+                app:layout_constraintEnd_toEndOf="@+id/moa_cl_body"
+                app:layout_constraintStart_toStartOf="@+id/moa_cl_body"
+                app:layout_constraintTop_toBottomOf="@+id/moa_tv_video">
+                <ImageView
+                    android:id="@+id/moa_iv_picktitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="15dp"
+                    android:src="@drawable/zigzagpick"
+                    app:layout_constraintStart_toStartOf="@+id/moa_v_adlist"
+                    app:layout_constraintBottom_toTopOf="@+id/moa_ll_ad"
+                    app:layout_constraintTop_toTopOf="@+id/moa_v_adlist" />
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/round_shape_transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ad_center1" />
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/round_shape_transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ad_center2" />
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/round_shape_transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ad_center3" />
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/round_shape_transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ad_center4" />
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/round_shape_transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ad_center5" />
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/round_shape_transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ad_center6" />
 
 
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
