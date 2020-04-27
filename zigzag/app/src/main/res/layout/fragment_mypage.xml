@@ -1,14 +1,264 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorBackground"
     tools:context=".src.main.mypage.MypageFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <View
+        android:id="@+id/mypage_v_title"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorMenuBackground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="1"
+        app:layout_constraintBottom_toTopOf="@+id/mypage_sv_list"/>
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/mypage_iv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginVertical="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="@color/colorMenuBackground"
+        android:src="@drawable/mypage_title"
+        app:layout_constraintTop_toTopOf="@+id/mypage_v_title"
+        app:layout_constraintBottom_toBottomOf="@+id/mypage_v_title"
+        app:layout_constraintStart_toStartOf="@+id/mypage_v_title"
+        />
+    <ImageButton
+        android:id="@+id/mypage_ib_top1"
+        android:layout_width="40dp"
+        android:layout_height="0dp"
+        android:scaleType="centerInside"
+        app:layout_constraintTop_toTopOf="@+id/mypage_v_title"
+        app:layout_constraintBottom_toBottomOf="@+id/mypage_v_title"
+        android:src="@drawable/mypage_setting"
+        android:background="@color/colorMenuBackground"
+        app:layout_constraintRight_toLeftOf="@+id/mypage_ib_top2"
+        android:layout_margin="15dp"/>
+
+
+
+    <ImageButton
+        android:id="@+id/mypage_ib_top2"
+        android:layout_width="40dp"
+        android:layout_height="0dp"
+        android:scaleType="centerInside"
+        app:layout_constraintTop_toTopOf="@+id/mypage_v_title"
+        app:layout_constraintBottom_toBottomOf="@+id/mypage_v_title"
+        android:src="@drawable/mybagt"
+        android:background="@color/colorMenuBackground"
+        app:layout_constraintRight_toRightOf="@+id/mypage_v_title"
+        android:layout_margin="15dp"/>
+
+    <ScrollView
+        android:id="@+id/mypage_sv_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mypage_v_title">
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:padding="5dp"
+            android:layout_height="wrap_content">
+
+            <View
+                android:id="@+id/mypage_v_prfile"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:background="@color/colorBackground"
+                android:layout_marginHorizontal="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/mypage_iv_ad"
+                app:layout_constraintTop_toTopOf="parent"/>
+            <TextView
+                android:id="@+id/mypage_tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:textStyle="bold"
+                app:layout_constraintVertical_weight="1"
+                app:layout_constraintTop_toTopOf="@id/mypage_v_prfile"
+                app:layout_constraintBottom_toTopOf="@id/mypage_tv_email"
+                app:layout_constraintStart_toStartOf="@id/mypage_v_prfile"
+                android:text="지그재그 로그인 및 회원가입 >"/>
+            <TextView
+                android:id="@+id/mypage_tv_email"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:layout_constraintVertical_weight="1"
+                android:textColor="@color/colorAdGray"
+                app:layout_constraintTop_toBottomOf="@id/mypage_tv_name"
+                app:layout_constraintStart_toStartOf="@id/mypage_v_prfile"
+                app:layout_constraintBottom_toBottomOf="@id/mypage_v_prfile"
+                android:text="지그재그 ID로 한 번에 결제하세요."/>
+
+            <ImageView
+                android:id="@+id/mypage_iv_ad"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                app:layout_constraintTop_toBottomOf="@+id/mypage_v_prfile"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:src="@drawable/mypage_ad"
+                android:layout_margin="10dp"/>
+
+
+            <LinearLayout
+                android:id="@+id/mypage_ll_list"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginHorizontal="10dp"
+                app:layout_constraintBottom_toTopOf="@+id/mypage_ll_list2"
+                app:layout_constraintTop_toBottomOf="@id/mypage_iv_ad"
+                android:layout_marginVertical="20dp"
+                android:orientation="horizontal">
+               <GridLayout
+                   android:id="@+id/mypage_gl_order"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:columnCount="1"
+                   android:paddingRight="3dp"
+                   android:background="@color/colorMenuBackground"
+                   android:layout_weight="1">
+                   <ImageView
+                       android:background="@color/colorBackground"
+                       android:layout_row="0"
+                       android:layout_width="match_parent"
+                       android:layout_height="50dp"
+                       android:src="@drawable/mypage_order"/>
+                   <TextView
+                       android:background="@color/colorBackground"
+                       android:layout_row="1"
+                       android:text="주문/배송"
+                       android:layout_height="30dp"
+                       android:layout_width="match_parent"
+                       android:gravity="center"
+                       android:textColor="#FFFFFF"
+                       android:textStyle="bold"
+                       android:textSize="17sp"/>
+               </GridLayout>
+                <GridLayout
+                    android:id="@+id/mypage_gl_review"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:columnCount="1"
+                    android:paddingRight="3dp"
+                    android:background="@color/colorMenuBackground"
+                    android:layout_weight="1">
+                <ImageView
+                    android:background="@color/colorBackground"
+                    android:layout_row="0"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:src="@drawable/mypage_review"/>
+                <TextView
+                    android:background="@color/colorBackground"
+                    android:layout_row="1"
+                    android:text="리뷰"
+                    android:layout_height="30dp"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:textSize="17sp"/>
+                </GridLayout>
+                <GridLayout
+                    android:id="@+id/mypage_gl_point"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:columnCount="1"
+                    android:background="@color/colorMenuBackground"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:background="@color/colorBackground"
+                        android:layout_row="0"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:src="@drawable/mypage_point"/>
+                    <TextView
+                        android:background="@color/colorBackground"
+                        android:layout_row="1"
+                        android:text="포인트"
+                        android:layout_height="30dp"
+                        android:layout_width="match_parent"
+                        android:gravity="center"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:textSize="17sp"/>
+                </GridLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginVertical="10dp"
+                android:id="@+id/mypage_ll_list2"
+                android:layout_width="0dp"
+                android:background="@color/colorMenuBackground"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="10dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mypage_ll_list">
+
+                <TextView
+                    android:id="@+id/mypage_tv_recent"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="최근 본 상품"
+                    android:background="@color/colorBackground"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:layout_marginTop="2dp"
+                    android:gravity="center_vertical"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/mypage_tv_question"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="자주 묻는 질문"
+                    android:layout_marginTop="3dp"
+                    android:background="@color/colorBackground"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:gravity="center_vertical"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/mypage_tv_board"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="공지사항"
+                    android:background="@color/colorBackground"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:layout_marginTop="2dp"
+                    android:gravity="center_vertical"
+                    android:textStyle="bold"/>
+
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

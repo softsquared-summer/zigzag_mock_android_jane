@@ -95,7 +95,8 @@ public class MainActivity extends BaseActivity implements MainActivityView {
               //  tryPostSignIn();
                 break;
             case R.id.main_ib_menu_mypage:
-              //  tryPostSignIn();
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_fl_page, mMypateFragment).commit();
+                //  tryPostSignIn();
                 break;
             default:
                 break;
