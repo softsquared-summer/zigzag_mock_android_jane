@@ -1,14 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorBackground"
     tools:context=".src.main.zzim.ZzimFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <View
+        android:id="@+id/zzim_v_title"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorMenuBackground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="1"
+        app:layout_constraintBottom_toTopOf="@+id/zzim_v_bar"/>
 
-</FrameLayout>
+
+    <TextView
+        android:id="@+id/zzim_tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginVertical="10dp"
+        android:text="찜한 아이템"
+        android:textColor="#FFFFFF"
+        android:textSize="27sp"
+        android:paddingStart="15dp"
+        android:gravity="center_vertical"
+        android:textStyle="bold"
+        android:layout_marginStart="10dp"
+        android:background="@color/colorMenuBackground"
+        app:layout_constraintTop_toTopOf="@+id/zzim_v_title"
+        app:layout_constraintBottom_toBottomOf="@+id/zzim_v_title"
+        app:layout_constraintStart_toStartOf="@+id/mypage_v_title"
+         />
+    <ImageButton
+        android:id="@+id/mypage_ib_top1"
+        android:layout_width="40dp"
+        android:layout_height="0dp"
+        android:scaleType="centerInside"
+        app:layout_constraintTop_toTopOf="@+id/zzim_v_title"
+        app:layout_constraintBottom_toBottomOf="@+id/zzim_v_title"
+        android:src="@drawable/cut"
+        android:background="@color/colorMenuBackground"
+        app:layout_constraintRight_toLeftOf="@+id/zzim_ib_top2"
+        android:layout_margin="15dp"/>
+
+
+
+    <ImageButton
+        android:id="@+id/zzim_ib_top2"
+        android:layout_width="40dp"
+        android:layout_height="0dp"
+        android:scaleType="centerInside"
+        app:layout_constraintTop_toTopOf="@+id/zzim_v_title"
+        app:layout_constraintBottom_toBottomOf="@+id/zzim_v_title"
+        android:src="@drawable/mybagt"
+        android:background="@color/colorMenuBackground"
+        app:layout_constraintRight_toRightOf="@+id/zzim_v_title"
+        android:layout_margin="15dp"/>
+
+
+    <View
+        android:id="@+id/zzim_v_bar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/colorMenuBackground"
+        app:layout_constraintVertical_weight="1"
+        app:layout_constraintTop_toBottomOf="@+id/zzim_v_title"
+        app:layout_constraintBottom_toTopOf="@id/zzim_sv_list"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="@id/zzim_v_bar"
+        app:layout_constraintTop_toTopOf="@id/zzim_v_bar"
+        app:layout_constraintBottom_toBottomOf="@id/zzim_v_bar"
+        android:src="@drawable/zzim_topicon"
+        android:layout_marginStart="15dp"
+/>
+
+
+
+    <ScrollView
+        android:id="@+id/zzim_sv_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/zzim_v_bar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:padding="15dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/zzim_tv_itemtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="22dp"
+                android:text="찜한 아이템 "
+                android:textColor="@color/colorAdGray"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/zzim_tv_itemnum"
+                android:gravity="center_vertical"/>
+            <TextView
+                android:id="@+id/zzim_tv_itemnum"
+                android:layout_width="wrap_content"
+                android:layout_height="22dp"
+                android:text="0"
+                android:textColor="@color/colorAdGray"
+                android:textSize="14sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/zzim_tv_itemtitle"
+                app:layout_constraintLeft_toRightOf="@+id/zzim_tv_itemtitle"
+                android:gravity="center_vertical"/>
+
+            <LinearLayout
+                android:id="@+id/zzim_ll_notzzim"
+                android:layout_width="0dp"
+                android:layout_height="280dp"
+                android:orientation="vertical"
+                android:layout_marginTop="100dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/zzim_tv_itemtitle">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:src="@drawable/zzim_toptext"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/zzim_no_descript"
+                    android:textColor="@color/colorAdGray"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    android:layout_marginVertical="5dp"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/zzim_banner"
+                    android:layout_marginVertical="20dp"
+                    android:layout_marginHorizontal="30dp" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

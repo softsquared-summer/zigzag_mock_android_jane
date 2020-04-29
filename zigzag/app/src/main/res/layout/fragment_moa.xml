@@ -54,7 +54,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/moa_cl_body"
-                app:layout_constraintBottom_toTopOf="@+id/moa_iv_ad_top"
+                app:layout_constraintBottom_toTopOf="@+id/moa_vp_ad_top"
                 android:layout_height="80dp"
                 android:layout_marginBottom="5dp"
                 >
@@ -67,67 +67,79 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="75dp"
+                        android:layout_width="70dp"
+                        android:padding="10dp"
                         android:layout_height="match_parent"
                         android:src="@drawable/outer" />
 
                     <ImageView
-                        android:layout_width="80dp"
+                        android:layout_width="70dp"
+                        android:padding="10dp"
                         android:layout_height="match_parent"
                         android:src="@drawable/top" />
 
                     <ImageView
-                        android:layout_width="80dp"
+                        android:layout_width="70dp"
+                        android:padding="10dp"
                         android:layout_height="match_parent"
                         android:src="@drawable/onepiece" />
 
                     <ImageView
-                        android:layout_width="80dp"
+                        android:layout_width="70dp"
+                        android:padding="10dp"
                         android:layout_height="match_parent"
                         android:src="@drawable/pants" />
 
                     <ImageView
-                        android:layout_width="80dp"
+                        android:layout_width="70dp"
+                        android:padding="10dp"
                         android:layout_height="match_parent"
                         android:src="@drawable/skirt" />
 
                     <ImageView
-                        android:layout_width="80dp"
+                        android:layout_width="70dp"
+                        android:padding="10dp"
                         android:layout_height="match_parent"
                         android:src="@drawable/shoes" />
 
                     <ImageView
-                        android:layout_width="80dp"
+                        android:layout_width="70dp"
+                        android:padding="10dp"
                         android:layout_height="match_parent"
                         android:src="@drawable/bag" />
 
                     <ImageView
-                        android:layout_width="80dp"
+                        android:layout_width="70dp"
+                        android:padding="10dp"
                         android:layout_height="match_parent"
                         android:src="@drawable/acce" />
 
                     <ImageView
-                        android:layout_width="80dp"
+                        android:layout_width="70dp"
+                        android:padding="10dp"
                         android:layout_height="match_parent"
                         android:src="@drawable/fashionstuff" />
 
                     <ImageView
-                        android:layout_width="80dp"
+                        android:layout_width="70dp"
+                        android:padding="10dp"
                         android:layout_height="match_parent"
                         android:src="@drawable/beachwear" />
 
                     <ImageView
-                        android:layout_width="80dp"
+                        android:layout_width="70dp"
                         android:layout_height="match_parent"
                         android:src="@drawable/pazama" />
 
                     <ImageView
-                        android:layout_width="80dp"
+                        android:layout_width="70dp"
+                        android:padding="10dp"
                         android:layout_height="match_parent"
                         android:src="@drawable/training" />
 
                     <ImageView
-                        android:layout_width="80dp"
+                        android:layout_width="70dp"
+                        android:padding="10dp"
                         android:layout_height="match_parent"
                         android:src="@drawable/bigsize" />
                 </LinearLayout>
@@ -135,13 +147,13 @@
             </HorizontalScrollView>
 
 
-            <ImageView
-                android:id="@+id/moa_iv_ad_top"
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/moa_vp_ad_top"
                 android:layout_width="0dp"
                 android:layout_height="220dp"
                 android:layout_marginTop="5dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/ad_top"
+                android:background="@color/colorBackground"
                 app:layout_constraintBottom_toTopOf="@+id/moa_tv_video"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -156,7 +168,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/moa_ll_ad"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/moa_iv_ad_top"
+                app:layout_constraintTop_toBottomOf="@+id/moa_vp_ad_top"
                 app:layout_constraintVertical_weight="1.2" />
 
             <ImageView
@@ -235,7 +247,6 @@
                     android:id="@+id/moa_iv_picktitle"
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
-                    android:layout_marginHorizontal="20dp"
                     android:layout_marginVertical="10dp"
                     android:src="@drawable/zigzagpick"
                     app:layout_constraintStart_toStartOf="@+id/moa_v_adlist"

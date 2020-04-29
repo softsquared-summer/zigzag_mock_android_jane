@@ -85,18 +85,17 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                // tryPostSignIn();
                 break;
             case R.id.main_ib_menu_store:
-                System.out.println("가게 메뉴 클릭");
                 getSupportFragmentManager().beginTransaction().replace(R.id.main_fl_page, mStoreFragment).commit();
                 break;
             case R.id.main_ib_menu_moa:
                 moveMoa();
                 break;
             case R.id.main_ib_menu_zzim:
-              //  tryPostSignIn();
+                System.out.println("찜 클릭");
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_fl_page, mZzimFragment).commit();
                 break;
             case R.id.main_ib_menu_mypage:
                 getSupportFragmentManager().beginTransaction().replace(R.id.main_fl_page, mMypateFragment).commit();
-                //  tryPostSignIn();
                 break;
             default:
                 break;
