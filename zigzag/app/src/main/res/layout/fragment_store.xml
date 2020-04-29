@@ -78,7 +78,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/store_v_title"
         android:src="@drawable/mybagt"
         android:scaleType="centerInside"
-
         android:background="@color/colorMenuBackground"
         app:layout_constraintRight_toRightOf="@+id/store_v_title"
         android:layout_margin="15dp"/>

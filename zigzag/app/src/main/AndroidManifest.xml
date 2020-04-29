@@ -13,10 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".src.outer.OuterActivity"></activity>
+        <activity android:name=".src.bascket.BascketActivity"></activity>
+        <activity android:name=".src.outer.OuterActivity" />
         <activity android:name=".src.top.TopActivity" />
-        <activity android:name=".src.pants.PantsActivity"/>
-        <activity android:name=".src.skirt.SkirtActivity"/>
+        <activity android:name=".src.pants.PantsActivity" />
+        <activity android:name=".src.skirt.SkirtActivity" />
         <activity android:name=".src.onepiece.OnepieceActivity" />
         <activity android:name=".src.splash.SplashActivity" />
         <activity android:name=".src.main.MainActivity">

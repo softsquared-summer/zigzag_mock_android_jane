@@ -1,6 +1,7 @@
 package com.example.zigzag.src.main.store;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,9 +11,11 @@ import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.zigzag.R;
+import com.example.zigzag.src.bascket.BascketActivity;
 import com.example.zigzag.src.main.MainActivity;
 import com.google.android.material.tabs.TabLayout;
 
@@ -21,19 +24,16 @@ import com.google.android.material.tabs.TabLayout;
  * Use the {@link StoreFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class StoreFragment extends Fragment {
+public class StoreFragment extends Fragment implements View.OnClickListener {
 
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+
     MainActivity activity;
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
     private ContentsPagerAdapter mContentPagerAdapter;
 
 
-
-    private String mParam1;
-    private String mParam2;
+    private ImageButton mBtnBascket;
 
     public StoreFragment() {
         // Required empty public constructor
@@ -43,8 +43,7 @@ public class StoreFragment extends Fragment {
     public static StoreFragment newInstance(String param1, String param2) {
         StoreFragment fragment = new StoreFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+
         fragment.setArguments(args);
         return fragment;
     }
@@ -52,10 +51,6 @@ public class StoreFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
 
 
     }
@@ -79,22 +74,16 @@ public class StoreFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_store, container, false);
 
-        mTabLayout = (TabLayout) view.findViewById(R.id.store_tl_tab);
-        System.out.println("탭 메뉴 생성");
+        initView(view);
         mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("랭킹")));
         mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("즐겨찾기")));
         mTabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-
         mViewPager = (ViewPager) view.findViewById(R.id.store_vp_body);
-
         mContentPagerAdapter = new ContentsPagerAdapter(getActivity().getSupportFragmentManager(), mTabLayout.getTabCount());
-
         mViewPager.setAdapter(mContentPagerAdapter);
 
         mViewPager.addOnPageChangeListener(
                 new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
-
-
 
         //페이지가 변경될 때 알려주는 리스너너
        mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -120,6 +109,26 @@ public class StoreFragment extends Fragment {
         return view;
     }
 
+    void initView(View view){
+        mBtnBascket=view.findViewById(R.id.mypage_ib_top2);
+        mTabLayout = (TabLayout) view.findViewById(R.id.store_tl_tab);
+
+        mBtnBascket.setOnClickListener(this);
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.store_ib_top3:
+                Intent intent = new Intent(getActivity(), BascketActivity.class);
+                startActivity(intent);
+                break;
+            default:
+                break;
+
+        }
+    }
     private View createTabView(String tabName){
         View tabView = LayoutInflater.from(activity).inflate(R.layout.custom_tab, null);
         TextView txt_name = (TextView) tabView.findViewById(R.id.txt_name);

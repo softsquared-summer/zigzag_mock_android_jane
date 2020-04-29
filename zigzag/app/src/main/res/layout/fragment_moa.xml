@@ -32,6 +32,17 @@
         app:layout_constraintStart_toStartOf="@+id/moa_v_title"
         />
 
+    <ImageButton
+        android:id="@+id/moa_ib_top1"
+        android:layout_width="40dp"
+        android:layout_height="0dp"
+        android:scaleType="centerInside"
+        app:layout_constraintTop_toTopOf="@+id/moa_v_title"
+        app:layout_constraintBottom_toBottomOf="@+id/moa_v_title"
+        android:src="@drawable/mybagt"
+        android:background="@color/colorMenuBackground"
+        app:layout_constraintRight_toRightOf="@+id/moa_v_title"
+        android:layout_margin="15dp"/>
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="0dp"
@@ -68,7 +79,6 @@
 
                     <ImageView
                         android:id="@+id/moa_iv_category_outer"
-                        android:onClick="categoryOnClick"
                         android:layout_width="70dp"
                         android:padding="10dp"
                         android:layout_height="match_parent"
@@ -76,7 +86,6 @@
 
                     <ImageView
                         android:id="@+id/moa_iv_category_top"
-                        android:onClick="categoryOnClick"
                         android:layout_width="70dp"
                         android:padding="10dp"
                         android:layout_height="match_parent"
@@ -84,7 +93,6 @@
 
                     <ImageView
                         android:id="@+id/moa_iv_category_onepiece"
-                        android:onClick="categoryOnClick"
                         android:layout_width="70dp"
                         android:padding="10dp"
                         android:layout_height="match_parent"
@@ -92,7 +100,6 @@
 
                     <ImageView
                         android:id="@+id/moa_iv_category_pants"
-                        android:onClick="categoryOnClick"
                         android:layout_width="70dp"
                         android:padding="10dp"
                         android:layout_height="match_parent"
@@ -100,7 +107,6 @@
 
                     <ImageView
                         android:id="@+id/moa_iv_category_skirt"
-                        android:onClick="categoryOnClick"
                         android:layout_width="70dp"
                         android:padding="10dp"
                         android:layout_height="match_parent"
@@ -108,7 +114,6 @@
 
                     <ImageView
                         android:id="@+id/moa_iv_category_shoes"
-                        android:onClick="categoryOnClick"
                         android:layout_width="70dp"
                         android:padding="10dp"
                         android:layout_height="match_parent"
@@ -116,7 +121,6 @@
 
                     <ImageView
                         android:id="@+id/moa_iv_category_bag"
-                        android:onClick="categoryOnClick"
                         android:layout_width="70dp"
                         android:padding="10dp"
                         android:layout_height="match_parent"
@@ -124,7 +128,6 @@
 
                     <ImageView
                         android:id="@+id/moa_iv_category_accesory"
-                        android:onClick="categoryOnClick"
                         android:layout_width="70dp"
                         android:padding="10dp"
                         android:layout_height="match_parent"
@@ -132,7 +135,6 @@
 
                     <ImageView
                         android:id="@+id/moa_iv_category_stuff"
-                        android:onClick="categoryOnClick"
                         android:layout_width="70dp"
                         android:padding="10dp"
                         android:layout_height="match_parent"
@@ -140,7 +142,6 @@
 
                     <ImageView
                         android:id="@+id/moa_iv_category_beachwear"
-                        android:onClick="categoryOnClick"
                         android:layout_width="70dp"
                         android:padding="10dp"
                         android:layout_height="match_parent"
@@ -148,14 +149,12 @@
 
                     <ImageView
                         android:id="@+id/moa_iv_category_pazama"
-                        android:onClick="categoryOnClick"
                         android:layout_width="70dp"
                         android:layout_height="match_parent"
                         android:src="@drawable/pazama" />
 
                     <ImageView
                         android:id="@+id/moa_iv_category_trainnig"
-                        android:onClick="categoryOnClick"
                         android:layout_width="70dp"
                         android:padding="10dp"
                         android:layout_height="match_parent"
@@ -163,7 +162,6 @@
 
                     <ImageView
                         android:id="@+id/moa_iv_category_bigsize"
-                        android:onClick="categoryOnClick"
                         android:layout_width="70dp"
                         android:padding="10dp"
                         android:layout_height="match_parent"

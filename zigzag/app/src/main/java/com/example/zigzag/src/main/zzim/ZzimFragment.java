@@ -1,5 +1,6 @@
 package com.example.zigzag.src.main.zzim;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,19 +8,19 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import com.example.zigzag.R;
+import com.example.zigzag.src.bascket.BascketActivity;
+import com.google.android.material.tabs.TabLayout;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ZzimFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class ZzimFragment extends Fragment {
 
+public class ZzimFragment extends Fragment implements View.OnClickListener {
+
+
+    private ImageButton mBtnBascket;
 
     public ZzimFragment() {
-        // Required empty public constructor
     }
 
 
@@ -40,7 +41,26 @@ public class ZzimFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_zzim, container, false);
+    }
+
+    void initView(View view){
+        mBtnBascket=view.findViewById(R.id.mypage_ib_top2);
+
+        mBtnBascket.setOnClickListener(this);
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.zzim_ib_top2:
+                Intent intent = new Intent(getActivity(), BascketActivity.class);
+                startActivity(intent);
+                break;
+            default:
+                break;
+
+        }
     }
 }

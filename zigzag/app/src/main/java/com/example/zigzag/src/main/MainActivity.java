@@ -3,6 +3,7 @@ package com.example.zigzag.src.main;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.zigzag.R;
@@ -28,6 +29,7 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                     //전역변수에는 소문자 m을 붙여주고
     private TextView mTvHelloWorld;
     private MainService mainService;
+    private ImageButton mIbMoaBascket,mIbStoreBascket,mIbMyPageBascket,mIbZzimBascket;
     MoaFragment mMoaFragment;
     TodayFragment mTodayFragment;
     ZzimFragment mZzimFragment;
@@ -48,8 +50,21 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         mStoreFragment=new StoreFragment();
         mTodayFragment=new TodayFragment();
 
+        initView();
         moveMoa();
+
+
     }
+
+    private void initView() {
+        mIbMoaBascket=findViewById(R.id.moa_ib_top1);
+        mIbMyPageBascket=findViewById(R.id.mypage_ib_top2);
+        mIbZzimBascket=findViewById(R.id.zzim_ib_top2);
+        mIbStoreBascket=findViewById(R.id.store_ib_top3);
+
+
+    }
+
 
     public void moveMoa(){
         getSupportFragmentManager().beginTransaction().replace(R.id.main_fl_page, mMoaFragment).commit();
@@ -84,7 +99,10 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         mTvHelloWorld.setText(signInResult. getJwt());
     }
 
+    //장바구니 클릭
+    public void bascketOnClick(View view){
 
+    }
     public void fragmentOnClick(View view) {
         switch (view.getId()) {
             case R.id.main_ib_menu_today:
@@ -107,33 +125,5 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                 break;
         }
     }
-    public void categoryOnClick(View view) {
-        switch (view.getId()) {
-            case R.id.moa_iv_category_outer:
-                // tryPostSignIn();
-                Intent intent = new Intent(this, OuterActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.moa_iv_category_top:
-                intent=new Intent(this, TopActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.moa_iv_category_onepiece:
-                intent=new Intent(this, OnepieceActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.moa_iv_category_pants:
-                intent=new Intent(this, PantsActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.moa_iv_category_skirt:
-                intent=new Intent(this, SkirtActivity.class);
-                startActivity(intent);
-                break;
 
-            default:
-                break;
-
-        }
-    }
 }
