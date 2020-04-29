@@ -1,7 +1,7 @@
 package com.example.zigzag.src.skirt.content.interfaces;
 
 
-import com.example.zigzag.src.skirt.content.models.SignInResponse;
+import com.example.zigzag.src.pants.content.models.SignInResponse;
 
 public interface ContentActivityView {
 

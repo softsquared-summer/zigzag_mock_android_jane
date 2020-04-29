@@ -18,25 +18,24 @@ public class SkirtActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pants);
+        setContentView(R.layout.activity_skirt);
 
         initView();
 
     }
 
     private void initView(){
-        mTabLayout = (TabLayout) findViewById(R.id.pants_tl_tab);
+        mTabLayout = (TabLayout) findViewById(R.id.skirt_tl_tab);
 
         System.out.println("원피스 탭 메뉴 생성");
         mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("전체")));
-        mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("일자")));
-        mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("슬랙스")));
-        mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("반바지")));
-        mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("와이드")));
+        mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("미니스커트")));
+        mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("미디스커트")));
+        mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("롱스커트")));
 
         mTabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        mViewPager = (ViewPager) findViewById(R.id.pants_vp_list);
+        mViewPager = (ViewPager) findViewById(R.id.skirt_vp_list);
 
         mContentPagerAdapter = new ContentsPagerAdapter(getSupportFragmentManager(), mTabLayout.getTabCount());
 

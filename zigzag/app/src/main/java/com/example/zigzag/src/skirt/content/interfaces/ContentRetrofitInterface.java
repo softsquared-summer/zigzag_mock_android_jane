@@ -1,8 +1,8 @@
 package com.example.zigzag.src.skirt.content.interfaces;
 
-import com.example.zigzag.src.skirt.content.models.DefaultResponse;
-import com.example.zigzag.src.skirt.content.models.SignInBody;
-import com.example.zigzag.src.skirt.content.models.SignInResponse;
+import com.example.zigzag.src.pants.content.models.DefaultResponse;
+import com.example.zigzag.src.pants.content.models.SignInBody;
+import com.example.zigzag.src.pants.content.models.SignInResponse;
 
 import okhttp3.RequestBody;
 import retrofit2.Call;

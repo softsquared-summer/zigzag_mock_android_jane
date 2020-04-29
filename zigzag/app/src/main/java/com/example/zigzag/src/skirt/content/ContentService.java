@@ -1,11 +1,11 @@
 package com.example.zigzag.src.skirt.content;
 
 
-import com.example.zigzag.src.skirt.content.interfaces.ContentActivityView;
-import com.example.zigzag.src.skirt.content.interfaces.ContentRetrofitInterface;
-import com.example.zigzag.src.skirt.content.models.DefaultResponse;
-import com.example.zigzag.src.skirt.content.models.SignInBody;
-import com.example.zigzag.src.skirt.content.models.SignInResponse;
+import com.example.zigzag.src.pants.content.interfaces.ContentActivityView;
+import com.example.zigzag.src.pants.content.interfaces.ContentRetrofitInterface;
+import com.example.zigzag.src.pants.content.models.DefaultResponse;
+import com.example.zigzag.src.pants.content.models.SignInBody;
+import com.example.zigzag.src.pants.content.models.SignInResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;

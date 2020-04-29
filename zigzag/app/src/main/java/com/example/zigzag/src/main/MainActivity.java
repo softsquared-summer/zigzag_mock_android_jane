@@ -17,6 +17,7 @@ import com.example.zigzag.src.main.zzim.ZzimFragment;
 import com.example.zigzag.src.onepiece.OnepieceActivity;
 import com.example.zigzag.src.outer.OuterActivity;
 import com.example.zigzag.src.pants.PantsActivity;
+import com.example.zigzag.src.skirt.SkirtActivity;
 import com.example.zigzag.src.top.TopActivity;
 
 import androidx.annotation.Nullable;
@@ -126,6 +127,8 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                 startActivity(intent);
                 break;
             case R.id.moa_iv_category_skirt:
+                intent=new Intent(this, SkirtActivity.class);
+                startActivity(intent);
                 break;
 
             default:

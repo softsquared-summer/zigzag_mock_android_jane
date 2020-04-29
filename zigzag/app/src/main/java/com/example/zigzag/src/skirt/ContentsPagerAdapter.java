@@ -1,6 +1,6 @@
 package com.example.zigzag.src.skirt;
 
-import com.example.zigzag.src.skirt.content.ContentFragment;
+import com.example.zigzag.src.pants.content.ContentFragment;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -19,9 +19,7 @@ public class ContentsPagerAdapter extends FragmentStatePagerAdapter {
         switch (position) {
 
             case 0:
-                System.out.println("전체 탭");
                 ContentFragment contentFragment=new ContentFragment(0);
-                System.out.println("전체 탭");
                 return contentFragment;
             case 1:
                 contentFragment=new ContentFragment(1);
@@ -32,9 +30,6 @@ public class ContentsPagerAdapter extends FragmentStatePagerAdapter {
                 return contentFragment;
             case 3:
                 contentFragment=new ContentFragment(3);
-                return contentFragment;
-            case 4:
-                contentFragment=new ContentFragment(4);
                 return contentFragment;
             default:
                 return null;
