@@ -1,5 +1,6 @@
 package com.example.zigzag.src.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -13,6 +14,10 @@ import com.example.zigzag.src.main.mypage.MypageFragment;
 import com.example.zigzag.src.main.store.StoreFragment;
 import com.example.zigzag.src.main.today.TodayFragment;
 import com.example.zigzag.src.main.zzim.ZzimFragment;
+import com.example.zigzag.src.onepiece.OnepieceActivity;
+import com.example.zigzag.src.outer.OuterActivity;
+import com.example.zigzag.src.pants.PantsActivity;
+import com.example.zigzag.src.top.TopActivity;
 
 import androidx.annotation.Nullable;
 
@@ -99,6 +104,33 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                 break;
             default:
                 break;
+        }
+    }
+    public void categoryOnClick(View view) {
+        switch (view.getId()) {
+            case R.id.moa_iv_category_outer:
+                // tryPostSignIn();
+                Intent intent = new Intent(this, OuterActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.moa_iv_category_top:
+                intent=new Intent(this, TopActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.moa_iv_category_onepiece:
+                intent=new Intent(this, OnepieceActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.moa_iv_category_pants:
+                intent=new Intent(this, PantsActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.moa_iv_category_skirt:
+                break;
+
+            default:
+                break;
+
         }
     }
 }

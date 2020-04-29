@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context=".src.top.TopActivity">
+
+
+    <View
+        android:id="@+id/top_v_top"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorMenuBackground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="2"
+        app:layout_constraintBottom_toTopOf="@+id/top_vp_list"/>
+
+
+    <TextView
+        android:id="@+id/top_tv_title"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginVertical="10dp"
+        android:text="상의"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:gravity="center_vertical"
+        android:textStyle="bold"
+        android:layout_marginStart="10dp"
+        android:textAlignment="center"
+        app:layout_constraintTop_toTopOf="@+id/top_v_top"
+        app:layout_constraintBottom_toTopOf="@+id/top_tl_tab"
+        app:layout_constraintEnd_toEndOf="@+id/top_v_top"
+        app:layout_constraintStart_toStartOf="@+id/top_v_top"
+        tools:ignore="RtlCompat" />
+    <ImageButton
+        android:id="@+id/outer_ib_back"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="@id/top_tv_title"
+        app:layout_constraintBottom_toBottomOf="@id/top_tv_title"
+        android:src="@drawable/top_back"
+        app:layout_constraintStart_toStartOf="@+id/top_v_top"
+        android:background="@color/colorMenuBackground"
+        android:paddingLeft="10dp"/>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/top_tl_tab"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:tabGravity="fill"
+        app:layout_constraintStart_toStartOf="@+id/top_v_top"
+        app:layout_constraintEnd_toEndOf="@+id/top_v_top"
+        app:layout_constraintTop_toBottomOf="@+id/top_tv_title"
+        app:layout_constraintBottom_toTopOf="@+id/top_ib_price"
+        app:tabMode="fixed"
+        android:background="@color/colorMenuBackground"
+        app:tabTextColor="@color/colorAdGray"
+        app:tabSelectedTextColor="@color/colorPink"
+        app:tabIndicatorColor="@color/colorPink" />
+
+    <ImageButton
+        android:id="@+id/top_ib_price"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:scaleType="centerInside"
+        android:paddingTop="5dp"
+        android:src="@drawable/top_price"
+        app:layout_constraintStart_toStartOf="@id/top_v_top"
+        app:layout_constraintTop_toBottomOf="@+id/top_tl_tab"
+        app:layout_constraintBottom_toBottomOf="@+id/top_v_top"
+        android:background="@color/colorMenuBackground"
+        android:layout_marginHorizontal="10dp"/>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/top_vp_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_v_top"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

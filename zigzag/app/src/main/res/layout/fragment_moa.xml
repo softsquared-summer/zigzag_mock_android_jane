@@ -67,77 +67,103 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/moa_iv_category_outer"
+                        android:onClick="categoryOnClick"
                         android:layout_width="70dp"
                         android:padding="10dp"
                         android:layout_height="match_parent"
                         android:src="@drawable/outer" />
 
                     <ImageView
+                        android:id="@+id/moa_iv_category_top"
+                        android:onClick="categoryOnClick"
                         android:layout_width="70dp"
                         android:padding="10dp"
                         android:layout_height="match_parent"
                         android:src="@drawable/top" />
 
                     <ImageView
+                        android:id="@+id/moa_iv_category_onepiece"
+                        android:onClick="categoryOnClick"
                         android:layout_width="70dp"
                         android:padding="10dp"
                         android:layout_height="match_parent"
                         android:src="@drawable/onepiece" />
 
                     <ImageView
+                        android:id="@+id/moa_iv_category_pants"
+                        android:onClick="categoryOnClick"
                         android:layout_width="70dp"
                         android:padding="10dp"
                         android:layout_height="match_parent"
                         android:src="@drawable/pants" />
 
                     <ImageView
+                        android:id="@+id/moa_iv_category_skirt"
+                        android:onClick="categoryOnClick"
                         android:layout_width="70dp"
                         android:padding="10dp"
                         android:layout_height="match_parent"
                         android:src="@drawable/skirt" />
 
                     <ImageView
+                        android:id="@+id/moa_iv_category_shoes"
+                        android:onClick="categoryOnClick"
                         android:layout_width="70dp"
                         android:padding="10dp"
                         android:layout_height="match_parent"
                         android:src="@drawable/shoes" />
 
                     <ImageView
+                        android:id="@+id/moa_iv_category_bag"
+                        android:onClick="categoryOnClick"
                         android:layout_width="70dp"
                         android:padding="10dp"
                         android:layout_height="match_parent"
                         android:src="@drawable/bag" />
 
                     <ImageView
+                        android:id="@+id/moa_iv_category_accesory"
+                        android:onClick="categoryOnClick"
                         android:layout_width="70dp"
                         android:padding="10dp"
                         android:layout_height="match_parent"
                         android:src="@drawable/acce" />
 
                     <ImageView
+                        android:id="@+id/moa_iv_category_stuff"
+                        android:onClick="categoryOnClick"
                         android:layout_width="70dp"
                         android:padding="10dp"
                         android:layout_height="match_parent"
                         android:src="@drawable/fashionstuff" />
 
                     <ImageView
+                        android:id="@+id/moa_iv_category_beachwear"
+                        android:onClick="categoryOnClick"
                         android:layout_width="70dp"
                         android:padding="10dp"
                         android:layout_height="match_parent"
                         android:src="@drawable/beachwear" />
 
                     <ImageView
+                        android:id="@+id/moa_iv_category_pazama"
+                        android:onClick="categoryOnClick"
                         android:layout_width="70dp"
                         android:layout_height="match_parent"
                         android:src="@drawable/pazama" />
 
                     <ImageView
+                        android:id="@+id/moa_iv_category_trainnig"
+                        android:onClick="categoryOnClick"
                         android:layout_width="70dp"
                         android:padding="10dp"
                         android:layout_height="match_parent"
                         android:src="@drawable/training" />
 
                     <ImageView
+                        android:id="@+id/moa_iv_category_bigsize"
+                        android:onClick="categoryOnClick"
                         android:layout_width="70dp"
                         android:padding="10dp"
                         android:layout_height="match_parent"
