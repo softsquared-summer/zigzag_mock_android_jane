@@ -10,8 +10,8 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 public class ContentsPagerAdapter extends FragmentStatePagerAdapter {
     private  int mPageCount;
 
-    public ContentsPagerAdapter(FragmentManager fm,int pageCount) {
-        super(fm);
+    public ContentsPagerAdapter(FragmentManager fm,int behavior,int pageCount) {
+        super(fm,behavior);
         this.mPageCount=pageCount;
     }
 

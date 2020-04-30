@@ -1,6 +1,5 @@
 package com.example.zigzag.src.main;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -15,13 +14,9 @@ import com.example.zigzag.src.main.mypage.MypageFragment;
 import com.example.zigzag.src.main.store.StoreFragment;
 import com.example.zigzag.src.main.today.TodayFragment;
 import com.example.zigzag.src.main.zzim.ZzimFragment;
-import com.example.zigzag.src.onepiece.OnepieceActivity;
-import com.example.zigzag.src.outer.OuterActivity;
-import com.example.zigzag.src.pants.PantsActivity;
-import com.example.zigzag.src.skirt.SkirtActivity;
-import com.example.zigzag.src.top.TopActivity;
 
 import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentTransaction;
 
 
 public class MainActivity extends BaseActivity implements MainActivityView {
@@ -37,6 +32,7 @@ public class MainActivity extends BaseActivity implements MainActivityView {
     MypageFragment mMypateFragment;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,11 +40,6 @@ public class MainActivity extends BaseActivity implements MainActivityView {
 
         mainService= new MainService(this);
 
-        mMoaFragment=new MoaFragment();
-        mMypateFragment=new MypageFragment();
-        mZzimFragment=new ZzimFragment();
-        mStoreFragment=new StoreFragment();
-        mTodayFragment=new TodayFragment();
 
         initView();
         moveMoa();
@@ -67,8 +58,8 @@ public class MainActivity extends BaseActivity implements MainActivityView {
 
 
     public void moveMoa(){
-        getSupportFragmentManager().beginTransaction().replace(R.id.main_fl_page, mMoaFragment).commit();
-    }
+        mMoaFragment=new MoaFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_fl_page, mMoaFragment).commit();    }
     private void tryGetTest() {
         showProgressDialog();
 
@@ -106,19 +97,20 @@ public class MainActivity extends BaseActivity implements MainActivityView {
     public void fragmentOnClick(View view) {
         switch (view.getId()) {
             case R.id.main_ib_menu_today:
-               // tryPostSignIn();
                 break;
             case R.id.main_ib_menu_store:
+                mStoreFragment=new StoreFragment();
                 getSupportFragmentManager().beginTransaction().replace(R.id.main_fl_page, mStoreFragment).commit();
                 break;
             case R.id.main_ib_menu_moa:
                 moveMoa();
                 break;
             case R.id.main_ib_menu_zzim:
-                System.out.println("찜 클릭");
+                mZzimFragment=new ZzimFragment();
                 getSupportFragmentManager().beginTransaction().replace(R.id.main_fl_page, mZzimFragment).commit();
                 break;
             case R.id.main_ib_menu_mypage:
+                mMypateFragment=new MypageFragment();
                 getSupportFragmentManager().beginTransaction().replace(R.id.main_fl_page, mMypateFragment).commit();
                 break;
             default:

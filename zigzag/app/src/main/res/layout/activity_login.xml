@@ -11,7 +11,7 @@
     <View
         android:id="@+id/login_v_top"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="80dp"
         android:background="@color/colorBackground"
         app:layout_constraintVertical_weight="1"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,7 +93,7 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="10dp"
         android:paddingStart="20dp"
-        android:hint="아이디"
+        android:text="아이디"
         android:textColor="#FFFFFF"/>
     <TextView
         android:id="@+id/login_tv_pwtext"

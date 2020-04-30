@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager.widget.ViewPager;
 
@@ -79,7 +80,7 @@ public class StoreFragment extends Fragment implements View.OnClickListener {
         mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("즐겨찾기")));
         mTabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         mViewPager = (ViewPager) view.findViewById(R.id.store_vp_body);
-        mContentPagerAdapter = new ContentsPagerAdapter(getActivity().getSupportFragmentManager(), mTabLayout.getTabCount());
+        mContentPagerAdapter = new ContentsPagerAdapter(getChildFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, mTabLayout.getTabCount());
         mViewPager.setAdapter(mContentPagerAdapter);
 
         mViewPager.addOnPageChangeListener(

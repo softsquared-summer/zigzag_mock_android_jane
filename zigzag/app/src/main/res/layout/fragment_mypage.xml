@@ -122,7 +122,7 @@
             <LinearLayout
                 android:id="@+id/mypage_ll_list"
                 android:layout_width="0dp"
-                android:layout_height="80dp"
+                android:layout_height="60dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginHorizontal="10dp"
@@ -142,18 +142,18 @@
                        android:background="@color/colorBackground"
                        android:layout_row="0"
                        android:layout_width="match_parent"
-                       android:layout_height="50dp"
+                       android:layout_height="40dp"
                        android:src="@drawable/mypage_order"/>
                    <TextView
                        android:background="@color/colorBackground"
                        android:layout_row="1"
                        android:text="주문/배송"
-                       android:layout_height="30dp"
+                       android:layout_height="20dp"
                        android:layout_width="match_parent"
                        android:gravity="center"
                        android:textColor="#FFFFFF"
                        android:textStyle="bold"
-                       android:textSize="17sp"/>
+                       android:textSize="15sp"/>
                </GridLayout>
                 <GridLayout
                     android:id="@+id/mypage_gl_review"
@@ -167,18 +167,18 @@
                     android:background="@color/colorBackground"
                     android:layout_row="0"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="40dp"
                     android:src="@drawable/mypage_review"/>
                 <TextView
                     android:background="@color/colorBackground"
                     android:layout_row="1"
                     android:text="리뷰"
-                    android:layout_height="30dp"
+                    android:layout_height="20dp"
                     android:layout_width="match_parent"
                     android:gravity="center"
                     android:textColor="#FFFFFF"
                     android:textStyle="bold"
-                    android:textSize="17sp"/>
+                    android:textSize="15sp"/>
                 </GridLayout>
                 <GridLayout
                     android:id="@+id/mypage_gl_point"
@@ -191,18 +191,18 @@
                         android:background="@color/colorBackground"
                         android:layout_row="0"
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="40dp"
                         android:src="@drawable/mypage_point"/>
                     <TextView
                         android:background="@color/colorBackground"
                         android:layout_row="1"
                         android:text="포인트"
-                        android:layout_height="30dp"
+                        android:layout_height="20dp"
                         android:layout_width="match_parent"
                         android:gravity="center"
                         android:textColor="#FFFFFF"
                         android:textStyle="bold"
-                        android:textSize="17sp"/>
+                        android:textSize="15sp"/>
                 </GridLayout>
             </LinearLayout>
 
