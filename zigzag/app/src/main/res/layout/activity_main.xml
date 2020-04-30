@@ -7,6 +7,7 @@
     tools:context=".src.main.MainActivity"
     android:background="@color/colorBackground">
 
+
     <FrameLayout
         android:id="@+id/main_fl_page"
         android:layout_width="0dp"

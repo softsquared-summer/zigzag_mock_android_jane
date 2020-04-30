@@ -9,4 +9,5 @@
     <color name="rankNumColor">#AEB5BC</color>
     <color name="colorPink">#FF359C</color>
     <color name="colorDarkGray">#35393F</color>
+    <color name="colorDarkBackground">#17191B</color>
 </resources>

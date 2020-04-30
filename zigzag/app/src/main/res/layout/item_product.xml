@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/product_ll_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <com.makeramen.RoundedImageView
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        app:corner_radius="10dip"
+        app:border_width="2dip"
+        app:is_oval="true"
+        app:round_background="true"
+        app:border_color="@color/colorBackground"
+        android:src="@drawable/bascket_center_banner"
+        android:scaleType="fitXY"/>
+
+    <TextView
+        android:id="@+id/product_tv_storename"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:textColor="@color/rankNumColor"
+        android:maxLines="1"
+        android:text="로렌하이"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/product_tv_productname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:textColor="@color/rankNumColor"
+        android:text="여리여리 가디건"
+        android:maxLines="1"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:id="@+id/product_tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="19dp"
+        android:textStyle="bold"
+        android:text="49,900"
+        android:textColor="#FFFFFF"
+        android:maxLines="1"
+        android:layout_marginTop="5dp"/>
+
+
+</LinearLayout>

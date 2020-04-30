@@ -14,17 +14,14 @@ import com.example.zigzag.R;
 import com.example.zigzag.src.main.MainActivity;
 import com.example.zigzag.src.main.store.ContentsPagerAdapter;
 import com.example.zigzag.src.outer.OuterActivity;
+import com.example.zigzag.src.product.Product;
 import com.google.android.material.tabs.TabLayout;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ContentFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+
 public class ContentFragment extends Fragment {
-
-
     private int mCategoryNum;
+    private ArrayList<Product> mProductList;
 
     public ContentFragment() {
     }
@@ -51,8 +48,8 @@ public class ContentFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_content, container, false);
+
 
         return view;
     }

@@ -6,4 +6,6 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="zzim_no_descript">마음에 드는 아이템 여기서 모아볼 수 있어요.</string>
+    <string name="sort_high_price">고가순</string>
+    <string name="sort_row_price">저가순</string>
 </resources>
