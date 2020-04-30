@@ -41,17 +41,20 @@ public class ZzimFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_zzim, container, false);
+        View view= inflater.inflate(R.layout.fragment_zzim, container, false);
+        initView(view);
+        return view;
     }
 
     void initView(View view){
-        mBtnBascket=view.findViewById(R.id.mypage_ib_top2);
+        mBtnBascket=view.findViewById(R.id.zzim_ib_top2);
 
         mBtnBascket.setOnClickListener(this);
     }
 
 
     @Override
+    
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.zzim_ib_top2:

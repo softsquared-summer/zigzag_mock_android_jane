@@ -110,7 +110,7 @@ public class StoreFragment extends Fragment implements View.OnClickListener {
     }
 
     void initView(View view){
-        mBtnBascket=view.findViewById(R.id.mypage_ib_top2);
+        mBtnBascket=view.findViewById(R.id.store_ib_top3);
         mTabLayout = (TabLayout) view.findViewById(R.id.store_tl_tab);
 
         mBtnBascket.setOnClickListener(this);

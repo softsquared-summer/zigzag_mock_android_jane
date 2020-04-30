@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.example.zigzag.R;
 import com.example.zigzag.src.bascket.BascketActivity;
+import com.example.zigzag.src.login.LoginActivity;
 import com.example.zigzag.src.outer.OuterActivity;
 
 
@@ -18,6 +19,7 @@ public class MypageFragment extends Fragment implements View.OnClickListener {
 
 
     private View mBtnBascket;
+    private View mVLogin;
 
     public MypageFragment() {
         // Required empty public constructor
@@ -48,8 +50,11 @@ public class MypageFragment extends Fragment implements View.OnClickListener {
 
     void initView(View view){
         mBtnBascket=view.findViewById(R.id.mypage_ib_top2);
+        mVLogin=view.findViewById(R.id.mypage_v_prfile);
 
         mBtnBascket.setOnClickListener(this);
+        mVLogin.setOnClickListener(this);
+
     }
 
     @Override
@@ -59,6 +64,10 @@ public class MypageFragment extends Fragment implements View.OnClickListener {
                 Intent intent = new Intent(getActivity(), BascketActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.mypage_v_prfile:
+                intent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(intent);
+
             default:
                 break;
 
