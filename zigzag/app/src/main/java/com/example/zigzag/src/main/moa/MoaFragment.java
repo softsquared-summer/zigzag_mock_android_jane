@@ -18,11 +18,8 @@ import android.widget.ImageView;
 
 import com.example.zigzag.R;
 import com.example.zigzag.src.bascket.BascketActivity;
-import com.example.zigzag.src.onepiece.OnepieceActivity;
 import com.example.zigzag.src.outer.OuterActivity;
-import com.example.zigzag.src.pants.PantsActivity;
-import com.example.zigzag.src.skirt.SkirtActivity;
-import com.example.zigzag.src.top.TopActivity;
+
 
 public class MoaFragment extends Fragment implements View.OnClickListener {
 

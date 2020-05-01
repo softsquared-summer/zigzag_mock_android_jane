@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.zigzag.R;
@@ -14,6 +13,7 @@ import com.example.zigzag.src.product.Product;
 import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHolder>{
@@ -81,7 +81,7 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private LinearLayout mLayoutProduct;
+        private ConstraintLayout mLayoutProduct;
         private ImageView mImageUrl;
         private TextView mStoreName;
         private TextView mProductName;
@@ -90,7 +90,7 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
         public ViewHolder(View convertView) {
             super(convertView);
 
-            mLayoutProduct = (LinearLayout) convertView.findViewById(R.id.product_ll_layout);
+            mLayoutProduct = (ConstraintLayout) convertView.findViewById(R.id.product_ll_layout);
             //img_thumb = (ImageView) convertView.findViewById(R.id.img_thumb);
             mStoreName = (TextView) convertView.findViewById(R.id.product_tv_storename);
             mProductName = (TextView) convertView.findViewById(R.id.product_tv_productname);
