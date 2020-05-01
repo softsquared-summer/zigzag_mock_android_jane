@@ -21,6 +21,7 @@ import java.util.ArrayList;
 
 public class ContentFragment extends Fragment {
     private int mCategoryNum;
+    private String mBigCategory;
     private ArrayList<Product> mProductList;
 
     public ContentFragment() {
@@ -35,8 +36,9 @@ public class ContentFragment extends Fragment {
         return fragment;
     }
 
-    public ContentFragment(int categoryNum) {
+    public ContentFragment(int categoryNum, String bigCategory) {
         this.mCategoryNum=categoryNum;
+        this.mBigCategory=bigCategory;
     }
 
     @Override
