@@ -84,6 +84,14 @@ public class Product implements Parcelable {
         return 0;
     }
 
+    public int getmCommentNum() {
+        return mCommentNum;
+    }
+
+    public String getmDiscount() {
+        return mDiscount;
+    }
+
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(this.mitemId);
