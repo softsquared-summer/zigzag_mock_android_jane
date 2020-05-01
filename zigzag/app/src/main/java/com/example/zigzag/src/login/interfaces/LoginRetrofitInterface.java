@@ -1,8 +1,8 @@
 package com.example.zigzag.src.login.interfaces;
 
 import com.example.zigzag.src.login.models.DefaultResponse;
-import com.example.zigzag.src.login.models.SignInBody;
-import com.example.zigzag.src.login.models.SignInResponse;
+import com.example.zigzag.src.login.models.LoginBody;
+import com.example.zigzag.src.login.models.LoginResponse;
 
 import okhttp3.RequestBody;
 import retrofit2.Call;
@@ -26,6 +26,9 @@ public interface LoginRetrofitInterface {
     @POST("/test")
     Call<DefaultResponse> postTest(@Body RequestBody params);
 
-    @POST("/user/token")
-    Call<SignInResponse> signInTest(@Body SignInBody params);
+    //@POST("houses/{houseNo}/reservations")
+    //Call<DefaultResponse> postReserve(@Path("houseNo") int houseNo, @Body RequestReserve requestReserve);
+
+    @POST("/login")
+    Call<LoginResponse> Login(@Body LoginBody params);
 }

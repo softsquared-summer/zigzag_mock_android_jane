@@ -122,6 +122,7 @@
 
 
     <ImageButton
+        android:id="@+id/login_ib_login"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:src="@drawable/login_btn_login"

@@ -2,26 +2,22 @@ package com.example.zigzag.src.login.models;
 
 import com.google.gson.annotations.SerializedName;
 
-public class SignInResponse {
+public class LoginResponse {
 
 
-    public class SignInResult {
+    public class LoginResult {
         @SerializedName("jwt")
-        private int jwt;
+        private String jwt;
 
-        @SerializedName("userNo")
-        private String userNo;
-
-        public int getJwt() {
+        public String getJwt() {
             return jwt;
         }
 
-        public String getUserNo() {
-            return userNo;
-        }
+
     }
+
     @SerializedName("result")
-    private SignInResult signInResult;
+    private String loginResult;
 
     @SerializedName("code")
     private int code;
@@ -29,8 +25,8 @@ public class SignInResponse {
     @SerializedName("message")
     private String message;
 
-    @SerializedName("isSuccess")
-    private boolean isSuccess;
+    @SerializedName("is_success")
+    private boolean is_success;
 
     public int getCode() {
         return code;
@@ -40,7 +36,16 @@ public class SignInResponse {
         return message;
     }
 
-    public SignInResult getSignInResult() {
-        return signInResult;
+    //public LoginResult getLoginResult() {
+       // return loginResult;
+    //}
+
+
+    public boolean getIs_success() {
+        return is_success;
+    }
+
+    public String getLoginResult() {
+        return loginResult;
     }
 }
