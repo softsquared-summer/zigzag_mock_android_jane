@@ -41,7 +41,6 @@ public class OuterActivity extends AppCompatActivity {
 
         mTabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-
         mContentPagerAdapter = new ContentsPagerAdapter(mWhatBigCategory,getSupportFragmentManager(), mTabLayout.getTabCount());
 
         mViewPager.setAdapter(mContentPagerAdapter);

@@ -1,6 +1,9 @@
 package com.example.zigzag.src.product;
 
-public class Product {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Product implements Parcelable {
     private int mitemId;
     private String mMallName;
     private String mimageUrl;
@@ -23,6 +26,31 @@ public class Product {
         this.mPrice = mPrice;
     }
 
+    private Product(Parcel in) {
+        this.mitemId = in.readInt();
+        this.mMallName = in.readString();
+        this.mimageUrl = in.readString();
+        this.mItemName = in.readString();
+        this.mCommentNum = in.readInt();
+        this.isFreeShip = in.readString();
+        this.isHeart = in.readString();
+        this.mDiscount = in.readString();
+        this.mPrice = in.readString();
+    }
+
+    public static final Parcelable.Creator<Product> CREATOR = new Parcelable.Creator<Product>() {
+
+        public Product createFromParcel(Parcel in) {
+            return new Product(in);
+
+        }
+
+        public Product[] newArray (int size) {
+            return new Product[size];
+
+        }
+
+    };
     public String getmItemName() {
         return mItemName;
     }
@@ -49,5 +77,26 @@ public class Product {
 
     public String getmPrice() {
         return mPrice;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.mitemId);
+        dest.writeString(this.mMallName);
+        dest.writeString(this.mimageUrl);
+        dest.writeString(this.mItemName);
+        dest.writeInt(this.mCommentNum);
+        dest.writeString(this.isFreeShip);
+        dest.writeString(this.isHeart);
+        dest.writeString(this.mDiscount);
+        dest.writeString(this.mPrice);
+
+
+
     }
 }

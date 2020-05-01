@@ -17,6 +17,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHolder>{
+
     private ArrayList<Product> mListProduct;
     private Context mContext;
     public OnItemClickListener mOnItemClickListener = null;
@@ -57,10 +58,17 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
 //                .into(holder.img_thumb);
 
 
+
+        if(productVO.getIsFreeShip().equals("Y")){
+            holder.mFreeShip.setVisibility(View.VISIBLE);
+        }
+        if(productVO.getIsHeart().equals("Y")){
+            holder.mZzim.setImageResource(R.drawable.product_zzim_yes);
+        }else{
+            holder.mZzim.setImageResource(R.drawable.product_zzim_no);
+        }
         holder.mStoreName.setText(productVO.getmMallName());
-
         holder.mProductName.setText(productVO.getmItemName());
-
         holder.mLayoutProduct.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -85,7 +93,8 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
         private ImageView mImageUrl;
         private TextView mStoreName;
         private TextView mProductName;
-
+        private  ImageView mZzim;
+        private  ImageView mFreeShip;
 
         public ViewHolder(View convertView) {
             super(convertView);
@@ -94,6 +103,8 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
             //img_thumb = (ImageView) convertView.findViewById(R.id.img_thumb);
             mStoreName = (TextView) convertView.findViewById(R.id.product_tv_storename);
             mProductName = (TextView) convertView.findViewById(R.id.product_tv_productname);
+            mFreeShip=(ImageView)convertView.findViewById(R.id.product_iv_freedelivery);
+            mZzim=(ImageView)convertView.findViewById(R.id.product_iv_zzim);
 
         }
     }
