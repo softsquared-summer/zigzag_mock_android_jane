@@ -259,6 +259,7 @@
         android:id="@+id/product_detail_ib_buy"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:onClick="buyOnClick"
         app:layout_constraintStart_toEndOf="@+id/product_detail_tv_discount"
         app:layout_constraintTop_toTopOf="@+id/product_detail_bottombar_right"
         app:layout_constraintBottom_toBottomOf="@+id/product_detail_bottombar_right"

@@ -4,17 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.zigzag.R;
 import com.example.zigzag.src.BaseActivity;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 public class ProductActivity extends BaseActivity {
-
+    BottomSheetDialog bottomSheetDialog;
     Product mProductVo;
     TextView mTvReviewNum,mTvStoreName,mTvItemName,mTvPrice,mTvDiscount,mTvItemCode;
     ImageView mIvFreeShip,mIvZzim;
+    ImageButton mBtnBuy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +28,18 @@ public class ProductActivity extends BaseActivity {
 
         setProductDetail();
 
+
         System.out.println("제품상세페이지: "+mProductVo.getmItemName());
+
+
     }
 
-    private void setProductDetail() {
+    public void buyOnClick(View v){
+        bottomSheetDialog.show();
+
+    }
+
+    public void setProductDetail() {
         if(mProductVo!=null){
             mTvReviewNum.setText("("+mProductVo.getmCommentNum()+")");
             mTvPrice.setText(mProductVo.getmPrice()+"원");
@@ -63,8 +74,13 @@ public class ProductActivity extends BaseActivity {
         mTvItemName=findViewById(R.id.product_detail_name);
         mTvPrice=findViewById(R.id.product_detail_tv_price);
 
+        bottomSheetDialog = new BottomSheetDialog(ProductActivity.this);
+        bottomSheetDialog.setContentView(R.layout.activity_buy_dialog);
+
         mIvFreeShip=findViewById(R.id.product_detail_iv_freedelivery);
         mIvZzim=findViewById(R.id.product_detail_iv_zzim);
+
+        mBtnBuy=findViewById(R.id.product_detail_ib_buy);
 
     }
 }

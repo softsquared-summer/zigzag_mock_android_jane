@@ -15,7 +15,8 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
-        <activity android:name=".src.product.ProductActivity"></activity>
+        <activity android:name=".src.product.buy.BuyDialog"></activity>
+        <activity android:name=".src.product.ProductActivity" />
         <activity
             android:name=".src.login.LoginActivity"
             android:windowSoftInputMode="adjustResize" />
