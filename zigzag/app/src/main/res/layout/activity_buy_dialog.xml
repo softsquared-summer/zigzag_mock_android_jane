@@ -8,7 +8,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="500dp"
         android:orientation="vertical"
         android:background="@drawable/round_shape_white"
         tools:ignore="MissingConstraints">
@@ -67,22 +67,72 @@
             android:textStyle="bold"
             android:text=" 포인트 적립"
             app:layout_constraintTop_toTopOf="@+id/buy_tv_text1"/>
-
-        <ImageButton
+        
+        <ScrollView
             android:layout_width="0dp"
-            android:layout_marginTop="10dp"
-            android:visibility="visible"
-            android:layout_height="wrap_content"
-            android:src="@drawable/buy_select_color"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/buy_v_price"
             app:layout_constraintTop_toBottomOf="@+id/buy_tv_text3"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:visibility="visible"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:src="@drawable/buy_select_color"
+                    android:layout_marginHorizontal="10dp"
+                    android:scaleType="centerInside"
+                    android:background="#FFFFFF"/>
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+        </ScrollView>
+
+
+
+        <View
+            android:id="@+id/buy_v_price"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            app:layout_constraintBottom_toTopOf="@+id/buy_ll_bottombar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/buy_tv_text1"
+            app:layout_constraintTop_toTopOf="@+id/buy_v_price"
+            android:text="총 상품 금액"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:id="@+id/buy_tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:text="00,000원"
+            app:layout_constraintTop_toTopOf="@+id/buy_v_price"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginHorizontal="10dp"
-            android:scaleType="centerInside"
-            android:background="#FFFFFF"/>
+            android:layout_marginEnd="15dp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:textColor="#000000"/>
+
+
 
 
         <LinearLayout
+            android:id="@+id/buy_ll_bottombar"
             android:layout_width="0dp"
             android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent"

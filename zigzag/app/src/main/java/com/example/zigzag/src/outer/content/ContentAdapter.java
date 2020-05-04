@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.zigzag.R;
-import com.example.zigzag.src.product.Product;
+import com.example.zigzag.src.outer.content.models.ItemsResponse;
 
 import java.util.ArrayList;
 
@@ -18,18 +18,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHolder>{
 
-    private ArrayList<Product> mListProduct;
+    private ArrayList<ItemsResponse.ItemsResult> mListProduct;
     private Context mContext;
     public OnItemClickListener mOnItemClickListener = null;
 
-    public ContentAdapter(ArrayList<Product> mListProduct, Context mContext) {
+    public ContentAdapter(ArrayList<ItemsResponse.ItemsResult> mListProduct, Context mContext) {
         this.mListProduct = mListProduct;
         this.mContext = mContext;
     }
 
 
     public interface OnItemClickListener {
-        void onItemClick(View view, Product productVO);
+        void onItemClick(View view, ItemsResponse.ItemsResult productVO);
     }
 
 
@@ -50,7 +50,7 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ContentAdapter.ViewHolder holder, int position) {
-        final Product productVO = mListProduct.get(position);
+        final ItemsResponse.ItemsResult productVO = mListProduct.get(position);
 //
 //        Glide.with(mContext)
 //                .load(albumVO.getThumb())
@@ -59,16 +59,16 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
 
 
 
-        if(productVO.getIsFreeShip().equals("Y")){
+        if(productVO.getIs_free_ship().equals("Y")){
             holder.mFreeShip.setVisibility(View.VISIBLE);
         }
-        if(productVO.getIsHeart().equals("Y")){
+        if(productVO.getIs_heart().equals("Y")){
             holder.mZzim.setImageResource(R.drawable.product_zzim_yes);
         }else{
             holder.mZzim.setImageResource(R.drawable.product_zzim_no);
         }
-        holder.mStoreName.setText(productVO.getmMallName());
-        holder.mProductName.setText(productVO.getmItemName());
+        holder.mStoreName.setText(productVO.getMall_name());
+        holder.mProductName.setText(productVO.getItem_name());
         holder.mLayoutProduct.setOnClickListener(new View.OnClickListener() {
 
             @Override

@@ -1,8 +1,6 @@
 package com.example.zigzag.src.outer.content.interfaces;
 
-import com.example.zigzag.src.outer.content.models.DefaultResponse;
-import com.example.zigzag.src.outer.content.models.SignInBody;
-import com.example.zigzag.src.outer.content.models.SignInResponse;
+import com.example.zigzag.src.outer.content.models.ItemsResponse;
 
 import okhttp3.RequestBody;
 import retrofit2.Call;
@@ -14,18 +12,8 @@ import retrofit2.http.Query;
 
 public interface ContentRetrofitInterface {
 //    @GET("/test")
-    @GET("/jwt")
-    Call<DefaultResponse> getTest();
 
-    @GET("/test/{number}")
-    Call<DefaultResponse> getTestPathAndQuery(
-            @Path("number") int number,
-            @Query("content") final String content
-    );
 
-    @POST("/test")
-    Call<DefaultResponse> postTest(@Body RequestBody params);
-
-    @POST("/user/token")
-    Call<SignInResponse> signInTest(@Body SignInBody params);
+    @POST("/items")
+    Call<ItemsResponse> getItemList();
 }

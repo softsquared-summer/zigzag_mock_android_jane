@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="150dp"
     android:padding="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -31,24 +31,24 @@
         android:id="@+id/bascketitem_tv_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="하트넥 셔링 크롭니트"
+        android:text="기본 아이템"
         android:textSize="20sp"
         android:textColor="#000000"
         android:layout_marginEnd="80dp"
         android:maxLines="2"
         android:layout_marginStart="10dp"
-        app:layout_constraintHorizontal_weight="4"
+        app:layout_constraintHorizontal_weight="5"
         app:layout_constraintTop_toTopOf="@+id/bascketitem_iv_image"
         app:layout_constraintEnd_toEndOf="@id/basketitem_v_product"
         app:layout_constraintStart_toEndOf="@id/bascketitem_iv_image" />
 
     <TextView
-        android:id="@+id/bascketitem_tv_storename"
+        android:id="@+id/bascketitem_tv_option"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="@id/bascketitem_tv_name"
         app:layout_constraintTop_toBottomOf="@id/bascketitem_tv_name"
-        android:text="오렌지"
+        android:text="크기/컬러"
         android:textSize="17sp"
         android:textStyle="bold"
         android:layout_marginTop="5dp"
@@ -66,5 +66,58 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/basketitem_v_product"/>
 
+    <ImageButton
+        android:id="@+id/bascketitem_iv_minus"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintStart_toStartOf="@+id/bascketitem_iv_image"
+        app:layout_constraintTop_toTopOf="@id/bascketitem_v_amount"
+        android:src="@drawable/bascket_minus"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/bascketitem_tv_amount"
+        android:layout_width="60dp"
+        android:layout_height="35dp"
+        app:layout_constraintStart_toEndOf="@+id/bascketitem_iv_minus"
+        android:text="1"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:background="@drawable/round_shape_gray"
+        android:textSize="20sp"
+        app:layout_constraintTop_toTopOf="@+id/bascketitem_v_amount"
+        android:layout_marginTop="5dp"/>
+
+    <ImageButton
+        android:id="@+id/bascketitem_iv_plus"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintStart_toEndOf="@+id/bascketitem_tv_amount"
+        app:layout_constraintTop_toTopOf="@id/bascketitem_v_amount"
+        android:src="@drawable/bascket_plus"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/bascketitem_tv_storename"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="쇼핑몰 이름"
+        android:textSize="17sp"
+        android:textColor="@color/colorPink"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toTopOf="@+id/bascketitem_tv_amount"
+        app:layout_constraintEnd_toEndOf="@+id/bascketitem_ib_cut"/>
+
+
+    <ImageButton
+        android:id="@+id/bascketitem_ib_cut"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bascketitem_tv_name"
+        android:background="#FFFFFF"
+        android:layout_marginEnd="15dp"
+        android:src="@drawable/bascket_cut"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

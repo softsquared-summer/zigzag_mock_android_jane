@@ -26,6 +26,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     EditText mEtId,mEtPw;
     ImageButton mBtnLogin;
     private LoginService loginService;
+    private String email;
 
 
     @Override
@@ -57,7 +58,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     private void tryPostLogin() {
         showProgressDialog();
 
-        String email=mEtId.getText().toString();
+        email=mEtId.getText().toString();
         String pw=mEtPw.getText().toString();
 
 
@@ -112,8 +113,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
             if(code==100){
                 SharedPreferences.Editor editor = sSharedPreferences.edit();
                 editor.putString(X_ACCESS_TOKEN,loginResult);
+                editor.putString("id",email);
                 editor.commit();
 
+                System.out.println("토큰: "+loginResult);
 
                 finish();
             }
