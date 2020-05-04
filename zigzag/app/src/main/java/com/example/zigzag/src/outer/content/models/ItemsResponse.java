@@ -15,7 +15,7 @@ public class ItemsResponse {
         @SerializedName("item_category_detail")
         private String item_category_detail;
         @SerializedName("image")
-        private ArrayList<String> image;
+        private ArrayList<ImageURL> image;
         @SerializedName("is_free_ship")
         private String is_free_ship;
         @SerializedName("is_heart")
@@ -29,6 +29,9 @@ public class ItemsResponse {
         @SerializedName("price")
         private String price;
 
+        public ArrayList<ImageURL> getImage() {
+            return image;
+        }
 
         public int getItem_id() {
             return item_id;
@@ -68,6 +71,20 @@ public class ItemsResponse {
         }
 
 
+        public  class ImageURL {
+            @SerializedName("image_url1")
+            private String image_url1;
+            @SerializedName("image_url2")
+            private String image_url2;
+
+            public String getImage_url1() {
+                return image_url1;
+            }
+
+            public String getImage_url2() {
+                return image_url2;
+            }
+        }
     }
     @SerializedName("result")
     private ArrayList<ItemsResult> itemsResult;

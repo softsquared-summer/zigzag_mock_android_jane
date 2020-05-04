@@ -14,6 +14,6 @@ public interface ContentRetrofitInterface {
 //    @GET("/test")
 
 
-    @POST("/items")
+    @GET("/items")
     Call<ItemsResponse> getItemList();
 }

@@ -1,12 +1,14 @@
 package com.example.zigzag.src.outer.content;
 
 import android.content.Context;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.zigzag.R;
 import com.example.zigzag.src.outer.content.models.ItemsResponse;
 
@@ -25,6 +27,7 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
     public ContentAdapter(ArrayList<ItemsResponse.ItemsResult> mListProduct, Context mContext) {
         this.mListProduct = mListProduct;
         this.mContext = mContext;
+
     }
 
 
@@ -51,12 +54,18 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ContentAdapter.ViewHolder holder, int position) {
         final ItemsResponse.ItemsResult productVO = mListProduct.get(position);
-//
-//        Glide.with(mContext)
-//                .load(albumVO.getThumb())
-//                .thumbnail(0.5f)
-//                .into(holder.img_thumb);
 
+
+        String url1=productVO.getImage().get(0).getImage_url1();
+        String url2=productVO.getImage().get(0).getImage_url2();
+
+        System.out.println(url1);
+        Glide.with(mContext)
+                .load(url1)
+                .thumbnail(0.5f)
+                .into(holder.mImage);
+        holder.mImage.setClipToOutline(true);
+        holder.mImage.setScaleType(ImageView.ScaleType.FIT_XY);
 
 
         if(productVO.getIs_free_ship().equals("Y")){
@@ -69,6 +78,7 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
         }
         holder.mStoreName.setText(productVO.getMall_name());
         holder.mProductName.setText(productVO.getItem_name());
+        holder.mPrice.setText(productVO.getPrice());
         holder.mLayoutProduct.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -95,6 +105,8 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
         private TextView mProductName;
         private  ImageView mZzim;
         private  ImageView mFreeShip;
+        private TextView mPrice;
+        private ImageView mImage;
 
         public ViewHolder(View convertView) {
             super(convertView);
@@ -105,6 +117,8 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
             mProductName = (TextView) convertView.findViewById(R.id.product_tv_productname);
             mFreeShip=(ImageView)convertView.findViewById(R.id.product_iv_freedelivery);
             mZzim=(ImageView)convertView.findViewById(R.id.product_iv_zzim);
+            mPrice=(TextView)convertView.findViewById(R.id.product_tv_price);
+            mImage=(ImageView)convertView.findViewById(R.id.product_iv_image);
 
         }
     }
