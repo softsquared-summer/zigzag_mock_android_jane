@@ -92,27 +92,27 @@ public class MoaFragment extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.moa_iv_category_outer:
                 Intent intent = new Intent(getActivity(), OuterActivity.class);
-                intent.putExtra("category","outer");
+                intent.putExtra("category","아우터");
                 startActivity(intent);
                 break;
             case R.id.moa_iv_category_top:
                 intent = new Intent(getActivity(), OuterActivity.class);
-                intent.putExtra("category","top");
+                intent.putExtra("category","상의");
                 startActivity(intent);
                 break;
             case R.id.moa_iv_category_onepiece:
                 intent = new Intent(getActivity(), OuterActivity.class);
-                intent.putExtra("category","onepiece");
+                intent.putExtra("category","원피스/세트");
                 startActivity(intent);
                 break;
             case R.id.moa_iv_category_pants:
                 intent = new Intent(getActivity(), OuterActivity.class);
-                intent.putExtra("category","pants");
+                intent.putExtra("category","바지");
                 startActivity(intent);
                 break;
             case R.id.moa_iv_category_skirt:
                 intent = new Intent(getActivity(), OuterActivity.class);
-                intent.putExtra("category","skirt");
+                intent.putExtra("category","스커트");
                 startActivity(intent);
                 break;
             case R.id.moa_ib_top1:

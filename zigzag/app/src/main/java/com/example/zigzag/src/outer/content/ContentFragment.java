@@ -23,6 +23,7 @@ import java.util.ArrayList;
 
 public class ContentFragment extends Fragment implements ContentActivityView,ContentAdapter.OnItemClickListener{
     private int mCategoryNum;
+    private String mDetailCategory;
     private String mBigCategory;
     private ArrayList<ItemsResponse.ItemsResult> mProductList=new ArrayList<ItemsResponse.ItemsResult>();
 
@@ -75,7 +76,42 @@ public class ContentFragment extends Fragment implements ContentActivityView,Con
     //아이템 리스트 조회
     private void tryGetItemList() {
 
-        mContentService.getItemList();
+        detailCategory(mBigCategory);
+
+        mContentService.getItemList(mBigCategory,mDetailCategory);
+
+    }
+
+    private void detailCategory(String mBigCategory) {
+        if(mCategoryNum==0){
+            mDetailCategory="";
+        }
+        else if(mCategoryNum==1){
+            if(mBigCategory.equals("아우터"))mDetailCategory="가디건";
+            if(mBigCategory.equals("상의"))mDetailCategory="티셔츠";
+            if(mBigCategory.equals("원피스/세트"))mDetailCategory="미니원피스";
+            if(mBigCategory.equals("바지"))mDetailCategory="일자바지";
+            if(mBigCategory.equals("스커트"))mDetailCategory="미니스커트";
+        }else if(mCategoryNum==2){
+            if(mBigCategory.equals("아우터"))mDetailCategory="자켓";
+            if(mBigCategory.equals("상의"))mDetailCategory="블라우스";
+            if(mBigCategory.equals("원피스/세트"))mDetailCategory="미디원피스";
+            if(mBigCategory.equals("바지"))mDetailCategory="슬랙스팬츠";
+            if(mBigCategory.equals("스커트"))mDetailCategory="미디스커트";
+        }else if(mCategoryNum==3){
+            if(mBigCategory.equals("아우터"))mDetailCategory="코트";
+            if(mBigCategory.equals("상의"))mDetailCategory="셔츠/남방";
+            if(mBigCategory.equals("원피스/세트"))mDetailCategory="롱원피스";
+            if(mBigCategory.equals("바지"))mDetailCategory="반바지";
+            if(mBigCategory.equals("스커트"))mDetailCategory="롱스커트";
+        }else if(mCategoryNum==4){
+            if(mBigCategory.equals("아우터"))mDetailCategory="점퍼";
+            if(mBigCategory.equals("상의"))mDetailCategory="니트/스웨터";
+            if(mBigCategory.equals("원피스/세트"))mDetailCategory="투피스/세트";
+            if(mBigCategory.equals("바지"))mDetailCategory="와아드팬츠";
+            if(mBigCategory.equals("스커트"))mDetailCategory="";
+        }
+
 
     }
 
@@ -85,7 +121,7 @@ public class ContentFragment extends Fragment implements ContentActivityView,Con
 
         mRvContent.setLayoutManager(mLayoutManager);
         mRvContent.addItemDecoration(new ItemDecoration(getActivity()));
-        mContentAdapter=new ContentAdapter(mProductList,getContext());
+        mContentAdapter=new ContentAdapter(mBigCategory,mProductList,getContext());
 
 
         mContentAdapter.setOnItemClickListener(this);

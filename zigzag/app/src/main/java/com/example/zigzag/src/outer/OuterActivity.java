@@ -74,7 +74,7 @@ public class OuterActivity extends AppCompatActivity {
 
     private void makeTab(String mWhatBigCategory, TabLayout mTabLayout) {
         switch (mWhatBigCategory) {
-            case "outer":
+            case "아우터":
                 mTextTop.setText("아우터");
                 mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("전체")));
                 mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("가디건")));
@@ -82,7 +82,7 @@ public class OuterActivity extends AppCompatActivity {
                 mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("코트")));
                 mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("점퍼")));
                 break;
-            case "top":
+            case "상의":
                 mTextTop.setText("상의");
                 mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("전체")));
                 mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("티셔츠")));
@@ -90,7 +90,7 @@ public class OuterActivity extends AppCompatActivity {
                 mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("셔츠/남방")));
                 mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("니트")));
                 break;
-            case "onepiece":
+            case "원피스":
                 mTextTop.setText("원피스");
                 mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("전체")));
                 mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("미니")));
@@ -98,7 +98,7 @@ public class OuterActivity extends AppCompatActivity {
                 mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("롱")));
                 mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("투피스")));
                 break;
-            case "pants":
+            case "바지":
                 mTextTop.setText("바지");
                 mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("전체")));
                 mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("일자")));
@@ -107,7 +107,7 @@ public class OuterActivity extends AppCompatActivity {
                 mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("와이드")));
 
                 break;
-            case "skirt":
+            case "스커트":
                 mTextTop.setText("스커트");
                 mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("전체")));
                 mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("미니스커트")));

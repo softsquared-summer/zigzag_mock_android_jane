@@ -20,11 +20,11 @@ class ContentService {
     }
 
 
-    void getItemList() {
+    void getItemList(String bigCategory, String detailCategory) {
         final ContentRetrofitInterface contentRetrofitInterface = getRetrofit().create(ContentRetrofitInterface.class);
 
 
-        contentRetrofitInterface.getItemList().enqueue(new Callback<ItemsResponse>() {
+        contentRetrofitInterface.getItemList(bigCategory,detailCategory).enqueue(new Callback<ItemsResponse>() {
             @Override
             public void onResponse(Call<ItemsResponse> call, Response<ItemsResponse> response) {
 

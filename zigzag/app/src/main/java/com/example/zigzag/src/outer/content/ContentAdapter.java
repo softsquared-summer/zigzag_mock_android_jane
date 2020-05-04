@@ -18,23 +18,24 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHolder>{
+public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHolder> {
 
     private ArrayList<ItemsResponse.ItemsResult> mListProduct;
     private Context mContext;
     public OnItemClickListener mOnItemClickListener = null;
+    private String mCategory;
 
-    public ContentAdapter(ArrayList<ItemsResponse.ItemsResult> mListProduct, Context mContext) {
+
+    public ContentAdapter(String mCategory, ArrayList<ItemsResponse.ItemsResult> mListProduct, Context mContext) {
         this.mListProduct = mListProduct;
+
         this.mContext = mContext;
-
+        this.mCategory = mCategory;
     }
-
 
     public interface OnItemClickListener {
         void onItemClick(View view, ItemsResponse.ItemsResult productVO);
     }
-
 
 
     public void setOnItemClickListener(OnItemClickListener listener) {
@@ -53,11 +54,12 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ContentAdapter.ViewHolder holder, int position) {
+
         final ItemsResponse.ItemsResult productVO = mListProduct.get(position);
 
 
-        String url1=productVO.getImage().get(0).getImage_url1();
-        String url2=productVO.getImage().get(0).getImage_url2();
+        String url1 = productVO.getImage().get(0).getImage_url1();
+        //String url2=productVO.getImage().get(0).getImage_url2();
 
         System.out.println(url1);
         Glide.with(mContext)
@@ -68,12 +70,12 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
         holder.mImage.setScaleType(ImageView.ScaleType.FIT_XY);
 
 
-        if(productVO.getIs_free_ship().equals("Y")){
+        if (productVO.getIs_free_ship().equals("Y")) {
             holder.mFreeShip.setVisibility(View.VISIBLE);
         }
-        if(productVO.getIs_heart().equals("Y")){
+        if (productVO.getIs_heart().equals("Y")) {
             holder.mZzim.setImageResource(R.drawable.product_zzim_yes);
-        }else{
+        } else {
             holder.mZzim.setImageResource(R.drawable.product_zzim_no);
         }
         holder.mStoreName.setText(productVO.getMall_name());
@@ -92,6 +94,7 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
         });
     }
 
+
     @Override
     public int getItemCount() {
         return mListProduct.size();
@@ -103,8 +106,8 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
         private ImageView mImageUrl;
         private TextView mStoreName;
         private TextView mProductName;
-        private  ImageView mZzim;
-        private  ImageView mFreeShip;
+        private ImageView mZzim;
+        private ImageView mFreeShip;
         private TextView mPrice;
         private ImageView mImage;
 
@@ -115,10 +118,10 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
             //img_thumb = (ImageView) convertView.findViewById(R.id.img_thumb);
             mStoreName = (TextView) convertView.findViewById(R.id.product_tv_storename);
             mProductName = (TextView) convertView.findViewById(R.id.product_tv_productname);
-            mFreeShip=(ImageView)convertView.findViewById(R.id.product_iv_freedelivery);
-            mZzim=(ImageView)convertView.findViewById(R.id.product_iv_zzim);
-            mPrice=(TextView)convertView.findViewById(R.id.product_tv_price);
-            mImage=(ImageView)convertView.findViewById(R.id.product_iv_image);
+            mFreeShip = (ImageView) convertView.findViewById(R.id.product_iv_freedelivery);
+            mZzim = (ImageView) convertView.findViewById(R.id.product_iv_zzim);
+            mPrice = (TextView) convertView.findViewById(R.id.product_tv_price);
+            mImage = (ImageView) convertView.findViewById(R.id.product_iv_image);
 
         }
     }

@@ -25,7 +25,6 @@ public class ContentsPagerAdapter extends FragmentStatePagerAdapter {
             case 0:
                 System.out.println("전체 탭");
                 ContentFragment contentFragment=new ContentFragment(0,mBigCategory);
-                System.out.println("전체 탭");
                 return contentFragment;
             case 1:
                 contentFragment=new ContentFragment(1,mBigCategory);

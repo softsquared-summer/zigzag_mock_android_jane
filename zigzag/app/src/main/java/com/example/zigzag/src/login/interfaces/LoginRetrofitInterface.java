@@ -17,11 +17,11 @@ public interface LoginRetrofitInterface {
     @GET("/jwt")
     Call<DefaultResponse> getTest();
 
-    @GET("/test/{number}")
-    Call<DefaultResponse> getTestPathAndQuery(
-            @Path("number") int number,
-            @Query("content") final String content
-    );
+//    @GET("/test/{category}")
+//    Call<DefaultResponse> getTestPathAndQuery(
+//            @Path("category") int category,
+//            @Query("content") final String content
+//    );
 
     @POST("/test")
     Call<DefaultResponse> postTest(@Body RequestBody params);
