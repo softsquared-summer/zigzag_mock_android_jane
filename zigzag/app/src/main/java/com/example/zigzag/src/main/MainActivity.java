@@ -97,6 +97,8 @@ public class MainActivity extends BaseActivity implements MainActivityView {
     public void fragmentOnClick(View view) {
         switch (view.getId()) {
             case R.id.main_ib_menu_today:
+                mTodayFragment=new TodayFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_fl_page, mTodayFragment).commit();
                 break;
             case R.id.main_ib_menu_store:
                 mStoreFragment=new StoreFragment();

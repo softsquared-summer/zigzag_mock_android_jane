@@ -141,6 +141,7 @@ public class ContentFragment extends Fragment implements ContentActivityView,Con
     @Override
     public void validateSuccess(String text) {
 
+
     }
 
     @Override
@@ -165,7 +166,7 @@ public class ContentFragment extends Fragment implements ContentActivityView,Con
     }
 
 
-    public class ItemDecoration extends RecyclerView.ItemDecoration {
+    public static class ItemDecoration extends RecyclerView.ItemDecoration {
 
         private int spanCount;
         private int spacing;

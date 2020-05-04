@@ -1,48 +1,41 @@
 package com.example.zigzag.src.main.today;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.zigzag.R;
+import com.example.zigzag.src.main.today.interfaces.TodayActivityView;
+import com.example.zigzag.src.main.today.models.ItemsResponse;
+import com.example.zigzag.src.product.ProductActivity;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link TodayFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class TodayFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+import java.util.ArrayList;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
+public class TodayFragment extends Fragment implements TodayContentAdapter.OnItemClickListener, TodayActivityView {
+
+
+    private RecyclerView mRvContent;
+    private TodayContentAdapter mTodayContentAdapter;
+    private ArrayList<ItemsResponse.ItemsResult> mProductList=new ArrayList<ItemsResponse.ItemsResult>();
+
+    private TodayService todayService;
     public TodayFragment() {
-        // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment TodayFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static TodayFragment newInstance(String param1, String param2) {
         TodayFragment fragment = new TodayFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -50,16 +43,107 @@ public class TodayFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_today, container, false);
+        View view= inflater.inflate(R.layout.fragment_today, container, false);
+        initView(view);
+
+        //아이템 리스트 가져오기
+        getItemList();
+
+        return view;
+    }
+
+    void initView(View view) {
+        todayService=new TodayService(this);
+        mRvContent=(RecyclerView)view.findViewById(R.id.today_rv_list);
+        RecyclerView.LayoutManager mLayoutManager=new GridLayoutManager(getContext(),3);
+
+        mRvContent.setLayoutManager(mLayoutManager);
+        mRvContent.addItemDecoration(new TodayFragment.ItemDecoration(getActivity()));
+        mTodayContentAdapter=new TodayContentAdapter(mProductList,getContext());
+
+        mTodayContentAdapter.setOnItemClickListener(this);
+        mRvContent.setAdapter(mTodayContentAdapter);
+
+    }
+    //아이템 리스트 조회
+    private void getItemList() {
+
+        todayService.getItemList();
+
+    }
+    @Override
+    public void onItemClick(View view, ItemsResponse.ItemsResult productVO) {
+        System.out.println("아이템 클릭: "+productVO.getItem_name());
+
+        Intent intent = new Intent(getContext(), ProductActivity.class);
+        intent.putExtra("item_id", productVO.getItem_id());
+        startActivity(intent);
+    }
+
+    @Override
+    public void validateSuccess(String text) {
+
+    }
+
+    @Override
+    public void validateFailure(String message) {
+
+    }
+
+    @Override
+    public void getItemsSuccess(boolean isSuccess, int code, String message, ArrayList<ItemsResponse.ItemsResult> itemsResult) {
+        if (isSuccess) {
+            if (code == 100) {
+                System.out.println("오늘의 아이템 리스트 조회 성공");
+                //activity.showCustomToast(message);
+                mProductList.clear();
+                mProductList.addAll(itemsResult);
+                mTodayContentAdapter.notifyDataSetChanged();
+
+                System.out.println("오늘의 아이템 리스트 조회 결과:"+mProductList.toString());
+            }
+        }
+    }
+
+    public class ItemDecoration extends RecyclerView.ItemDecoration {
+
+        private int spanCount;
+        private int spacing;
+        private int outerMargin;
+
+        public ItemDecoration(Activity mActivity) {
+
+            spanCount = 2;
+            spacing = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
+                    12, mActivity.getResources().getDisplayMetrics());
+            outerMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
+                    50, mActivity.getResources().getDisplayMetrics());
+
+        }
+
+        @Override
+        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+
+            int maxCount = parent.getAdapter().getItemCount();
+            int position = parent.getChildAdapterPosition(view);
+            int column = position % spanCount;
+            int row = position / spanCount;
+            int lastRow = (maxCount - 1) / spanCount;
+
+            outRect.left = column * spacing / spanCount;
+            outRect.right = spacing - (column + 1) * spacing / spanCount;
+            outRect.top = spacing * 2;
+
+            if (row == lastRow) {
+                outRect.bottom = outerMargin;
+
+            }
+
+        }
     }
 }

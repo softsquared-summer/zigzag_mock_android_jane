@@ -23,14 +23,13 @@
         android:id="@+id/today_iv_title"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginVertical="10dp"
         android:gravity="center_vertical"
         android:src="@drawable/today_title"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="15dp"
         android:background="@color/colorMenuBackground"
         app:layout_constraintTop_toTopOf="@+id/today_v_title"
         app:layout_constraintBottom_toBottomOf="@+id/today_v_title"
-        app:layout_constraintStart_toStartOf="@+id/mypage_v_title"
+        app:layout_constraintStart_toStartOf="parent"
         />
 
 
@@ -111,14 +110,268 @@
                 app:layout_constraintTop_toBottomOf="@+id/today_iv_ad"
                 android:layout_marginTop="10dp"/>
 
+
+            <LinearLayout
+                android:id="@+id/today_ll_top3"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                app:layout_constraintTop_toBottomOf="@+id/today_tv_title"
+                app:layout_constraintStart_toStartOf="@+id/today_tv_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:padding="5dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/today_iv_p1_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/bascket_center_banner"
+                        app:layout_constraintBottom_toTopOf="@+id/product_tv_storename"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/today_iv_p1_zzim"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:paddingEnd="7dp"
+                        android:paddingTop="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:src="@drawable/product_zzim_yes"
+                        app:layout_constraintBottom_toBottomOf="@id/today_iv_p1_image"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:ignore="NotSibling,RtlSymmetry" />
+
+                    <ImageView
+                        android:id="@+id/today_iv_p1_freedelivery"
+                        android:layout_width="44dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="5dp"
+                        android:visibility="invisible"
+                        android:layout_marginBottom="3dp"
+                        android:src="@drawable/product_free_delivery"
+                        app:layout_constraintBottom_toBottomOf="@id/today_iv_p1_image"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/today_iv_p1_storename"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:maxLines="1"
+                        android:text="로렌하이"
+                        android:textColor="@color/rankNumColor"
+                        android:textSize="14dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/today_iv_p1_image" />
+
+
+                    <TextView
+                        android:id="@+id/today_iv_p1_productname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:maxLines="1"
+                        android:text="여리여리 가디건"
+                        android:textColor="@color/rankNumColor"
+                        android:textSize="14dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/today_iv_p1_storename" />
+
+                    <TextView
+                        android:id="@+id/today_iv_p1_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:maxLines="1"
+                        android:text="49,900"
+                        android:textColor="#FFFFFF"
+                        android:textSize="17dp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/today_iv_p1_productname" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/today_iv_p2_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/bascket_center_banner"
+                        app:layout_constraintBottom_toTopOf="@+id/product_tv_storename"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/today_iv_p2_zzim"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:paddingEnd="7dp"
+                        android:paddingTop="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:src="@drawable/product_zzim_yes"
+                        app:layout_constraintBottom_toBottomOf="@id/today_iv_p2_image"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:ignore="NotSibling,RtlSymmetry" />
+
+                    <ImageView
+                        android:id="@+id/today_iv_p2_freedelivery"
+                        android:layout_width="44dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="5dp"
+                        android:visibility="invisible"
+                        android:layout_marginBottom="3dp"
+                        android:src="@drawable/product_free_delivery"
+                        app:layout_constraintBottom_toBottomOf="@id/today_iv_p2_image"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/today_iv_p2_storename"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:maxLines="1"
+                        android:text="로렌하이"
+                        android:textColor="@color/rankNumColor"
+                        android:textSize="14dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/today_iv_p2_image" />
+
+
+                    <TextView
+                        android:id="@+id/today_iv_p2_productname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:maxLines="1"
+                        android:text="여리여리 가디건"
+                        android:textColor="@color/rankNumColor"
+                        android:textSize="14dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/today_iv_p2_storename" />
+
+                    <TextView
+                        android:id="@+id/today_iv_p2_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:maxLines="1"
+                        android:text="49,900"
+                        android:textColor="#FFFFFF"
+                        android:textSize="17dp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/today_iv_p2_productname" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/today_iv_p3_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/bascket_center_banner"
+                        app:layout_constraintBottom_toTopOf="@+id/product_tv_storename"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/today_iv_p3_zzim"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:paddingEnd="7dp"
+                        android:paddingTop="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:src="@drawable/product_zzim_yes"
+                        app:layout_constraintBottom_toBottomOf="@id/today_iv_p3_image"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:ignore="NotSibling,RtlSymmetry" />
+
+                    <ImageView
+                        android:id="@+id/today_iv_p3_freedelivery"
+                        android:layout_width="44dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="5dp"
+                        android:visibility="invisible"
+                        android:layout_marginBottom="3dp"
+                        android:src="@drawable/product_free_delivery"
+                        app:layout_constraintBottom_toBottomOf="@id/today_iv_p3_image"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/today_iv_p3_storename"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:maxLines="1"
+                        android:text="로렌하이"
+                        android:textColor="@color/rankNumColor"
+                        android:textSize="14dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/today_iv_p3_image" />
+
+
+                    <TextView
+                        android:id="@+id/today_iv_p3_productname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:maxLines="1"
+                        android:text="여리여리 가디건"
+                        android:textColor="@color/rankNumColor"
+                        android:textSize="14dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/today_iv_p3_storename" />
+
+                    <TextView
+                        android:id="@+id/today_iv_p3_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:maxLines="1"
+                        android:text="49,900"
+                        android:textColor="#FFFFFF"
+                        android:textSize="17dp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/today_iv_p3_productname" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/today_rv_list"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="15dp"
                 android:layout_marginTop="20dp"
-                app:layout_constraintStart_toStartOf="@+id/today_tv_title"
+                app:layout_constraintStart_toStartOf="@+id/today_ll_top3"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/today_tv_title"
+                app:layout_constraintTop_toBottomOf="@+id/today_ll_top3"
                 />
 
 

@@ -11,16 +11,20 @@ import android.widget.TextView;
 import com.example.zigzag.R;
 import com.example.zigzag.src.BaseActivity;
 import com.example.zigzag.src.product.buy.BuyDialog;
+import com.example.zigzag.src.product.interfaces.ProductActivityView;
+import com.example.zigzag.src.product.models.ItemResponse;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
-public class ProductActivity extends AppCompatActivity  {
+public class ProductActivity extends BaseActivity  implements ProductActivityView {
     BottomSheetDialog bottomSheetDialog;
-    Product mProductVo;
-    TextView mTvReviewNum,mTvStoreName,mTvItemName,mTvPrice,mTvDiscount,mTvItemCode;
-    ImageView mIvFreeShip,mIvZzim;
-    ImageButton mBtnBuy;
+    private Product mProductVo;
+    private int mItemNum;
+    private TextView mTvReviewNum,mTvStoreName,mTvItemName,mTvPrice,mTvDiscount,mTvItemCode;
+    private ImageView mIvFreeShip,mIvZzim;
+    private ImageButton mBtnBuy;
 
     TextView mTvDialogPrice;
+    private ProductService productService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +36,7 @@ public class ProductActivity extends AppCompatActivity  {
         setProductDetail();
 
 
-        System.out.println("제품상세페이지: "+mProductVo.getmItemName());
+        //System.out.println("제품상세페이지: "+mProductVo.getmItemName());
 
 
     }
@@ -45,26 +49,15 @@ public class ProductActivity extends AppCompatActivity  {
 
     }
 
+    public void getItemDetail(int number){
+        productService.getItemDetail(number);
+    }
+
     public void setProductDetail() {
-        if(mProductVo!=null){
-            mTvPrice.setText(mProductVo.getmPrice()+"원");
-            mTvItemName.setText(mProductVo.getmItemName());
-            mTvStoreName.setText(mProductVo.getmMallName());
-            mTvDiscount.setText(mProductVo.getmDiscount()+" 할인");
-            mTvItemCode.setText(Integer.toString(mProductVo.getMitemId()));
+        if(mItemNum!=0){
 
-            if(mProductVo.getIsFreeShip().equals("Y")){
-                mIvFreeShip.setVisibility(View.VISIBLE);
-            }else{
-                mIvFreeShip.setVisibility(View.INVISIBLE);
-            }
-
-            if(mProductVo.getIsHeart().equals("Y")){
-                mIvZzim.setImageResource(R.drawable.product_zzim_yes);
-            }else{
-                mIvZzim.setImageResource(R.drawable.product_zzim_no);
-            }
-
+            //아이템 상세조회 api 통신 시작
+            getItemDetail(mItemNum);
 
             //다이얼로그
 
@@ -75,7 +68,9 @@ public class ProductActivity extends AppCompatActivity  {
     }
 
     private void initView(){
-        mProductVo=(Product)getIntent().getParcelableExtra("product");
+        mItemNum=getIntent().getIntExtra("item_id",0);
+        System.out.println("아이템 아이디: "+mItemNum);
+        productService=new ProductService(this);
 
         mTvReviewNum=findViewById(R.id.product_detail_tv_review);
         mTvDiscount=findViewById(R.id.product_detail_tv_discount);
@@ -94,5 +89,45 @@ public class ProductActivity extends AppCompatActivity  {
         //다이얼로그
 
 
+    }
+
+    @Override
+    public void validateSuccess(String text) {
+        hideProgressDialog();
+    }
+
+    @Override
+    public void validateFailure(String message) {
+        hideProgressDialog();
+        showCustomToast(message == null || message.isEmpty() ? getString(R.string.network_error) : message);
+
+    }
+
+    @Override
+    public void getItemDetailSuccess(boolean isSuccess, int code, String message, ItemResponse.ItemResult itemResponse) {
+        if (isSuccess) {
+            if (code == 100) {
+                System.out.println("아이템 리스트 조회 성공");
+
+
+                mTvPrice.setText(itemResponse.getPrice()+"원");
+                mTvItemName.setText(itemResponse.getItem_name());
+                mTvStoreName.setText(itemResponse.getMall_name());
+                mTvDiscount.setText(itemResponse.getDiscount()+" 할인");
+                mTvItemCode.setText(Integer.toString(itemResponse.getItem_id()));
+                mTvReviewNum.setText(Integer.toString(itemResponse.getComment_num()));
+                if(itemResponse.getIs_heart().equals("Y")){
+                    mIvZzim.setVisibility(View.VISIBLE);
+                }else{
+                    mIvZzim.setVisibility(View.INVISIBLE);
+                }
+
+//                if(mProductVo.getIsHeart().equals("Y")){
+//                    mIvZzim.setImageResource(R.drawable.product_zzim_yes);
+//                }else{
+//                    mIvZzim.setImageResource(R.drawable.product_zzim_no);
+//                }
+            }
+        }
     }
 }

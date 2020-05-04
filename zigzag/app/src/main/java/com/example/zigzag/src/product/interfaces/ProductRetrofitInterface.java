@@ -1,8 +1,7 @@
 package com.example.zigzag.src.product.interfaces;
 
 import com.example.zigzag.src.product.models.DefaultResponse;
-import com.example.zigzag.src.product.models.LoginBody;
-import com.example.zigzag.src.product.models.LoginResponse;
+import com.example.zigzag.src.product.models.ItemResponse;
 
 import okhttp3.RequestBody;
 import retrofit2.Call;
@@ -17,18 +16,16 @@ public interface ProductRetrofitInterface {
     @GET("/jwt")
     Call<DefaultResponse> getTest();
 
-    @GET("/test/{number}")
+    @GET("/test/{itemID}")
     Call<DefaultResponse> getTestPathAndQuery(
-            @Path("number") int number,
+            @Path("itemID") int number,
             @Query("content") final String content
     );
 
-    @POST("/test")
-    Call<DefaultResponse> postTest(@Body RequestBody params);
 
     //@POST("houses/{houseNo}/reservations")
     //Call<DefaultResponse> postReserve(@Path("houseNo") int houseNo, @Body RequestReserve requestReserve);
 
-    @POST("/login")
-    Call<LoginResponse> Login(@Body LoginBody params);
+    @GET("/items/{itemID}")
+    Call<ItemResponse> getItemDetail(@Path("itemID") final int number);
 }

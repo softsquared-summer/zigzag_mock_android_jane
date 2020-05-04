@@ -4,8 +4,9 @@ package com.example.zigzag.src.main.today;
 import com.example.zigzag.src.main.interfaces.MainActivityView;
 import com.example.zigzag.src.main.interfaces.MainRetrofitInterface;
 import com.example.zigzag.src.main.models.DefaultResponse;
-import com.example.zigzag.src.main.models.SignInBody;
-import com.example.zigzag.src.main.models.SignInResponse;
+import com.example.zigzag.src.main.today.interfaces.TodayActivityView;
+import com.example.zigzag.src.main.today.interfaces.TodayRetrofitInterface;
+import com.example.zigzag.src.main.today.models.ItemsResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -15,71 +16,40 @@ import static com.example.zigzag.src.ApplicationClass.getRetrofit;
 
 
 class TodayService {
-    private final MainActivityView mMainActivityView;
+    private final TodayActivityView mTodaynActivityView;
 
-    TodayService(final MainActivityView mainActivityView) {
-        this.mMainActivityView = mainActivityView;
-    }
-
-    void getTest() {
-
-
-        final MainRetrofitInterface mainRetrofitInterface = getRetrofit().create(MainRetrofitInterface.class);
-
-
-        mainRetrofitInterface.getTest().enqueue(new Callback<DefaultResponse>() {
-
-
-            @Override
-            public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
-
-               //서버에서 api통신으로 반환되는 json형태의 response이다.
-                final DefaultResponse defaultResponse = response.body();
-
-                //서버에서 주는 값이 없다면, 통신실패
-               if (defaultResponse == null) {
-
-                   mMainActivityView.validateFailure(null);
-                    return;
-                }
-                // 통신 성공, api통신으로 반환된 response를 액티비티에 반환해준다.
-                mMainActivityView.validateSuccess(defaultResponse.getMessage());
-            }
-
-
-            @Override
-            public void onFailure(Call<DefaultResponse> call, Throwable t) {
-                mMainActivityView.validateFailure(null);
-            }
-        });
+    TodayService(final TodayActivityView todayActivityView) {
+        this.mTodaynActivityView = todayActivityView;
     }
 
 
-    void postSignIn(String id, String pw) {
-        final MainRetrofitInterface mainRetrofitInterface = getRetrofit().create(MainRetrofitInterface.class);
+
+    void getItemList() {
+        final TodayRetrofitInterface todayRetrofitInterface = getRetrofit().create(TodayRetrofitInterface.class);
 
 
-        mainRetrofitInterface.signInTest(new SignInBody(id,pw)).enqueue(new Callback<SignInResponse>() {
+        todayRetrofitInterface.getItemsList().enqueue(new Callback<ItemsResponse>() {
             @Override
-            public void onResponse(Call<SignInResponse> call, Response<SignInResponse> response) {
+            public void onResponse(Call<ItemsResponse> call, Response<ItemsResponse> response) {
 
                 //서버에서 api통신으로 반환되는 json형태의 response이다.
-                final SignInResponse signInResponse = response.body();
+                final ItemsResponse itemsResponse = response.body();
 
                 //서버에서 주는 값이 없다면, 통신실패
-                if (signInResponse == null) {
+                if (itemsResponse == null) {
 
-                    mMainActivityView.validateFailure(null);
+                    mTodaynActivityView.validateFailure(null);
                     return;
                 }
                 // 통신 성공, api통신으로 반환된 response를 액티비티에 반환해준다.
-                mMainActivityView.signInSuccess(signInResponse.getSignInResult());
+                mTodaynActivityView.getItemsSuccess(itemsResponse.isIs_success(),itemsResponse.getCode(),itemsResponse.getMessage(),itemsResponse.getItemsResult());
             }
 
 
             @Override
-            public void onFailure(Call<SignInResponse> call, Throwable t) {
-                mMainActivityView.validateFailure(null);
+            public void onFailure(Call<ItemsResponse> call, Throwable t) {
+                mTodaynActivityView.validateFailure(null);
+                System.out.println(t);
             }
         });
     }
