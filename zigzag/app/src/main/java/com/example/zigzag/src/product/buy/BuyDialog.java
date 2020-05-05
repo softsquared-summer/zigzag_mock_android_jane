@@ -8,9 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.zigzag.R;
 import com.example.zigzag.src.product.buy.interfaces.BuyActivityView;
+import com.example.zigzag.src.product.buy.models.BasketResponse;
 import com.example.zigzag.src.product.models.ItemResponse;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
@@ -44,7 +46,11 @@ public class BuyDialog extends BottomSheetDialogFragment implements BuyActivityV
         mBtnBascket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getBascket()
+                int item_id=mProductVO.getItem_id();
+                String color="black";
+                String size="L";
+                int num=1;
+                buyService.postBasket(item_id,color,size,num);
             }
         });
         return view;
@@ -58,5 +64,22 @@ public class BuyDialog extends BottomSheetDialogFragment implements BuyActivityV
 
     void setDialog(){
         mTvPrice.setText(mProductVO.getPrice()+"원");
+    }
+
+    @Override
+    public void validateSuccess(String text) {
+
+    }
+
+    @Override
+    public void validateFailure(String message) {
+
+    }
+
+    @Override
+    public void basketSuccess(boolean isSuccess, int code,String message, BasketResponse.BasketResult basketResult) {
+        if (isSuccess) {
+            Toast.makeText(getContext(),message,Toast.LENGTH_LONG).show();
+        }
     }
 }

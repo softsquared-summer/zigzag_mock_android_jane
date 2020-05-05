@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 public class BasketResponse {
 
 
-    public class LoginResult {
+    public class BasketResult {
         @SerializedName("jwt")
         private String jwt;
 
@@ -17,7 +17,7 @@ public class BasketResponse {
     }
 
     @SerializedName("result")
-    private String loginResult;
+    private BasketResult basketResult;
 
     @SerializedName("code")
     private int code;
@@ -40,12 +40,11 @@ public class BasketResponse {
        // return loginResult;
     //}
 
-
-    public boolean getIs_success() {
-        return is_success;
+    public BasketResult getBasketResult() {
+        return basketResult;
     }
 
-    public String getLoginResult() {
-        return loginResult;
+    public boolean isIs_success() {
+        return is_success;
     }
 }

@@ -19,5 +19,5 @@ public interface BuyRetrofitInterface {
     //Call<DefaultResponse> postReserve(@Path("houseNo") int houseNo, @Body RequestReserve requestReserve);
 
     @POST("/basket")
-    Call<BasketResponse> Login(@Body BasketBody params);
+    Call<BasketResponse> postBasket(@Body BasketBody params);
 }
