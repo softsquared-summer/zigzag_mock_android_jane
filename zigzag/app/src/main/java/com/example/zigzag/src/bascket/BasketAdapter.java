@@ -21,16 +21,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class BasketAdapter extends RecyclerView.Adapter<BasketAdapter.ViewHolder> {
 
-    private ArrayList<BasketResponse.BasketResult> mListProduct;
+    private ArrayList<BasketResponse.BasketResult.BasketItem> mListProduct;
     private Context mContext;
     public OnItemClickListener mOnItemClickListener = null;
 
-    public BasketAdapter(ArrayList<BasketResponse.BasketResult> mListProduct) {
+    public BasketAdapter(ArrayList<BasketResponse.BasketResult.BasketItem> mListProduct) {
         this.mListProduct = mListProduct;
     }
 
     public interface OnItemClickListener {
-        void onItemClick(View view, BasketResponse.BasketResult productVO);
+        void onItemClick(View view, BasketResponse.BasketResult.BasketItem productVO);
     }
 
 
@@ -51,20 +51,21 @@ public class BasketAdapter extends RecyclerView.Adapter<BasketAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull BasketAdapter.ViewHolder holder, int position) {
 
-        final BasketResponse.BasketResult productVO = mListProduct.get(position);
+        final BasketResponse.BasketResult.BasketItem productVO = mListProduct.get(position);
 
 
         String url1 = productVO.getImage().getImage_url1();
         //String url2=productVO.getImage().get(0).getImage_url2();
 
         System.out.println(url1);
-        Glide.with(mContext)
-                .load(url1)
-                .thumbnail(0.5f)
-                .into(holder.mImage);
-        holder.mImage.setClipToOutline(true);
-        holder.mImage.setScaleType(ImageView.ScaleType.FIT_XY);
+//        Glide.with(mContext)
+//                .load(url1)
+//                .thumbnail(0.5f)
+//                .into(holder.mImage);
+//        holder.mImage.setClipToOutline(true);
+//        holder.mImage.setScaleType(ImageView.ScaleType.FIT_XY);
 
+        holder.mImage.setImageResource(R.drawable.default_image);
 
 
         holder.mProductName.setText(productVO.getItem_name());
@@ -79,6 +80,9 @@ public class BasketAdapter extends RecyclerView.Adapter<BasketAdapter.ViewHolder
             }
 
         });
+
+        holder.mOption.setText(productVO.getColor()+"/"+productVO.getSize());
+
     }
 
 
@@ -95,6 +99,7 @@ public class BasketAdapter extends RecyclerView.Adapter<BasketAdapter.ViewHolder
         private TextView mOrderNum;
         private TextView mPrice;
         private ImageView mImage;
+        private TextView mOption;
 
         public ViewHolder(View convertView) {
             super(convertView);
@@ -105,6 +110,7 @@ public class BasketAdapter extends RecyclerView.Adapter<BasketAdapter.ViewHolder
             mPrice = (TextView) convertView.findViewById(R.id.bascketitem_tv_price);
             mImage = (ImageView) convertView.findViewById(R.id.bascketitem_iv_image);
             mBtnDelete = (ImageButton) convertView.findViewById(R.id.bascketitem_ib_cut);
+            mOption = (TextView) convertView.findViewById(R.id.bascketitem_tv_option);
 
 
         }

@@ -24,7 +24,7 @@ class BascketService {
         final BascketRetrofitInterface bascketRetrofitInterface = getRetrofit().create(BascketRetrofitInterface.class);
 
 
-        bascketRetrofitInterface.signInTest().enqueue(new Callback<BasketResponse>() {
+        bascketRetrofitInterface.getBasketList().enqueue(new Callback<BasketResponse>() {
             @Override
             public void onResponse(Call<BasketResponse> call, Response<BasketResponse> response) {
 
@@ -33,18 +33,19 @@ class BascketService {
 
                 //서버에서 주는 값이 없다면, 통신실패
                 if (basketResponse == null) {
-
                     mBascketActivityView.validateFailure(null);
                     return;
                 }
                 // 통신 성공, api통신으로 반환된 response를 액티비티에 반환해준다.
-                mBascketActivityView.getBasketSuccess(basketResponse.isIs_success(),basketResponse.getCode(),basketResponse.getMessage(),basketResponse.getBasketsResult());
+                mBascketActivityView.getBasketSuccess(basketResponse.isIs_success(),basketResponse.getCode(),basketResponse.getMessage(),
+                        basketResponse.getBasketsResult().get(0).getNum(),basketResponse.getBasketsResult().get(0).getList());
             }
 
 
             @Override
             public void onFailure(Call<BasketResponse> call, Throwable t) {
                 mBascketActivityView.validateFailure(null);
+                System.out.println("장바구니 에러 통신: "+t);
             }
         });
     }

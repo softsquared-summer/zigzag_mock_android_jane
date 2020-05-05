@@ -14,5 +14,5 @@ public interface BascketRetrofitInterface {
 //    @GET("/test")
 
     @GET("/baskets")
-    Call<BasketResponse> signInTest();
+    Call<BasketResponse> getBasketList();
 }

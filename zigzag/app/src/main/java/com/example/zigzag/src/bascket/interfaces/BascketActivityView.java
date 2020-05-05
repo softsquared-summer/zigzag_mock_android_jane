@@ -12,6 +12,6 @@ public interface BascketActivityView {
     void validateFailure(String message);
 
     //로그인 성공 시, reuslt 자체를 넘긴다.
-    void getBasketSuccess(boolean isSuccess, int code, String message, ArrayList<BasketResponse.BasketResult> basekesResult);
+    void getBasketSuccess(boolean isSuccess, int code, String message, int count,ArrayList<BasketResponse.BasketResult.BasketItem> basekesResult);
 
 }
