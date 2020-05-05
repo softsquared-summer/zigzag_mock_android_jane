@@ -56,17 +56,22 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
         final RankResponse.RankResult productVO = mListProduct.get(position);
 
 
+
         String url1 = productVO.getImage_url();
         //String url2=productVO.getImage().get(0).getImage_url2();
 
         holder.mRankNum.setText(position+1+"");
         holder.mImage.setImageResource(R.drawable.default_image);
 
+        if(productVO.getTags().size()>0){
+            holder.mTag.setText(productVO.getTags().get(0).getTag_name());
+
+        }
+
         //이미지 둥글게
         holder.mImage.setBackground(new ShapeDrawable(new OvalShape()));
         holder.mImage.setClipToOutline(true);
 
-        출처: https://chocorolls.tistory.com/47 [초코롤의 개발이야기]
         System.out.println(url1);
 //        Glide.with(mContext)
 //                .load(url1)
@@ -98,7 +103,7 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private ConstraintLayout mLayoutProduct;
-        private TextView mStoreName,mRankNum;
+        private TextView mStoreName,mRankNum,mTag;
         private ImageView mImage;
 
 
@@ -109,7 +114,7 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
             //img_thumb = (ImageView) convertView.findViewById(R.id.img_thumb);
             mStoreName = (TextView) convertView.findViewById(R.id.rankitem_tv_name);
             mRankNum = (TextView) convertView.findViewById(R.id.rankitem_tv_num);
-
+            mTag = (TextView) convertView.findViewById(R.id.rankitem_tv_tag);
             mImage = (ImageView) convertView.findViewById(R.id.rankitem_iv_img);
 
 

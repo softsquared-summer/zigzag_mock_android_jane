@@ -46,11 +46,19 @@ public class RankResponse {
             return tags;
         }
 
-        private class TagList {
+        public class TagList {
             @SerializedName("tag_id")
             private int tag_id;
             @SerializedName("tag_name")
             private String tag_name;
+
+            public int getTag_id() {
+                return tag_id;
+            }
+
+            public String getTag_name() {
+                return tag_name;
+            }
         }
     }
 

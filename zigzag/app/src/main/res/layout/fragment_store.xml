@@ -21,14 +21,17 @@
         app:layout_constraintVertical_weight="1"
         app:layout_constraintBottom_toTopOf="@+id/store_tl_tab"/>
 
-    <ImageView
+    <TextView
         android:id="@+id/store_iv_title"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginVertical="10dp"
-        android:layout_marginLeft="10dp"
+        android:paddingStart="15dp"
+        android:textStyle="bold"
+        android:text="쇼핑몰"
+        android:textColor="#FFFFFF"
+        android:textSize="27sp"
         android:background="@color/colorMenuBackground"
-        android:src="@drawable/title"
         app:layout_constraintTop_toTopOf="@+id/store_v_title"
         app:layout_constraintBottom_toBottomOf="@+id/store_v_title"
         app:layout_constraintStart_toStartOf="@+id/store_v_title"

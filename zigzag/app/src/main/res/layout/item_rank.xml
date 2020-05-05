@@ -38,12 +38,25 @@
         android:maxLines="1"
         app:layout_constraintStart_toEndOf="@+id/rankitem_iv_img"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/rankitem_tv_tag"
         android:text="핫핑"
         android:textStyle="bold"
         android:textSize="17sp"
+        android:layout_marginTop="15dp"
         android:layout_marginHorizontal="20dp"
         android:textColor="#FFFFFF"/>
+    <TextView
+        android:id="@+id/rankitem_tv_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textColor="@color/colorRankOrange"
+        android:text=""
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rankitem_tv_name"
+        app:layout_constraintStart_toStartOf="@id/rankitem_tv_name"/>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
