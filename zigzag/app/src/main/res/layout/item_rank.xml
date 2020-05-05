@@ -2,16 +2,18 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="80dp"
+    android:id="@+id/rankitem_cl_layout"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorMenuBackground">
     
     <TextView
-        android:id="@+id/rank_tv_num"
+        android:id="@+id/rankitem_tv_num"
         android:layout_width="30dp"
         app:layout_constraintTop_toTopOf="parent"
         android:text="1"
-        android:textSize="30sp"
+        android:textSize="19sp"
         android:gravity="center"
+        android:textStyle="bold"
         android:textColor="@color/rankNumColor"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginHorizontal="20dp"
@@ -19,26 +21,27 @@
         android:layout_height="0dp"/>
 
     <ImageView
-        android:id="@+id/rank_iv_img"
-        app:layout_constraintStart_toEndOf="@id/rank_tv_num"
+        android:id="@+id/rankitem_iv_img"
+        app:layout_constraintStart_toEndOf="@id/rankitem_tv_num"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginHorizontal="20dp"
+        android:scaleType="centerCrop"
         android:background="@drawable/allround_shape_transparent"
         android:layout_width="60dp"
         android:layout_height="60dp"/>
 
     <TextView
-        android:id="@+id/rank_tv_name"
+        android:id="@+id/rankitem_tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:maxLines="1"
-        app:layout_constraintStart_toEndOf="@+id/rank_iv_img"
+        app:layout_constraintStart_toEndOf="@+id/rankitem_iv_img"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:text="핫핑"
         android:textStyle="bold"
-        android:textSize="25sp"
+        android:textSize="17sp"
         android:layout_marginHorizontal="20dp"
         android:textColor="#FFFFFF"/>
 

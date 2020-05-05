@@ -80,6 +80,7 @@ class OuterService {
             @Override
             public void onFailure(Call<SignInResponse> call, Throwable t) {
                 mOuterActivityView.validateFailure(null);
+
             }
         });
     }

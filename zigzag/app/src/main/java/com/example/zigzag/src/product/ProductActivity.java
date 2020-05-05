@@ -21,7 +21,8 @@ public class ProductActivity extends BaseActivity  implements ProductActivityVie
     private int mItemNum;
     private TextView mTvReviewNum,mTvStoreName,mTvItemName,mTvPrice,mTvDiscount,mTvItemCode;
     private ImageView mIvFreeShip,mIvZzim;
-    private ImageButton mBtnBuy;
+    private ImageView mIvImage;
+    private ImageButton mBtnBuy,mBtnEnd;
 
     TextView mTvDialogPrice;
     private ProductService productService;
@@ -38,7 +39,12 @@ public class ProductActivity extends BaseActivity  implements ProductActivityVie
 
         //System.out.println("제품상세페이지: "+mProductVo.getmItemName());
 
-
+        mBtnEnd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     public void buyOnClick(View v){
@@ -78,11 +84,13 @@ public class ProductActivity extends BaseActivity  implements ProductActivityVie
         mTvStoreName=findViewById(R.id.product_detail_tv_storename);
         mTvItemName=findViewById(R.id.product_detail_name);
         mTvPrice=findViewById(R.id.product_detail_tv_price);
+        mIvImage=findViewById(R.id.product_detail_iv_image);
 
         mIvFreeShip=findViewById(R.id.product_detail_iv_freedelivery);
         mIvZzim=findViewById(R.id.product_detail_iv_zzim);
 
         mBtnBuy=findViewById(R.id.product_detail_ib_buy);
+        mBtnEnd=findViewById(R.id.product_detail_iv_end);
 
 
 
@@ -116,6 +124,9 @@ public class ProductActivity extends BaseActivity  implements ProductActivityVie
                 mTvDiscount.setText(itemResponse.getDiscount()+" 할인");
                 mTvItemCode.setText(Integer.toString(itemResponse.getItem_id()));
                 mTvReviewNum.setText(Integer.toString(itemResponse.getComment_num()));
+
+               //이미지
+               mIvImage.setImageResource(R.drawable.default_image);
 
                 mProductVo=itemResponse;
 

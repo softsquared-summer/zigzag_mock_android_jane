@@ -17,7 +17,7 @@
         app:layout_constraintVertical_weight="1"
         app:layout_constraintBottom_toTopOf="@+id/product_detail_v_body"/>
 
-    <ImageView
+    <ImageButton
         android:id="@+id/product_detail_iv_end"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
@@ -94,7 +94,7 @@
                 android:layout_height="0dp"
                 app:layout_constraintVertical_weight="4.5"
                 android:src="@drawable/ad_top"
-                android:scaleType="fitXY"
+                android:scaleType="centerCrop"
                 app:layout_constraintTop_toTopOf="@+id/product_detail_v_body"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

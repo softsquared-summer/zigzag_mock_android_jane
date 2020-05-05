@@ -3,13 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAdGray"
+    android:background="@color/colorMenuBackground"
 
     tools:context=".src.main.store.ranking.RankingFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <ListView
-        android:id="@+id/rank_lv_list"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rank_rv_storelist"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"/>

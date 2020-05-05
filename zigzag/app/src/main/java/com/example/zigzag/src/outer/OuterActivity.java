@@ -6,6 +6,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.zigzag.R;
@@ -17,6 +18,7 @@ public class OuterActivity extends AppCompatActivity {
     private TextView mTextTop;
     private ContentsPagerAdapter mContentPagerAdapter;
     private String mWhatBigCategory;
+    private ImageButton mBtnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +27,18 @@ public class OuterActivity extends AppCompatActivity {
 
         initView();
 
+        mBtnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
     }
 
     private void initView() {
         mTabLayout = (TabLayout) findViewById(R.id.outer_tl_tab);
+        mBtnBack=(ImageButton)findViewById(R.id.outer_ib_back);
 
         System.out.println("아우터 탭 메뉴 생성");
 

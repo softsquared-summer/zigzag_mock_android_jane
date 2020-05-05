@@ -18,7 +18,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 public class BuyDialog extends BottomSheetDialogFragment implements BuyActivityView {
 
-    private TextView mTvPrice;
+    private TextView mTvPrice, mTvDiscount;
     private ItemResponse.ItemResult mProductVO;
     private ImageButton mBtnBascket;
     private BuyService buyService;
@@ -59,11 +59,14 @@ public class BuyDialog extends BottomSheetDialogFragment implements BuyActivityV
     void initView(View view){
         buyService=new BuyService(this);
         mTvPrice=view.findViewById(R.id.buy_tv_price);
+        mTvDiscount=view.findViewById(R.id.buy_tv_discount);
+
         mBtnBascket=view.findViewById(R.id.buy_ib_bascket);
     }
 
     void setDialog(){
         mTvPrice.setText(mProductVO.getPrice()+"원");
+        mTvDiscount.setText(mProductVO.getDiscount());
     }
 
     @Override

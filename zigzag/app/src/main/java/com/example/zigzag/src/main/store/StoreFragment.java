@@ -20,11 +20,6 @@ import com.example.zigzag.src.bascket.BascketActivity;
 import com.example.zigzag.src.main.MainActivity;
 import com.google.android.material.tabs.TabLayout;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link StoreFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class StoreFragment extends Fragment implements View.OnClickListener {
 
 

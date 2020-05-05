@@ -70,7 +70,7 @@ class BuyService {
                 }
                 // 통신 성공, api통신으로 반환된 response를 액티비티에 반환해준다.
                 mBuyActivityView.basketSuccess(basketResponse.isIs_success(), basketResponse.getCode(),
-                        basketResponse.getBasketResult());
+                        basketResponse.getMessage(),basketResponse.getBasketResult());
             }
 
             @Override

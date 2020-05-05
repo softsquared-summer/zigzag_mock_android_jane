@@ -6,6 +6,7 @@
     <application
         android:name=".src.ApplicationClass"
         android:allowBackup="true"
+        android:hardwareAccelerated="true"
         android:fullBackupContent="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -15,7 +16,8 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
-        <activity android:name=".src.product.buy.BuyDialog"></activity>
+        <activity android:name=".src.order.OrderActivity"></activity>
+        <activity android:name=".src.product.buy.BuyDialog" />
         <activity android:name=".src.product.ProductActivity" />
         <activity
             android:name=".src.login.LoginActivity"

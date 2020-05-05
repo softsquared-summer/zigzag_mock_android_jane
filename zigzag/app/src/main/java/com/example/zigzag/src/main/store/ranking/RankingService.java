@@ -6,6 +6,9 @@ import com.example.zigzag.src.main.interfaces.MainRetrofitInterface;
 import com.example.zigzag.src.main.models.DefaultResponse;
 import com.example.zigzag.src.main.models.SignInBody;
 import com.example.zigzag.src.main.models.SignInResponse;
+import com.example.zigzag.src.main.store.ranking.interfaces.RankActivityView;
+import com.example.zigzag.src.main.store.ranking.interfaces.RankRetrofitInterface;
+import com.example.zigzag.src.main.store.ranking.models.RankResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -15,71 +18,39 @@ import static com.example.zigzag.src.ApplicationClass.getRetrofit;
 
 
 class RankingService {
-    private final MainActivityView mMainActivityView;
+    private final RankActivityView mRankActivityView;
 
-    RankingService(final MainActivityView mainActivityView) {
-        this.mMainActivityView = mainActivityView;
+    RankingService(final RankActivityView mRankActivityView) {
+        this.mRankActivityView = mRankActivityView;
     }
 
-    void getTest() {
+    void getStoreRank() {
+        final RankRetrofitInterface rankRetrofitInterface = getRetrofit().create(RankRetrofitInterface.class);
 
 
-        final MainRetrofitInterface mainRetrofitInterface = getRetrofit().create(MainRetrofitInterface.class);
-
-
-        mainRetrofitInterface.getTest().enqueue(new Callback<DefaultResponse>() {
-
-
+        rankRetrofitInterface.getStoreRank().enqueue(new Callback<RankResponse>() {
             @Override
-            public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
-
-               //서버에서 api통신으로 반환되는 json형태의 response이다.
-                final DefaultResponse defaultResponse = response.body();
-
-                //서버에서 주는 값이 없다면, 통신실패
-               if (defaultResponse == null) {
-
-                   mMainActivityView.validateFailure(null);
-                    return;
-                }
-                // 통신 성공, api통신으로 반환된 response를 액티비티에 반환해준다.
-                mMainActivityView.validateSuccess(defaultResponse.getMessage());
-            }
-
-
-            @Override
-            public void onFailure(Call<DefaultResponse> call, Throwable t) {
-                mMainActivityView.validateFailure(null);
-            }
-        });
-    }
-
-
-    void postSignIn(String id, String pw) {
-        final MainRetrofitInterface mainRetrofitInterface = getRetrofit().create(MainRetrofitInterface.class);
-
-
-        mainRetrofitInterface.signInTest(new SignInBody(id,pw)).enqueue(new Callback<SignInResponse>() {
-            @Override
-            public void onResponse(Call<SignInResponse> call, Response<SignInResponse> response) {
+            public void onResponse(Call<RankResponse> call, Response<RankResponse> response) {
 
                 //서버에서 api통신으로 반환되는 json형태의 response이다.
-                final SignInResponse signInResponse = response.body();
+                final RankResponse rankResponse = response.body();
 
                 //서버에서 주는 값이 없다면, 통신실패
-                if (signInResponse == null) {
+                if (rankResponse == null) {
 
-                    mMainActivityView.validateFailure(null);
+                    mRankActivityView.validateFailure(null);
                     return;
                 }
                 // 통신 성공, api통신으로 반환된 response를 액티비티에 반환해준다.
-                mMainActivityView.signInSuccess(signInResponse.getSignInResult());
+                mRankActivityView.validateRank(rankResponse.isIs_success(),rankResponse.getCode(),rankResponse.getMessage()
+                ,rankResponse.getRankResult());
             }
 
 
             @Override
-            public void onFailure(Call<SignInResponse> call, Throwable t) {
-                mMainActivityView.validateFailure(null);
+            public void onFailure(Call<RankResponse> call, Throwable t) {
+                mRankActivityView.validateFailure(null);
+                System.out.println("쇼핑몰 랭킹 통신 실패 "+t);
             }
         });
     }

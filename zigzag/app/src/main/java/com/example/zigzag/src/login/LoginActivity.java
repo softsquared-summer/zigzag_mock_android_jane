@@ -24,7 +24,7 @@ import static com.example.zigzag.src.ApplicationClass.sSharedPreferences;
 public class LoginActivity extends BaseActivity implements View.OnClickListener, LoginActivityView {
 
     EditText mEtId,mEtPw;
-    ImageButton mBtnLogin;
+    ImageButton mBtnLogin,mBtnEnd;
     private LoginService loginService;
     private String email;
 
@@ -47,11 +47,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         mEtPw=findViewById(R.id.login_et_pw);
         mBtnLogin=findViewById(R.id.login_ib_login);
         loginService= new LoginService(this);
+        mBtnEnd=findViewById(R.id.login_ib_back);
 
 
         mEtId.setOnClickListener(this);
         mEtPw.setOnClickListener(this);
         mBtnLogin.setOnClickListener(this);
+        mBtnEnd.setOnClickListener(this);
 
     }
 
@@ -75,7 +77,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
 
             case R.id.login_ib_login:
                 tryPostLogin();
+                break;
 
+            case R.id.login_ib_back:
+                finish();
                 break;
             default:
                 break;

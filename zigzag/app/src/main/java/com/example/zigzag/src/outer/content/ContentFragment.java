@@ -64,8 +64,10 @@ public class ContentFragment extends Fragment implements ContentActivityView,Con
 
         //api데이터 불러오기
 
+        System.out.println("컨텐츠 탭 메뉴 생성");
         initView(view);
 
+        System.out.println("컨텐츠 탭 통신 시작");
         tryGetItemList();
 
 

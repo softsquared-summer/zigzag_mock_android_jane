@@ -61,13 +61,15 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
         String url1 = productVO.getImage().getImage_url1();
         //String url2=productVO.getImage().get(0).getImage_url2();
 
-        System.out.println(url1);
-        Glide.with(mContext)
-                .load(url1)
-                .thumbnail(0.5f)
-                .into(holder.mImage);
-        holder.mImage.setClipToOutline(true);
-        holder.mImage.setScaleType(ImageView.ScaleType.FIT_XY);
+//        System.out.println(url1);
+//        Glide.with(mContext)
+//                .load(url1)
+//                .thumbnail(0.5f)
+//                .into(holder.mImage);
+//        holder.mImage.setClipToOutline(true);
+//        holder.mImage.setScaleType(ImageView.ScaleType.FIT_XY);
+
+        holder.mImage.setImageResource(R.drawable.default_image);
 
 
         if (productVO.getIs_free_ship().equals("Y")) {

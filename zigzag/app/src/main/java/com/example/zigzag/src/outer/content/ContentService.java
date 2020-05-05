@@ -45,7 +45,7 @@ class ContentService {
             @Override
             public void onFailure(Call<ItemsResponse> call, Throwable t) {
                 mContentActivityView.validateFailure(null);
-                System.out.println(t);
+                System.out.println("컨텐츠 통신에러: " +t);
             }
         });
     }
