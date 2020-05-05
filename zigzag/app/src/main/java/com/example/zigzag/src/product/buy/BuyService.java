@@ -3,7 +3,6 @@ package com.example.zigzag.src.product.buy;
 
 import com.example.zigzag.src.product.buy.interfaces.BuyActivityView;
 import com.example.zigzag.src.product.buy.interfaces.BuyRetrofitInterface;
-import com.example.zigzag.src.product.buy.models.DefaultResponse;
 import com.example.zigzag.src.product.buy.models.BasketBody;
 import com.example.zigzag.src.product.buy.models.BasketResponse;
 
@@ -21,34 +20,6 @@ class BuyService {
         this.mBuyActivityView = buyActivityView;
     }
 
-    void getTest() {
-
-
-        final BuyRetrofitInterface buyRetrofitInterface = getRetrofit().create(BuyRetrofitInterface.class);
-        buyRetrofitInterface.getTest().enqueue(new Callback<DefaultResponse>() {
-
-            @Override
-            public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
-
-               //서버에서 api통신으로 반환되는 json형태의 response이다.
-                final DefaultResponse defaultResponse = response.body();
-
-                //서버에서 주는 값이 없다면, 통신실패
-               if (defaultResponse == null) {
-                   mBuyActivityView.validateFailure(null);
-                    return;
-                }
-
-                // 통신 성공, api통신으로 반환된 response를 액티비티에 반환해준다.
-                mBuyActivityView.validateSuccess(defaultResponse.getMessage());
-            }
-
-            @Override
-            public void onFailure(Call<DefaultResponse> call, Throwable t) {
-                mBuyActivityView.validateFailure(null);
-            }
-        });
-    }
 
 
     void postBasket(int item_id,String color, String size,int num) {
@@ -69,14 +40,13 @@ class BuyService {
                     return;
                 }
                 // 통신 성공, api통신으로 반환된 response를 액티비티에 반환해준다.
-                mBuyActivityView.basketSuccess(basketResponse.isIs_success(), basketResponse.getCode(),
-                        basketResponse.getMessage(),basketResponse.getBasketResult());
+                mBuyActivityView.basketSuccess(basketResponse.isIs_success(), basketResponse.getCode(),basketResponse.getMessage());
             }
 
             @Override
             public void onFailure(Call<BasketResponse> call, Throwable t) {
                 mBuyActivityView.validateFailure(null);
-                System.out.println("장바구니 실패: "+t);
+                System.out.println("장바구니 담기 실패: "+t);
             }
         });
     }

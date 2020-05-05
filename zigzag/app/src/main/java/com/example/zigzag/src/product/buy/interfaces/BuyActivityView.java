@@ -10,6 +10,6 @@ public interface BuyActivityView {
     void validateFailure(String message);
 
     //로그인 성공 시, reuslt 자체를 넘긴다.
-    void basketSuccess(boolean isSuccess, int code, String message, BasketResponse.BasketResult basketResult);
+    void basketSuccess(boolean isSuccess, int code, String message);
 
 }

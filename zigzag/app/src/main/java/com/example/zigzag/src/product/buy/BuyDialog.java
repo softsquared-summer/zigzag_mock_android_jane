@@ -2,6 +2,7 @@ package com.example.zigzag.src.product.buy;
 
 import androidx.annotation.Nullable;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,7 +48,7 @@ public class BuyDialog extends BottomSheetDialogFragment implements BuyActivityV
             @Override
             public void onClick(View v) {
                 int item_id=mProductVO.getItem_id();
-                String color="black";
+                String color="green";
                 String size="L";
                 int num=1;
                 buyService.postBasket(item_id,color,size,num);
@@ -60,8 +61,8 @@ public class BuyDialog extends BottomSheetDialogFragment implements BuyActivityV
         buyService=new BuyService(this);
         mTvPrice=view.findViewById(R.id.buy_tv_price);
         mTvDiscount=view.findViewById(R.id.buy_tv_discount);
-
         mBtnBascket=view.findViewById(R.id.buy_ib_bascket);
+
     }
 
     void setDialog(){
@@ -80,9 +81,11 @@ public class BuyDialog extends BottomSheetDialogFragment implements BuyActivityV
     }
 
     @Override
-    public void basketSuccess(boolean isSuccess, int code,String message, BasketResponse.BasketResult basketResult) {
+    public void basketSuccess(boolean isSuccess, int code,String message) {
         if (isSuccess) {
             Toast.makeText(getContext(),message,Toast.LENGTH_LONG).show();
+
+
         }
     }
 }
