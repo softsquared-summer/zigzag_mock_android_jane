@@ -7,12 +7,15 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.zigzag.R;
 import com.example.zigzag.src.main.today.interfaces.TodayActivityView;
@@ -26,8 +29,20 @@ public class TodayFragment extends Fragment implements TodayContentAdapter.OnIte
 
 
     private RecyclerView mRvContent;
+    private RecyclerView mRvTopContent;
+
     private TodayContentAdapter mTodayContentAdapter;
+    private TodayContentAdapter mTodayTopContentAdapter;
+
     private ArrayList<ItemsResponse.ItemsResult> mProductList=new ArrayList<ItemsResponse.ItemsResult>();
+    private ArrayList<ItemsResponse.ItemsResult> mProductTopList=new ArrayList<ItemsResponse.ItemsResult>();
+
+    private TextView mTodayP1Store,mTodayP1Item,mTodayP1Price;
+    private TextView mTodayP2Store,mTodayP2Item,mTodayP2Price;
+    private TextView mTodayP3Store,mTodayP3Item,mTodayP3Price;
+    private ImageView mTodayP1Image, mTodayP2Image,mTodayP3Image;
+    private ImageView mTodayP1Zzim, mTodayP2Zzim,mTodayP3Zzim;
+    private ImageView mTodayP1FreeDelivery, mTodayP2FreeDelivery,mTodayP3FreeDelivery;
 
     private TodayService todayService;
     public TodayFragment() {
@@ -54,20 +69,49 @@ public class TodayFragment extends Fragment implements TodayContentAdapter.OnIte
         //아이템 리스트 가져오기
         getItemList();
 
+
         return view;
     }
 
     void initView(View view) {
         todayService=new TodayService(this);
         mRvContent=(RecyclerView)view.findViewById(R.id.today_rv_list);
-        RecyclerView.LayoutManager mLayoutManager=new GridLayoutManager(getContext(),3);
+        mRvTopContent=(RecyclerView)view.findViewById(R.id.today_rv_toplist);
 
-        mRvContent.setLayoutManager(mLayoutManager);
-        mRvContent.addItemDecoration(new TodayFragment.ItemDecoration(getActivity()));
+        //리사이클뷰 세로 스크롤 막기
+        mRvContent.setLayoutManager(new GridLayoutManager(getContext(),2){
+            @Override
+            public boolean canScrollVertically() { // 세로스크롤 막기
+                return false;
+            }
+
+            @Override
+            public boolean canScrollHorizontally() { //가로 스크롤막기
+                return false;
+            }
+        });
+        mRvTopContent.setLayoutManager(new GridLayoutManager(getContext(),3){
+            @Override
+            public boolean canScrollVertically() { // 세로스크롤 막기
+                return false;
+            }
+
+            @Override
+            public boolean canScrollHorizontally() { //가로 스크롤막기
+                return false;
+            }
+        });
+
+        //mRvContent.setLayoutManager(mLayoutManager);
+        mRvContent.addItemDecoration(new TodayFragment.ItemDecoration(getActivity(),2));
         mTodayContentAdapter=new TodayContentAdapter(mProductList,getContext());
-
         mTodayContentAdapter.setOnItemClickListener(this);
         mRvContent.setAdapter(mTodayContentAdapter);
+
+        mRvTopContent.addItemDecoration(new TodayFragment.ItemDecoration(getActivity(),3));
+        mTodayTopContentAdapter=new TodayContentAdapter(mProductTopList,getContext());
+        mTodayTopContentAdapter.setOnItemClickListener(this);
+        mRvTopContent.setAdapter(mTodayTopContentAdapter);
 
     }
     //아이템 리스트 조회
@@ -100,15 +144,26 @@ public class TodayFragment extends Fragment implements TodayContentAdapter.OnIte
         if (isSuccess) {
             if (code == 100) {
                 System.out.println("오늘의 아이템 리스트 조회 성공");
-                //activity.showCustomToast(message);
                 mProductList.clear();
-                mProductList.addAll(itemsResult);
+
+                //탑3 설정
+                mProductTopList.add(itemsResult.get(0));
+                mProductTopList.add(itemsResult.get(1));
+                mProductTopList.add(itemsResult.get(2));
+
+                //오늘의 아이템 탑 3빼고 recyclerview에 추가
+                for(int i=3;i<itemsResult.size();i++){
+                    mProductList.add(itemsResult.get(i));
+                }
                 mTodayContentAdapter.notifyDataSetChanged();
+                mTodayTopContentAdapter.notifyDataSetChanged();
 
                 System.out.println("오늘의 아이템 리스트 조회 결과:"+mProductList.toString());
             }
         }
     }
+
+
 
     public class ItemDecoration extends RecyclerView.ItemDecoration {
 
@@ -116,9 +171,9 @@ public class TodayFragment extends Fragment implements TodayContentAdapter.OnIte
         private int spacing;
         private int outerMargin;
 
-        public ItemDecoration(Activity mActivity) {
+        public ItemDecoration(Activity mActivity,int num) {
 
-            spanCount = 2;
+            spanCount = num;
             spacing = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
                     12, mActivity.getResources().getDisplayMetrics());
             outerMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,

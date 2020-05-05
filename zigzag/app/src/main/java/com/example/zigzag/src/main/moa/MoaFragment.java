@@ -116,7 +116,7 @@ public class MoaFragment extends Fragment implements View.OnClickListener {
                 startActivity(intent);
                 break;
             case R.id.moa_ib_top1:
-                intent = new Intent(getActivity(), OuterActivity.class);
+                intent = new Intent(getActivity(), BascketActivity.class);
                 startActivity(intent);
                 break;
 

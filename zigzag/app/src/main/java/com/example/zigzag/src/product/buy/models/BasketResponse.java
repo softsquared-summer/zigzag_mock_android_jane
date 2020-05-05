@@ -2,7 +2,7 @@ package com.example.zigzag.src.product.buy.models;
 
 import com.google.gson.annotations.SerializedName;
 
-public class LoginResponse {
+public class BasketResponse {
 
 
     public class LoginResult {

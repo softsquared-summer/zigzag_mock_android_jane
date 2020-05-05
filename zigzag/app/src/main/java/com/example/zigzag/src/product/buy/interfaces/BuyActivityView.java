@@ -1,7 +1,7 @@
 package com.example.zigzag.src.product.buy.interfaces;
 
 
-public interface ProductActivityView {
+public interface BuyActivityView {
 
     void validateSuccess(String text);
 

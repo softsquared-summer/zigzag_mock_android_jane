@@ -141,6 +141,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_height="wrap_content">
             <ImageButton
+                android:id="@+id/buy_ib_bascket"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#FFFFFF"
@@ -148,6 +149,7 @@
                 android:scaleType="centerInside"
                 android:src="@drawable/buy_btn_buy"/>
             <ImageButton
+                android:id="@+id/buy_ib_buy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#FFFFFF"

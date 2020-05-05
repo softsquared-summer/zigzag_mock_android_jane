@@ -17,7 +17,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 public class ProductActivity extends BaseActivity  implements ProductActivityView {
     BottomSheetDialog bottomSheetDialog;
-    private Product mProductVo;
+    private ItemResponse.ItemResult mProductVo;
     private int mItemNum;
     private TextView mTvReviewNum,mTvStoreName,mTvItemName,mTvPrice,mTvDiscount,mTvItemCode;
     private ImageView mIvFreeShip,mIvZzim;
@@ -116,6 +116,9 @@ public class ProductActivity extends BaseActivity  implements ProductActivityVie
                 mTvDiscount.setText(itemResponse.getDiscount()+" 할인");
                 mTvItemCode.setText(Integer.toString(itemResponse.getItem_id()));
                 mTvReviewNum.setText(Integer.toString(itemResponse.getComment_num()));
+
+                mProductVo=itemResponse;
+
                 if(itemResponse.getIs_heart().equals("Y")){
                     mIvZzim.setVisibility(View.VISIBLE);
                 }else{

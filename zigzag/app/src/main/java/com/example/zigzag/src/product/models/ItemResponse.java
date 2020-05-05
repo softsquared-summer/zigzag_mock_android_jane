@@ -18,7 +18,7 @@ public class ItemResponse {
         private String mall_name;
 
         @SerializedName("image")
-        private ArrayList<ImageURL> image;
+        private ImageURL image;
         @SerializedName("comment_num")
         private int comment_num;
 
@@ -35,7 +35,7 @@ public class ItemResponse {
             return comment_num;
         }
 
-        public ArrayList<ImageURL> getImage() {
+        public ImageURL getImage() {
             return image;
         }
 

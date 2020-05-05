@@ -62,6 +62,22 @@
             android:layout_height="wrap_content">
 
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/bascket_rv_list"
+                android:layout_width="0dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_height="wrap_content"/>
+
+
+
+
+
+
+
+
+
             <LinearLayout
                 android:id="@+id/bascket_ll_notbascket"
                 android:layout_width="0dp"

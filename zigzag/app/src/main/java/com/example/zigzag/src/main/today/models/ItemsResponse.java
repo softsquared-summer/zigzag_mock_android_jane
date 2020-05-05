@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 public class ItemsResponse {
 
-
     public class ItemsResult {
         @SerializedName("item_id")
         private int item_id;
@@ -15,7 +14,7 @@ public class ItemsResponse {
         @SerializedName("item_category_detail")
         private String item_category_detail;
         @SerializedName("image")
-        private ArrayList<ImageURL> image;
+        private ImageURL image;
         @SerializedName("is_free_ship")
         private String is_free_ship;
         @SerializedName("is_heart")
@@ -29,10 +28,9 @@ public class ItemsResponse {
         @SerializedName("price")
         private String price;
 
-        public ArrayList<ImageURL> getImage() {
+        public ImageURL getImage() {
             return image;
         }
-
         public int getItem_id() {
             return item_id;
         }
@@ -69,7 +67,6 @@ public class ItemsResponse {
         public String getPrice() {
             return price;
         }
-
 
         public  class ImageURL {
             @SerializedName("image_url1")

@@ -15,7 +15,7 @@ public class ItemsResponse {
         @SerializedName("item_category_detail")
         private String item_category_detail;
         @SerializedName("image")
-        private ArrayList<ImageURL> image;
+        private ImageURL image;
         @SerializedName("is_free_ship")
         private String is_free_ship;
         @SerializedName("is_heart")
@@ -29,7 +29,7 @@ public class ItemsResponse {
         @SerializedName("price")
         private String price;
 
-        public ArrayList<ImageURL> getImage() {
+        public ImageURL getImage() {
             return image;
         }
 
