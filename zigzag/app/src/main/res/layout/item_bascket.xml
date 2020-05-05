@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="150dp"
     android:padding="10dp"
+    android:id="@+id/basketitem_ll_layout"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <View
@@ -98,12 +99,13 @@
         android:layout_marginTop="10dp"/>
 
     <TextView
-        android:id="@+id/bascketitem_tv_storename"
+        android:id="@+id/bascketitem_tv_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="쇼핑몰 이름"
+        android:text="00,000원"
         android:textSize="17sp"
-        android:textColor="@color/colorPink"
+        android:textStyle="bold"
+        android:textColor="@color/colorBackground"
         android:layout_marginTop="5dp"
         app:layout_constraintTop_toTopOf="@+id/bascketitem_tv_amount"
         app:layout_constraintEnd_toEndOf="@+id/bascketitem_ib_cut"/>

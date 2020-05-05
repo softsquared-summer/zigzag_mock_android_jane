@@ -1,7 +1,9 @@
 package com.example.zigzag.src.bascket.interfaces;
 
 
-import com.example.zigzag.src.bascket.models.SignInResponse;
+import com.example.zigzag.src.bascket.models.BasketResponse;
+
+import java.util.ArrayList;
 
 public interface BascketActivityView {
 
@@ -10,6 +12,6 @@ public interface BascketActivityView {
     void validateFailure(String message);
 
     //로그인 성공 시, reuslt 자체를 넘긴다.
-    void signInSuccess(SignInResponse.SignInResult signInResult);
+    void getBasketSuccess(boolean isSuccess, int code, String message, ArrayList<BasketResponse.BasketResult> basekesResult);
 
 }
