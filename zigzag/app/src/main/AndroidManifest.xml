@@ -24,18 +24,16 @@
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".src.bascket.BascketActivity" />
         <activity android:name=".src.outer.OuterActivity" />
-        <activity android:name=".src.top.TopActivity" />
-        <activity android:name=".src.pants.PantsActivity" />
-        <activity android:name=".src.skirt.SkirtActivity" />
-        <activity android:name=".src.onepiece.OnepieceActivity" />
-        <activity android:name=".src.splash.SplashActivity" />
-        <activity android:name=".src.main.MainActivity">
+
+        <activity android:name=".src.splash.SplashActivity"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".src.main.MainActivity"/>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
