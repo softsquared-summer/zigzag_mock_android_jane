@@ -72,7 +72,7 @@ public class BascketActivity extends BaseActivity implements BascketActivityView
 
         mRvBasketList.addItemDecoration(new DividerItemDecoration(this, 1));
         mRvBasketList.setLayoutManager(new LinearLayoutManager(this)) ;
-        mBasketAdapter=new BasketAdapter(mBasketList);
+        mBasketAdapter=new BasketAdapter(mBasketList,getApplicationContext());
         mRvBasketList.setAdapter(mBasketAdapter);
 
     }
@@ -109,6 +109,8 @@ public class BascketActivity extends BaseActivity implements BascketActivityView
 
     private void countSumPrice(ArrayList<BasketResponse.BasketResult.BasketItem> mBasketList ) {
         int tmpPrice=0;
+
+        //iterator 쓰기
         for(int i=0;i<mBasketList.size();i++){
             String tmp=mBasketList.get(i).getPrice().replace(",","");
             tmpPrice+=Integer.parseInt(tmp);

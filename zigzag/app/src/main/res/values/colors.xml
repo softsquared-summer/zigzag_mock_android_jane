@@ -13,4 +13,6 @@
     <color name="colorBrightGray">#F5F6F8</color>
     <color name="colorRankOrange">#B18A62</color>
     <color name="colorBrightPurple">#8F9DF8</color>
+    <color name="rankdivider">#CC35393F</color>
+
 </resources>

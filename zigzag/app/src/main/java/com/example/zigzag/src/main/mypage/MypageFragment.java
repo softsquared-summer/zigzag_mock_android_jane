@@ -31,14 +31,12 @@ public class MypageFragment extends Fragment implements View.OnClickListener {
     private TextView mTvUser,mTvEmail,mVLogout;
 
     public MypageFragment() {
-        // Required empty public constructor
     }
 
 
     public static MypageFragment newInstance(String param1, String param2) {
         MypageFragment fragment = new MypageFragment();
         Bundle args = new Bundle();
-
         fragment.setArguments(args);
         return fragment;
     }
@@ -56,7 +54,6 @@ public class MypageFragment extends Fragment implements View.OnClickListener {
         System.out.println("마이페이지 진입");
         View view= inflater.inflate(R.layout.fragment_mypage, container, false);
         initView(view);
-
         isLogin();
         return view;
     }
@@ -70,7 +67,6 @@ public class MypageFragment extends Fragment implements View.OnClickListener {
              mTvEmail.setText(email);
              mVLogin.setClickable(false);
              mVLogout.setVisibility(View.VISIBLE);
-
          }else{
              System.out.println("로그인 확인 : jwt없음");
              mTvUser.setText("지그재그 로그인 및 회원가입 >");
@@ -82,6 +78,11 @@ public class MypageFragment extends Fragment implements View.OnClickListener {
     }
 
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        isLogin();
+    }
 
     void initView(View view){
         mBtnBascket=view.findViewById(R.id.mypage_ib_top2);

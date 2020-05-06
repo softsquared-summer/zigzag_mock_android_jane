@@ -14,10 +14,6 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface TodayRetrofitInterface {
-//    @GET("/test")
-
-
-
 
     @GET("/items")
     Call<ItemsResponse> getItemsList();

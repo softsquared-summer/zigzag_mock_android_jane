@@ -11,6 +11,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rank_rv_storelist"
         android:layout_width="match_parent"
+        android:padding="10dp"
+        android:background="@color/colorMenuBackground"
         android:layout_height="match_parent"
         android:scrollbars="vertical"/>
 

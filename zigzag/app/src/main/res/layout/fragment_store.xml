@@ -30,7 +30,8 @@
         android:textStyle="bold"
         android:text="쇼핑몰"
         android:textColor="#FFFFFF"
-        android:textSize="27sp"
+        android:textSize="20sp"
+        android:gravity="center_vertical"
         android:background="@color/colorMenuBackground"
         app:layout_constraintTop_toTopOf="@+id/store_v_title"
         app:layout_constraintBottom_toBottomOf="@+id/store_v_title"
@@ -46,7 +47,7 @@
         android:src="@drawable/tag"
         android:background="@color/colorMenuBackground"
         app:layout_constraintRight_toLeftOf="@+id/store_ib_top21"
-        android:layout_margin="15dp"/>
+        android:layout_marginVertical="15dp"/>
 
     <ImageButton
         android:id="@+id/store_ib_top21"
@@ -59,7 +60,7 @@
         android:src="@drawable/search"
         android:background="@color/colorMenuBackground"
         app:layout_constraintRight_toLeftOf="@+id/store_ib_top3"
-        android:layout_margin="15dp"/>
+        android:layout_marginVertical="15dp"/>
     <ImageButton
         android:id="@+id/store_ib_top22"
         android:layout_width="40dp"
@@ -71,7 +72,7 @@
         android:src="@drawable/cut"
         android:background="@color/colorMenuBackground"
         app:layout_constraintRight_toLeftOf="@+id/store_ib_top3"
-        android:layout_margin="15dp"/>
+        android:layout_marginVertical="15dp"/>
 
     <ImageButton
         android:id="@+id/store_ib_top3"
@@ -83,7 +84,7 @@
         android:scaleType="centerInside"
         android:background="@color/colorMenuBackground"
         app:layout_constraintRight_toRightOf="@+id/store_v_title"
-        android:layout_margin="15dp"/>
+        android:layout_marginVertical="15dp"/>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/store_tl_tab"

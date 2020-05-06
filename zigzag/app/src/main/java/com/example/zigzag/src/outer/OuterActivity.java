@@ -100,7 +100,7 @@ public class OuterActivity extends AppCompatActivity {
                 mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("셔츠/남방")));
                 mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("니트")));
                 break;
-            case "원피스":
+            case "원피스/세트":
                 mTextTop.setText("원피스");
                 mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("전체")));
                 mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("미니")));

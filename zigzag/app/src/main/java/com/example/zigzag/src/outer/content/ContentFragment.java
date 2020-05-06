@@ -180,7 +180,7 @@ public class ContentFragment extends Fragment implements ContentActivityView,Con
             spacing = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
                     12, mActivity.getResources().getDisplayMetrics());
             outerMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
-                    50, mActivity.getResources().getDisplayMetrics());
+                    40, mActivity.getResources().getDisplayMetrics());
 
         }
 

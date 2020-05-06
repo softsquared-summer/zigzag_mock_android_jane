@@ -22,14 +22,8 @@ class MypageService {
     }
 
     void getTest() {
-
-
         final MainRetrofitInterface mainRetrofitInterface = getRetrofit().create(MainRetrofitInterface.class);
-
-
         mainRetrofitInterface.getTest().enqueue(new Callback<DefaultResponse>() {
-
-
             @Override
             public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
 
@@ -57,8 +51,6 @@ class MypageService {
 
     void postSignIn(String id, String pw) {
         final MainRetrofitInterface mainRetrofitInterface = getRetrofit().create(MainRetrofitInterface.class);
-
-
         mainRetrofitInterface.signInTest(new SignInBody(id,pw)).enqueue(new Callback<SignInResponse>() {
             @Override
             public void onResponse(Call<SignInResponse> call, Response<SignInResponse> response) {
@@ -75,7 +67,6 @@ class MypageService {
                 // 통신 성공, api통신으로 반환된 response를 액티비티에 반환해준다.
                 mMainActivityView.signInSuccess(signInResponse.getSignInResult());
             }
-
 
             @Override
             public void onFailure(Call<SignInResponse> call, Throwable t) {

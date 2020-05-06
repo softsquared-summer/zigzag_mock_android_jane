@@ -1,5 +1,6 @@
 package com.example.zigzag.src.main;
 
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -31,7 +32,7 @@ public class MainActivity extends BaseActivity implements MainActivityView {
     StoreFragment mStoreFragment;
     MypageFragment mMypateFragment;
 
-
+    FragmentManager manager = getFragmentManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,12 +55,18 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         mIbStoreBascket=findViewById(R.id.store_ib_top3);
 
 
+
+
+
     }
 
 
     public void moveMoa(){
         mMoaFragment=new MoaFragment();
-        getSupportFragmentManager().beginTransaction().replace(R.id.main_fl_page, mMoaFragment).commit();    }
+        FragmentTransaction transaction= getSupportFragmentManager().beginTransaction();;
+
+        transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_right,R.anim.exit_to_left)
+                .replace(R.id.main_fl_page, mMoaFragment).commit();    }
     private void tryGetTest() {
         showProgressDialog();
 
@@ -95,25 +102,32 @@ public class MainActivity extends BaseActivity implements MainActivityView {
 
     }
     public void fragmentOnClick(View view) {
+
         switch (view.getId()) {
             case R.id.main_ib_menu_today:
+                FragmentTransaction transaction= getSupportFragmentManager().beginTransaction();;
                 mTodayFragment=new TodayFragment();
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_fl_page, mTodayFragment).commit();
+                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_right,R.anim.exit_to_left)
+                    .replace(R.id.main_fl_page, mTodayFragment).commit();
                 break;
             case R.id.main_ib_menu_store:
+                transaction= getSupportFragmentManager().beginTransaction();;
                 mStoreFragment=new StoreFragment();
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_fl_page, mStoreFragment).commit();
+                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_right,R.anim.exit_to_left)
+                        .replace(R.id.main_fl_page, mStoreFragment).commit();
                 break;
             case R.id.main_ib_menu_moa:
                 moveMoa();
                 break;
             case R.id.main_ib_menu_zzim:
+                transaction= getSupportFragmentManager().beginTransaction();;
                 mZzimFragment=new ZzimFragment();
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_fl_page, mZzimFragment).commit();
+                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_right,R.anim.exit_to_left).replace(R.id.main_fl_page, mZzimFragment).commit();
                 break;
             case R.id.main_ib_menu_mypage:
                 mMypateFragment=new MypageFragment();
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_fl_page, mMypateFragment).commit();
+                transaction= getSupportFragmentManager().beginTransaction();;
+                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_right,R.anim.exit_to_left).replace(R.id.main_fl_page, mMypateFragment).commit();
                 break;
             default:
                 break;

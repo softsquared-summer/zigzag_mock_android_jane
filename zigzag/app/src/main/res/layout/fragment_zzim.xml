@@ -26,7 +26,7 @@
         android:layout_marginVertical="10dp"
         android:text="찜한 아이템"
         android:textColor="#FFFFFF"
-        android:textSize="27sp"
+        android:textSize="20sp"
         android:paddingStart="15dp"
         android:gravity="center_vertical"
         android:textStyle="bold"
@@ -46,7 +46,7 @@
         android:src="@drawable/cut"
         android:background="@color/colorMenuBackground"
         app:layout_constraintRight_toLeftOf="@+id/zzim_ib_top2"
-        android:layout_margin="15dp"/>
+        android:layout_marginVertical="15dp"/>
 
 
 
@@ -60,7 +60,7 @@
         android:src="@drawable/mybagt"
         android:background="@color/colorMenuBackground"
         app:layout_constraintRight_toRightOf="@+id/zzim_v_title"
-        android:layout_margin="15dp"/>
+        android:layout_marginVertical="15dp"/>
 
 
     <View

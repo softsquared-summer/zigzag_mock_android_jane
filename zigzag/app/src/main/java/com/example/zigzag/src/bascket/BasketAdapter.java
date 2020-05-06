@@ -1,6 +1,7 @@
 package com.example.zigzag.src.bascket;
 
 import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +12,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.zigzag.R;
 import com.example.zigzag.src.bascket.models.BasketResponse;
-import com.example.zigzag.src.outer.content.models.ItemsResponse;
+import com.example.zigzag.src.main.today.models.ItemsResponse;
 
 import java.util.ArrayList;
 
@@ -25,7 +26,8 @@ public class BasketAdapter extends RecyclerView.Adapter<BasketAdapter.ViewHolder
     private Context mContext;
     public OnItemClickListener mOnItemClickListener = null;
 
-    public BasketAdapter(ArrayList<BasketResponse.BasketResult.BasketItem> mListProduct) {
+    public BasketAdapter(ArrayList<BasketResponse.BasketResult.BasketItem> mListProduct, Context mContext) {
+        this.mContext=mContext;
         this.mListProduct = mListProduct;
     }
 
@@ -65,7 +67,15 @@ public class BasketAdapter extends RecyclerView.Adapter<BasketAdapter.ViewHolder
 //        holder.mImage.setClipToOutline(true);
 //        holder.mImage.setScaleType(ImageView.ScaleType.FIT_XY);
 
+        //이미지 둥글게게
         holder.mImage.setImageResource(R.drawable.default_image);
+
+        GradientDrawable drawable=
+                (GradientDrawable) mContext.getDrawable(R.drawable.round_shape_transparent);
+        holder.mImage.setBackground(drawable);
+        holder.mImage.setClipToOutline(true);
+
+
 
 
         holder.mProductName.setText(productVO.getItem_name());

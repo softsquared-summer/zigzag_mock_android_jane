@@ -10,7 +10,7 @@
     <ImageView
         android:id="@+id/product_iv_image"
         android:layout_width="match_parent"
-        android:layout_height="145dp"
+        android:layout_height="180dp"
         android:scaleType="fitXY"
         android:src="@drawable/bascket_center_banner"
         app:layout_constraintBottom_toTopOf="@+id/product_tv_storename"

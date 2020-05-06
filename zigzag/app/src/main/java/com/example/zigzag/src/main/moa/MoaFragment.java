@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -128,8 +129,13 @@ public class MoaFragment extends Fragment implements View.OnClickListener {
                 startActivity(intent);
                 break;
             case R.id.moa_ib_top1:
+                //FragmentTransaction transaction= getChildFragmentManager().beginTransaction();;
+
                 intent = new Intent(getActivity(), BascketActivity.class);
                 startActivity(intent);
+
+                //transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_right,R.anim.exit_to_left);
+
                 break;
 
             default:

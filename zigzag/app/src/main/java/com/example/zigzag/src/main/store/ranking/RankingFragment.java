@@ -3,6 +3,7 @@ package com.example.zigzag.src.main.store.ranking;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -62,6 +63,14 @@ public class RankingFragment extends Fragment implements RankActivityView {
         rankService=new RankingService(this);
         mRvRank=view.findViewById(R.id.rank_rv_storelist);
 
+        //mRvRank.addItemDecoration(new DividerItemDecoration(getContext(), R.drawable.rank_divider));
+
+        DividerItemDecoration dividerItemDecoration =
+                new DividerItemDecoration(getContext(),
+                        new LinearLayoutManager(getContext()).getOrientation());
+        dividerItemDecoration.setDrawable(getResources().getDrawable(R.drawable.rank_dividor));
+        mRvRank.addItemDecoration(dividerItemDecoration);
+        mRvRank.addItemDecoration(new DividerItemDecoration(getContext(), 1));
         mRvRank.setLayoutManager(new LinearLayoutManager(getContext())) ;
         mRankAdapter=new RankAdapter(mRankList);
         mRvRank.setAdapter(mRankAdapter);

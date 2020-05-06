@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.example.zigzag.R;
 import com.example.zigzag.src.main.today.models.ItemsResponse;
 
@@ -18,7 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class TodayContentAdapter extends RecyclerView.Adapter<TodayContentAdapter.ViewHolder> {
+public class TodayTopContentAdapter extends RecyclerView.Adapter<TodayTopContentAdapter.ViewHolder> {
 
     private ArrayList<ItemsResponse.ItemsResult> mListProduct;
     private Context mContext;
@@ -26,7 +25,7 @@ public class TodayContentAdapter extends RecyclerView.Adapter<TodayContentAdapte
     private String mCategory;
 
 
-    public TodayContentAdapter( ArrayList<ItemsResponse.ItemsResult> mListProduct, Context mContext) {
+    public TodayTopContentAdapter(ArrayList<ItemsResponse.ItemsResult> mListProduct, Context mContext) {
         this.mListProduct = mListProduct;
 
         this.mContext = mContext;
@@ -45,15 +44,15 @@ public class TodayContentAdapter extends RecyclerView.Adapter<TodayContentAdapte
 
     @NonNull
     @Override
-    public TodayContentAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View convertView = LayoutInflater.from(mContext).inflate(R.layout.item_product2, parent, false);
+    public TodayTopContentAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View convertView = LayoutInflater.from(mContext).inflate(R.layout.item_product3, parent, false);
 
         return new ViewHolder(convertView);
 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TodayContentAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull TodayTopContentAdapter.ViewHolder holder, int position) {
 
         final ItemsResponse.ItemsResult productVO = mListProduct.get(position);
 

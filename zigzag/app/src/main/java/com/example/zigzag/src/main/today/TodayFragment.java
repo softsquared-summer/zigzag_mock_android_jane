@@ -27,14 +27,14 @@ import com.example.zigzag.src.product.ProductActivity;
 import java.util.ArrayList;
 
 
-public class TodayFragment extends Fragment implements TodayContentAdapter.OnItemClickListener, TodayActivityView {
+public class TodayFragment extends Fragment implements TodayTopContentAdapter.OnItemClickListener,TodayContentAdapter.OnItemClickListener, TodayActivityView {
 
 
     private RecyclerView mRvContent;
     private RecyclerView mRvTopContent;
 
     private TodayContentAdapter mTodayContentAdapter;
-    private TodayContentAdapter mTodayTopContentAdapter;
+    private TodayTopContentAdapter mTodayTopContentAdapter;
 
     private ArrayList<ItemsResponse.ItemsResult> mProductList=new ArrayList<ItemsResponse.ItemsResult>();
     private ArrayList<ItemsResponse.ItemsResult> mProductTopList=new ArrayList<ItemsResponse.ItemsResult>();
@@ -116,7 +116,7 @@ public class TodayFragment extends Fragment implements TodayContentAdapter.OnIte
         mRvContent.setAdapter(mTodayContentAdapter);
 
         mRvTopContent.addItemDecoration(new TodayFragment.ItemDecoration(getActivity(),3));
-        mTodayTopContentAdapter=new TodayContentAdapter(mProductTopList,getContext());
+        mTodayTopContentAdapter=new TodayTopContentAdapter(mProductTopList,getContext());
         mTodayTopContentAdapter.setOnItemClickListener(this);
         mRvTopContent.setAdapter(mTodayTopContentAdapter);
 
