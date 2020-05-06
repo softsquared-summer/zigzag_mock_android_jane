@@ -1,6 +1,8 @@
 package com.example.zigzag.src.main.store.ranking;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.view.LayoutInflater;
@@ -64,8 +66,12 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
         holder.mImage.setImageResource(R.drawable.default_image);
 
         if(productVO.getTags().size()>0){
-            holder.mTag.setText(productVO.getTags().get(0).getTag_name());
+            //String tagtmp=holder.mTag.getText().toString();
+            holder.mTag.setText("10대/20대 " +productVO.getTags().get(0).getTag_name());
 
+        }else{
+            holder.mTag.setText("10대/20대");
+            holder.mTag.setTextColor(Color.parseColor("#8F9DF8"));
         }
 
         //이미지 둥글게

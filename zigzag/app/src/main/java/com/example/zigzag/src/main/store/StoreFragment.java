@@ -30,6 +30,7 @@ public class StoreFragment extends Fragment implements View.OnClickListener {
 
 
     private ImageButton mBtnBascket;
+    private ImageButton mBtnBasket;
 
     public StoreFragment() {
         // Required empty public constructor
@@ -71,6 +72,18 @@ public class StoreFragment extends Fragment implements View.OnClickListener {
         View view = inflater.inflate(R.layout.fragment_store, container, false);
 
         initView(view);
+
+
+
+        return view;
+    }
+
+    void initView(View view){
+        mBtnBascket=view.findViewById(R.id.store_ib_top3);
+        mTabLayout = (TabLayout) view.findViewById(R.id.store_tl_tab);
+
+        mBtnBascket.setOnClickListener(this);
+
         mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("랭킹")));
         mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("즐겨찾기")));
         mTabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
@@ -82,18 +95,18 @@ public class StoreFragment extends Fragment implements View.OnClickListener {
                 new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
 
         //페이지가 변경될 때 알려주는 리스너너
-       mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-           //탭이 선택되었을 때, 호출되는 메서드
-           @Override
+        mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            //탭이 선택되었을 때, 호출되는 메서드
+            @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 mViewPager.setCurrentItem(tab.getPosition());
             }
-           //탭이 해제되었을 때, 호출되는 메서드
+            //탭이 해제되었을 때, 호출되는 메서드
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
 
             }
-           //탭이 다시 선택되었을 때, 호출되는 메서드
+            //탭이 다시 선택되었을 때, 호출되는 메서드
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
 
@@ -101,15 +114,6 @@ public class StoreFragment extends Fragment implements View.OnClickListener {
 
         });
 
-
-        return view;
-    }
-
-    void initView(View view){
-        mBtnBascket=view.findViewById(R.id.store_ib_top3);
-        mTabLayout = (TabLayout) view.findViewById(R.id.store_tl_tab);
-
-        mBtnBascket.setOnClickListener(this);
     }
 
 

@@ -14,10 +14,12 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.zigzag.R;
+import com.example.zigzag.src.bascket.BascketActivity;
 import com.example.zigzag.src.main.today.interfaces.TodayActivityView;
 import com.example.zigzag.src.main.today.models.ItemsResponse;
 import com.example.zigzag.src.product.ProductActivity;
@@ -37,12 +39,7 @@ public class TodayFragment extends Fragment implements TodayContentAdapter.OnIte
     private ArrayList<ItemsResponse.ItemsResult> mProductList=new ArrayList<ItemsResponse.ItemsResult>();
     private ArrayList<ItemsResponse.ItemsResult> mProductTopList=new ArrayList<ItemsResponse.ItemsResult>();
 
-    private TextView mTodayP1Store,mTodayP1Item,mTodayP1Price;
-    private TextView mTodayP2Store,mTodayP2Item,mTodayP2Price;
-    private TextView mTodayP3Store,mTodayP3Item,mTodayP3Price;
-    private ImageView mTodayP1Image, mTodayP2Image,mTodayP3Image;
-    private ImageView mTodayP1Zzim, mTodayP2Zzim,mTodayP3Zzim;
-    private ImageView mTodayP1FreeDelivery, mTodayP2FreeDelivery,mTodayP3FreeDelivery;
+   private ImageButton mBtnBasket;
 
     private TodayService todayService;
     public TodayFragment() {
@@ -69,12 +66,22 @@ public class TodayFragment extends Fragment implements TodayContentAdapter.OnIte
         //아이템 리스트 가져오기
         getItemList();
 
+        mBtnBasket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(), BascketActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         return view;
     }
 
     void initView(View view) {
         todayService=new TodayService(this);
+
+        mBtnBasket=(ImageButton)view.findViewById(R.id.today_ib_top2);
         mRvContent=(RecyclerView)view.findViewById(R.id.today_rv_list);
         mRvTopContent=(RecyclerView)view.findViewById(R.id.today_rv_toplist);
 

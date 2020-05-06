@@ -1,6 +1,7 @@
 package com.example.zigzag.src.main.today;
 
 import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,6 +61,14 @@ public class TodayContentAdapter extends RecyclerView.Adapter<TodayContentAdapte
         String url1 = productVO.getImage().getImage_url1();
         //String url2=productVO.getImage().get(0).getImage_url2();
         holder.mImage.setImageResource(R.drawable.default_image);
+
+        //이미지 둥글게
+        GradientDrawable drawable=
+                (GradientDrawable) mContext.getDrawable(R.drawable.round_shape_transparent);
+        holder.mImage.setBackground(drawable);
+        holder.mImage.setClipToOutline(true);
+
+
 
 //        System.out.println(url1);
 //        Glide.with(mContext)

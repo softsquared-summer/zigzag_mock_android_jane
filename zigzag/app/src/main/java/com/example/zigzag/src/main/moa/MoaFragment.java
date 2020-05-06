@@ -1,6 +1,7 @@
 package com.example.zigzag.src.main.moa;
 
 import android.content.Intent;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -59,12 +60,23 @@ public class MoaFragment extends Fragment implements View.OnClickListener {
 
         initView(view);
 
+        //이미지 둥글게
+        //setRoundImage(view);
+
         mPagerAdapter = new ScreenSlidePagerAdapter(getActivity().getSupportFragmentManager(),Ad_PAGES);
         mAdPager.setAdapter(mPagerAdapter);
 
 
 
         return view;
+    }
+
+    private void setRoundImage(View view) {
+        //이미지 둥글게
+        //GradientDrawable drawable=
+        //        (GradientDrawable) getContext().getDrawable(R.drawable.round_shape_transparent);
+        //holder.mImage.setBackground(drawable);
+        //holder.mImage.setClipToOutline(true);
     }
 
 

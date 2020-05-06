@@ -1,6 +1,7 @@
 package com.example.zigzag.src.outer.content;
 
 import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
 import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -71,6 +72,11 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
 
         holder.mImage.setImageResource(R.drawable.default_image);
 
+        //이미지 둥글게
+        GradientDrawable drawable=
+                (GradientDrawable) mContext.getDrawable(R.drawable.round_shape_transparent);
+        holder.mImage.setBackground(drawable);
+        holder.mImage.setClipToOutline(true);
 
         if (productVO.getIs_free_ship().equals("Y")) {
             holder.mFreeShip.setVisibility(View.VISIBLE);
