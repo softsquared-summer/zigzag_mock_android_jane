@@ -3,10 +3,14 @@ package com.example.zigzag.src.login;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -40,7 +44,35 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
 
         initView();
 
+        //비밀번호 길이 4이상이면 로그인 버튼 활성화, 길이제한
+        mEtPw.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.toString().getBytes().length >= 4) {
+                    mBtnLogin.setClickable(true);
+                    mBtnLogin.setImageResource(R.drawable.login_btn_login2);
+                }else{
+                    mBtnLogin.setClickable(false);
+                    mBtnLogin.setImageResource(R.drawable.login_btn_login);
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
+
+
+
+
     }
+
 
     void initView(){
         mEtId=findViewById(R.id.login_et_email);
@@ -121,6 +153,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
                 editor.putString("id",email);
                 editor.commit();
 
+                showCustomToast("로그인 성공");
                 System.out.println("토큰: "+loginResult);
 
                 finish();

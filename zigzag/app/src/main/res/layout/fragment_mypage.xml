@@ -251,6 +251,18 @@
                     android:layout_marginTop="2dp"
                     android:gravity="center_vertical"
                     android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/mypage_tv_logout"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="로그아웃"
+                    android:visibility="visible"
+                    android:background="@color/colorBackground"
+                    android:textColor="#FFFFFF"
+                    android:textSize="17sp"
+                    android:layout_marginTop="2dp"
+                    android:gravity="center_vertical"
+                    android:textStyle="bold"/>
 
 
             </LinearLayout>
