@@ -12,6 +12,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,11 @@ import android.widget.ImageView;
 import com.example.zigzag.R;
 import com.example.zigzag.src.bascket.BascketActivity;
 import com.example.zigzag.src.outer.OuterActivity;
+import com.google.android.material.tabs.TabLayout;
+
+import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class MoaFragment extends Fragment implements View.OnClickListener {
@@ -28,11 +34,19 @@ public class MoaFragment extends Fragment implements View.OnClickListener {
 
     private static final int Ad_PAGES = 100;
     private ViewPager mAdPager;
-    private PagerAdapter mPagerAdapter;
-    private String mParam1;
-    private String mParam2;
     private ImageButton mBtnBascket;
     private ImageView mBtnOuter,mBtnTop,mBtnOnepiece,mBtnPants,mBtnSkirt;
+
+    private Timer mTimer;
+
+    private AdPagerAdapter mAdPagerAdapter;
+    private ArrayList<Integer> images=new ArrayList<>();
+    private int NUM_PAGERS;
+    final long DELAY_MS = 3000;
+    final long PERIOD_MS = 3000;
+
+    private int mPageNum=0;
+    private TabLayout mAdTabLayout;
 
     public MoaFragment() {
         // Required empty public constructor
@@ -64,8 +78,8 @@ public class MoaFragment extends Fragment implements View.OnClickListener {
         //이미지 둥글게
         //setRoundImage(view);
 
-        mPagerAdapter = new ScreenSlidePagerAdapter(getActivity().getSupportFragmentManager(),Ad_PAGES);
-        mAdPager.setAdapter(mPagerAdapter);
+        //mPagerAdapter = new ScreenSlidePagerAdapter(getActivity().getSupportFragmentManager(),Ad_PAGES);
+        //mAdPager.setAdapter(mPagerAdapter);
 
 
 
@@ -82,13 +96,27 @@ public class MoaFragment extends Fragment implements View.OnClickListener {
 
 
     void initView(View view){
+
+        //광고이미지
+        images.add(R.drawable.ad_top1);
+        images.add(R.drawable.ad_top2);
+        images.add(R.drawable.ad_top3);
+        images.add(R.drawable.ad_top4);
+        NUM_PAGERS= images.size();
+
+        mAdPager = (ViewPager) view.findViewById(R.id.moa_vp_ad_top);
+        mAdPagerAdapter = new AdPagerAdapter(getContext(), images);
+        mAdPager.setAdapter(mAdPagerAdapter);
+
+        //mAdTabLayout = view.findViewById(R.id.moa_ad_selector);
+        //mAdTabLayout.setupWithViewPager(mAdPager, true);
+
         mBtnBascket=view.findViewById(R.id.moa_ib_top1);
         mBtnOuter=view.findViewById(R.id.moa_iv_category_outer);
         mBtnTop=view.findViewById(R.id.moa_iv_category_top);
         mBtnOnepiece=view.findViewById(R.id.moa_iv_category_onepiece);
         mBtnPants=view.findViewById(R.id.moa_iv_category_pants);
         mBtnSkirt=view.findViewById(R.id.moa_iv_category_skirt);
-        mAdPager = (ViewPager) view.findViewById(R.id.moa_vp_ad_top);
 
         mBtnBascket.setOnClickListener(this);
         mBtnOuter.setOnClickListener(this);
@@ -143,4 +171,45 @@ public class MoaFragment extends Fragment implements View.OnClickListener {
 
         }
     }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        //Adapter 세팅 후 타이머 실행
+        final Handler handler = new Handler();
+        final Runnable Update = new Runnable() {
+            @Override
+            public void run() {
+                mPageNum = mAdPager.getCurrentItem();
+                int nextPage = mPageNum + 1;
+
+                if(nextPage >= NUM_PAGERS){
+                    nextPage = 0;
+                }
+                mAdPager.setCurrentItem(nextPage,true);
+                mPageNum = nextPage;
+            }
+        };
+
+        mTimer = new Timer();
+        mTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(Update);
+            }
+        },DELAY_MS,PERIOD_MS);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        //다른 액티비티나 프래그먼트 실행시 타이머 제거
+        if(mTimer != null){
+            mTimer.cancel();
+            mTimer = null;
+        }
+    }
+
 }

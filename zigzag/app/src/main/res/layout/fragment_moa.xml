@@ -180,14 +180,24 @@
                 android:layout_width="0dp"
                 android:layout_height="220dp"
                 android:layout_marginTop="5dp"
-                android:scaleType="fitXY"
-                android:background="@color/colorBackground"
+                android:scaleType="centerCrop"
                 app:layout_constraintBottom_toTopOf="@+id/moa_tv_video"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/moa_sb_category"
                 app:layout_constraintVertical_weight="3.3" />
-
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/moa_ad_selector"
+                app:tabBackground="@drawable/tab_selector"
+                app:tabGravity="center"
+                android:clickable="false"
+                app:tabIndicatorHeight="0dp"
+                app:layout_constraintEnd_toEndOf="@+id/moa_vp_ad_top"
+                app:layout_constraintStart_toStartOf="@+id/moa_vp_ad_top"
+                android:layout_width="wrap_content"
+                android:layout_height="10dp"
+                app:layout_constraintBottom_toBottomOf="@+id/moa_vp_ad_top"
+                android:layout_gravity="center"/>
             <TextView
                 android:id="@+id/moa_tv_video"
                 android:layout_width="0dp"
