@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 
 import android.app.NotificationManager;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 
 import com.example.zigzag.R;
 import com.example.zigzag.src.BaseActivity;
+import com.example.zigzag.src.bascket.BascketActivity;
 import com.example.zigzag.src.product.buy.BuyDialog;
 import com.example.zigzag.src.product.interfaces.ProductActivityView;
 import com.example.zigzag.src.product.models.ItemResponse;
@@ -30,7 +32,7 @@ public class ProductActivity extends AppCompatActivity  implements ProductActivi
     private TextView mTvReviewNum,mTvStoreName,mTvItemName,mTvPrice,mTvDiscount,mTvItemCode;
     private ImageView mIvFreeShip,mIvZzim,mIvBaketAlarm;
     private ImageView mIvImage;
-    private ImageButton mBtnBuy,mBtnEnd;
+    private ImageButton mBtnBuy,mBtnEnd,mBtnBasket;
     private boolean mRunning;
 
     TextView mTvDialogPrice;
@@ -54,6 +56,13 @@ public class ProductActivity extends AppCompatActivity  implements ProductActivi
                 finish();
             }
         });
+        mBtnBasket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplicationContext(), BascketActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void buyOnClick(View v){
@@ -66,38 +75,6 @@ public class ProductActivity extends AppCompatActivity  implements ProductActivi
     }
 
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        System.out.println("제품 상세 페이지 실행중");
-
-        //장바구니에 담긴 것이 있으면 알람 띄우기
-        final String basket = sSharedPreferences.getString("isBasket", null);
-        SharedPreferences.Editor editor = sSharedPreferences.edit();
-
-        if(basket!=null){
-            System.out.println("장바구니 널 아님");
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                        try {
-                            Thread.sleep(1500);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        mHandler.sendEmptyMessage(0);
-
-                }
-
-            }).start();
-
-            mIvBaketAlarm.setVisibility(View.INVISIBLE);
-            editor.remove("isBasket").commit();
-
-        }
-
-
-    }
 
     public void getItemDetail(int number){
         productService.getItemDetail(number);
@@ -136,7 +113,7 @@ public class ProductActivity extends AppCompatActivity  implements ProductActivi
 
         mBtnBuy=findViewById(R.id.product_detail_ib_buy);
         mBtnEnd=findViewById(R.id.product_detail_iv_end);
-
+        mBtnBasket=findViewById(R.id.product_detail_ib_top2);
 
 
         //다이얼로그
@@ -189,13 +166,6 @@ public class ProductActivity extends AppCompatActivity  implements ProductActivi
 
 
 
-    private Handler mHandler = new Handler() {
-
-        public void handleMessage(Message msg) {
-            mIvBaketAlarm.setVisibility(View.VISIBLE);
-        };
-
-    };
 
 
 

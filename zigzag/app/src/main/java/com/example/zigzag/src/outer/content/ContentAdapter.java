@@ -8,12 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 import com.bumptech.glide.Glide;
 import com.example.zigzag.R;
 import com.example.zigzag.src.outer.content.models.ItemsResponse;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -53,6 +55,7 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
 
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull ContentAdapter.ViewHolder holder, int position) {
 
@@ -69,14 +72,22 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
 //                .into(holder.mImage);
 //        holder.mImage.setClipToOutline(true);
 //        holder.mImage.setScaleType(ImageView.ScaleType.FIT_XY);
+        int offtime = new Random().nextInt(200) + 800;
+        holder.viewFlipper.setFlipInterval(offtime);
+        holder.mImage1.setImageResource(R.drawable.default_image);
+        holder.mImage2.setImageResource(R.drawable.default_image2);
 
-        holder.mImage.setImageResource(R.drawable.default_image);
+
+        holder.viewFlipper.startFlipping();
+
 
         //이미지 둥글게
         GradientDrawable drawable=
                 (GradientDrawable) mContext.getDrawable(R.drawable.round_shape_transparent);
-        holder.mImage.setBackground(drawable);
-        holder.mImage.setClipToOutline(true);
+        holder.mImage1.setBackground(drawable);
+        holder.mImage1.setClipToOutline(true);
+        holder.mImage2.setBackground(drawable);
+        holder.mImage2.setClipToOutline(true);
 
         if (productVO.getIs_free_ship().equals("Y")) {
             holder.mFreeShip.setVisibility(View.VISIBLE);
@@ -111,17 +122,19 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private ConstraintLayout mLayoutProduct;
-        private ImageView mImageUrl;
         private TextView mStoreName;
         private TextView mProductName;
         private ImageView mZzim;
         private ImageView mFreeShip;
         private TextView mPrice;
-        private ImageView mImage;
+        private ImageView mImage1;
+        private ImageView mImage2;
+        private ViewFlipper viewFlipper;
+
 
         public ViewHolder(View convertView) {
             super(convertView);
-
+            viewFlipper = (ViewFlipper)convertView.findViewById(R.id.product_iv_image);
             mLayoutProduct = (ConstraintLayout) convertView.findViewById(R.id.product_ll_layout);
             //img_thumb = (ImageView) convertView.findViewById(R.id.img_thumb);
             mStoreName = (TextView) convertView.findViewById(R.id.product_tv_storename);
@@ -129,7 +142,8 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
             mFreeShip = (ImageView) convertView.findViewById(R.id.product_iv_freedelivery);
             mZzim = (ImageView) convertView.findViewById(R.id.product_iv_zzim);
             mPrice = (TextView) convertView.findViewById(R.id.product_tv_price);
-            mImage = (ImageView) convertView.findViewById(R.id.product_iv_image);
+            mImage1 = (ImageView) convertView.findViewById(R.id.product_iv1);
+            mImage2 = (ImageView) convertView.findViewById(R.id.product_iv2);
 
         }
     }

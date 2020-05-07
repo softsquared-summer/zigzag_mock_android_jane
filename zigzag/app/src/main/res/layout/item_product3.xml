@@ -7,16 +7,29 @@
     android:layout_height="wrap_content">
 
 
-    <ImageView
+    <ViewFlipper
         android:id="@+id/product_iv_image"
         android:layout_width="match_parent"
         android:layout_height="110dp"
         android:scaleType="fitXY"
-        android:src="@drawable/bascket_center_banner"
         app:layout_constraintBottom_toTopOf="@+id/product_tv_storename"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+    <ImageView
+        android:id="@+id/product_iv1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/default_image"/>
+    <ImageView
+        android:id="@+id/product_iv2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/default_image2"/>
+
+    </ViewFlipper>
 
     <ImageView
         android:id="@+id/product_iv_zzim"

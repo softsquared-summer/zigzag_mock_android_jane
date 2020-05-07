@@ -7,12 +7,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 import com.bumptech.glide.Glide;
 import com.example.zigzag.R;
 import com.example.zigzag.src.main.today.models.ItemsResponse;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -61,13 +63,21 @@ public class TodayContentAdapter extends RecyclerView.Adapter<TodayContentAdapte
         System.out.println("어댑터 아이템: "+position);
         String url1 = productVO.getImage().getImage_url1();
         //String url2=productVO.getImage().get(0).getImage_url2();
-        holder.mImage.setImageResource(R.drawable.default_image);
+        holder.mImage1.setImageResource(R.drawable.default_image);
+        holder.mImage2.setImageResource(R.drawable.default_image2);
+
+        int offtime = new Random().nextInt(200) + 800;
+        holder.viewFlipper.setFlipInterval(offtime);
+        holder.viewFlipper.startFlipping();
+
 
         //이미지 둥글게
         GradientDrawable drawable=
                 (GradientDrawable) mContext.getDrawable(R.drawable.round_shape_transparent);
-        holder.mImage.setBackground(drawable);
-        holder.mImage.setClipToOutline(true);
+        holder.mImage1.setBackground(drawable);
+        holder.mImage1.setClipToOutline(true);
+        holder.mImage2.setBackground(drawable);
+        holder.mImage2.setClipToOutline(true);
 
 
 
@@ -119,8 +129,9 @@ public class TodayContentAdapter extends RecyclerView.Adapter<TodayContentAdapte
         private ImageView mZzim;
         private ImageView mFreeShip;
         private TextView mPrice;
-        private ImageView mImage;
-
+        private ImageView mImage1;
+        private ImageView mImage2;
+        private ViewFlipper viewFlipper;
         public ViewHolder(View convertView) {
             super(convertView);
 
@@ -131,7 +142,9 @@ public class TodayContentAdapter extends RecyclerView.Adapter<TodayContentAdapte
             mFreeShip = (ImageView) convertView.findViewById(R.id.product_iv_freedelivery);
             mZzim = (ImageView) convertView.findViewById(R.id.product_iv_zzim);
             mPrice = (TextView) convertView.findViewById(R.id.product_tv_price);
-            mImage = (ImageView) convertView.findViewById(R.id.product_iv_image);
+            mImage1 = (ImageView) convertView.findViewById(R.id.product_iv1);
+            mImage2 = (ImageView) convertView.findViewById(R.id.product_iv2);
+            viewFlipper = (ViewFlipper)convertView.findViewById(R.id.product_iv_image);
 
         }
     }
