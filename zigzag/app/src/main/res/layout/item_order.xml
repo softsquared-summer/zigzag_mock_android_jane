@@ -2,21 +2,21 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="150dp"
-    android:id="@+id/basketitem_ll_layout"
+    android:id="@+id/orderitem_ll_layout"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
        <View
-        android:id="@+id/basketitem_v_product"
+        android:id="@+id/orderitem_v_product"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintVertical_weight="1.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/bascketitem_v_delivery"/>
+        app:layout_constraintBottom_toTopOf="@+id/orderitem_v_delivery"/>
 
     <ImageView
-        android:id="@+id/bascketitem_iv_image"
+        android:id="@+id/orderitem_iv_image"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:src="@drawable/top"
@@ -25,12 +25,12 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="20dp"
         app:layout_constraintHorizontal_weight="2"
-        app:layout_constraintTop_toTopOf="@+id/basketitem_v_product"
-        app:layout_constraintStart_toStartOf="@id/basketitem_v_product"
-        app:layout_constraintBottom_toBottomOf="@id/basketitem_v_product"
-        app:layout_constraintEnd_toStartOf="@id/bascketitem_tv_name"/>
+        app:layout_constraintTop_toTopOf="@+id/orderitem_v_product"
+        app:layout_constraintStart_toStartOf="@id/orderitem_v_product"
+        app:layout_constraintBottom_toBottomOf="@id/orderitem_v_product"
+        app:layout_constraintEnd_toStartOf="@id/orderitem_tv_name"/>
     <TextView
-        android:id="@+id/bascketitem_tv_name"
+        android:id="@+id/orderitem_tv_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="기본 아이템"
@@ -40,39 +40,39 @@
         android:maxLines="2"
         android:layout_marginStart="10dp"
         app:layout_constraintHorizontal_weight="5"
-        app:layout_constraintTop_toTopOf="@+id/bascketitem_iv_image"
-        app:layout_constraintEnd_toEndOf="@id/basketitem_v_product"
-        app:layout_constraintStart_toEndOf="@id/bascketitem_iv_image" />
+        app:layout_constraintTop_toTopOf="@+id/orderitem_iv_image"
+        app:layout_constraintEnd_toEndOf="@id/orderitem_v_product"
+        app:layout_constraintStart_toEndOf="@id/orderitem_iv_image" />
 
     <TextView
-        android:id="@+id/bascketitem_tv_option"
+        android:id="@+id/orderitem_tv_option"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/bascketitem_tv_name"
-        app:layout_constraintTop_toBottomOf="@id/bascketitem_tv_name"
+        app:layout_constraintStart_toStartOf="@id/orderitem_tv_name"
+        app:layout_constraintTop_toBottomOf="@id/orderitem_tv_name"
         android:text="크기/컬러"
         android:textSize="13sp"
         android:textStyle="bold"
         android:layout_marginTop="5dp"
         android:textColor="@color/rankNumColor"
-        app:layout_constraintEnd_toEndOf="@id/basketitem_v_product"/>
+        app:layout_constraintEnd_toEndOf="@id/orderitem_v_product"/>
     <TextView
-        android:id="@+id/bascketitem_tv_amount"
+        android:id="@+id/orderitem_tv_amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/bascketitem_tv_name"
-        app:layout_constraintTop_toBottomOf="@id/bascketitem_tv_option"
+        app:layout_constraintStart_toStartOf="@id/orderitem_tv_name"
+        app:layout_constraintTop_toBottomOf="@id/orderitem_tv_option"
         android:text="0개"
         android:textSize="13sp"
         android:textStyle="bold"
         android:layout_marginTop="5dp"
         android:textColor="@color/rankNumColor" />
     <TextView
-        android:id="@+id/bascketitem_tv_price"
+        android:id="@+id/orderitem_tv_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/bascketitem_tv_amount"
+        app:layout_constraintTop_toTopOf="@id/orderitem_tv_amount"
         android:text="00,000원"
         android:textSize="17sp"
         android:layout_marginEnd="10dp"
@@ -80,7 +80,7 @@
         android:textColor="#000000" />
     <View
 
-        android:id="@+id/bascketitem_v_delivery"
+        android:id="@+id/orderitem_v_delivery"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/colorBrightGray"
@@ -88,7 +88,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/basketitem_v_product"/>
+        app:layout_constraintTop_toBottomOf="@+id/orderitem_v_product"/>
 
 
     <TextView
@@ -97,22 +97,22 @@
         android:textSize="15sp"
         android:textColor="@color/colorBackground"
         android:text="배송비"
-        app:layout_constraintBottom_toBottomOf="@+id/bascketitem_v_delivery"
-        app:layout_constraintStart_toStartOf="@id/bascketitem_iv_image"
-        app:layout_constraintTop_toTopOf="@+id/bascketitem_v_delivery"
+        app:layout_constraintBottom_toBottomOf="@+id/orderitem_v_delivery"
+        app:layout_constraintStart_toStartOf="@id/orderitem_iv_image"
+        app:layout_constraintTop_toTopOf="@+id/orderitem_v_delivery"
         />
 
 
     <TextView
-        android:id="@+id/bascketitem_tv_delivery_price"
+        android:id="@+id/orderitem_tv_delivery_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="00,000원"
         android:textSize="15sp"
         android:textColor="@color/colorBackground"
-        app:layout_constraintBottom_toBottomOf="@+id/bascketitem_v_delivery"
-        app:layout_constraintTop_toTopOf="@+id/bascketitem_v_delivery"
-        app:layout_constraintEnd_toEndOf="@id/bascketitem_tv_price"/>
+        app:layout_constraintBottom_toBottomOf="@+id/orderitem_v_delivery"
+        app:layout_constraintTop_toTopOf="@+id/orderitem_v_delivery"
+        app:layout_constraintEnd_toEndOf="@id/orderitem_tv_price"/>
 
 
 
