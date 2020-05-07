@@ -160,6 +160,7 @@ public class TodayFragment extends Fragment implements TodayTopContentAdapter.On
 
                 //오늘의 아이템 탑 3빼고 recyclerview에 추가
                 for(int i=3;i<itemsResult.size();i++){
+                    System.out.println("오늘의 아이템 리스트 하단 아이템: "+i);
                     mProductList.add(itemsResult.get(i));
                 }
                 mTodayContentAdapter.notifyDataSetChanged();

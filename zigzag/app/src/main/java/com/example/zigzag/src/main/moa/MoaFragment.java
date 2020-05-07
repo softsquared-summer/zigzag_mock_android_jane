@@ -102,6 +102,8 @@ public class MoaFragment extends Fragment implements View.OnClickListener {
         images.add(R.drawable.ad_top2);
         images.add(R.drawable.ad_top3);
         images.add(R.drawable.ad_top4);
+        images.add(R.drawable.ad_top5);
+
         NUM_PAGERS= images.size();
 
         mAdPager = (ViewPager) view.findViewById(R.id.moa_vp_ad_top);
