@@ -62,7 +62,7 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
         final ItemsResponse.ItemsResult productVO = mListProduct.get(position);
 
 
-        String url1 = productVO.getImage().getImage_url1();
+        //String url1 = productVO.getImage().getImage_url1();
         //String url2=productVO.getImage().get(0).getImage_url2();
 
 //        System.out.println(url1);
@@ -76,6 +76,7 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
         holder.viewFlipper.setFlipInterval(offtime);
         holder.mImage1.setImageResource(R.drawable.default_image);
         holder.mImage2.setImageResource(R.drawable.default_image2);
+        holder.mImage3.setImageResource(R.drawable.default_image3);
 
 
         holder.viewFlipper.startFlipping();
@@ -128,7 +129,7 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
         private ImageView mFreeShip;
         private TextView mPrice;
         private ImageView mImage1;
-        private ImageView mImage2;
+        private ImageView mImage2,mImage3;
         private ViewFlipper viewFlipper;
 
 
@@ -144,6 +145,7 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
             mPrice = (TextView) convertView.findViewById(R.id.product_tv_price);
             mImage1 = (ImageView) convertView.findViewById(R.id.product_iv1);
             mImage2 = (ImageView) convertView.findViewById(R.id.product_iv2);
+            mImage3 = (ImageView) convertView.findViewById(R.id.product_iv2);
 
         }
     }

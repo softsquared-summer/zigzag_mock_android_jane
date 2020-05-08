@@ -47,7 +47,7 @@
         android:id="@+id/rankitem_tv_tag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="15sp"
+        android:textSize="13sp"
         android:textColor="@color/colorRankOrange"
         android:text=""
         android:layout_marginBottom="15dp"

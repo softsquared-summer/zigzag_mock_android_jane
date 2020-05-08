@@ -10,23 +10,25 @@
     <View
         android:id="@+id/order_v_title"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="60dp"
         android:background="@color/colorMenuBackground"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_weight="1"
         app:layout_constraintBottom_toTopOf="@+id/order_sv_body"/>
     <ImageButton
         android:id="@+id/order_iv_end"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_width="20sp"
+        android:layout_height="20sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="15dp"
+        android:scaleType="center"
         app:layout_constraintTop_toTopOf="@id/order_v_title"
         app:layout_constraintBottom_toBottomOf="@id/order_v_title"
         android:src="@drawable/product_btn_end"
         app:layout_constraintStart_toStartOf="@+id/order_v_title"
         android:background="@color/colorMenuBackground"
-        android:paddingLeft="10dp"/>
+      />
     <TextView
         android:id="@+id/order_tv_title"
         android:layout_width="wrap_content"
@@ -34,7 +36,7 @@
         android:layout_marginVertical="10dp"
         android:text="결제"
         android:textColor="#FFFFFF"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:layout_marginStart="20dp"
         app:layout_constraintEnd_toEndOf="@+id/order_v_title"
         app:layout_constraintStart_toStartOf="@+id/order_v_title"
@@ -55,11 +57,11 @@
         app:layout_constraintBottom_toBottomOf="@+id/order_tv_title"/>
 
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/order_sv_body"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintVertical_weight="10"
+        app:layout_constraintVertical_weight="12"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -72,6 +74,7 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/order_rv_list"
+                android:padding="10dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -183,144 +186,217 @@
                 app:layout_constraintTop_toTopOf="@id/order_tv_price_sum_title"/>
 
 
-            <View
-                android:id="@+id/order_v_delivery"
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/order_ns_delivery"
+
                 android:layout_width="0dp"
-                android:background="#FFFFFF"
-                android:layout_marginTop="10dp"
+                android:layout_height="320dp"
                 app:layout_constraintTop_toBottomOf="@+id/order_v_price"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_height="260dp"/>
-            <TextView
-                android:id="@+id/order_tv_delivery_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="10dp"
-                android:layout_marginStart="10dp"
-                android:textColor="#000000"
-                android:text="배송지 정보"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@+id/order_iv_delivery_line"
-                app:layout_constraintStart_toStartOf="@+id/order_v_delivery"
-                app:layout_constraintTop_toTopOf="@id/order_v_delivery"/>
+                app:layout_constraintEnd_toEndOf="parent">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <View
+                        android:id="@+id/order_v_delivery"
+                        android:layout_width="0dp"
+                        android:background="#FFFFFF"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_height="320dp"/>
 
-            <ImageView
-                android:id="@+id/order_iv_delivery_line"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="15dp"
-                android:layout_marginTop="10dp"
-                app:layout_constraintStart_toStartOf="@+id/order_tv_delivery_title"
-                app:layout_constraintEnd_toEndOf="@+id/order_v_delivery"
-                android:src="@drawable/order_line"
-                app:layout_constraintTop_toBottomOf="@+id/order_tv_delivery_title"/>
+                    <TextView
+                        android:id="@+id/order_tv_delivery_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="10dp"
+                        android:layout_marginStart="10dp"
+                        android:textColor="#000000"
+                        android:text="배송지 정보"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toTopOf="@+id/order_iv_delivery_line"
+                        app:layout_constraintStart_toStartOf="@+id/order_v_delivery"
+                        app:layout_constraintTop_toTopOf="@id/order_v_delivery"/>
 
-            <TextView
-                android:id="@+id/order_tv_price_reciver_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="10dp"
-                android:textColor="#000000"
-                android:text="수령인"
-                android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="@+id/order_tv_delivery_title"
-                app:layout_constraintTop_toBottomOf="@id/order_iv_delivery_line"/>
+                    <ImageView
+                        android:id="@+id/order_iv_delivery_line"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintStart_toStartOf="@+id/order_tv_delivery_title"
+                        app:layout_constraintEnd_toEndOf="@+id/order_v_delivery"
+                        android:src="@drawable/order_line"
+                        app:layout_constraintTop_toBottomOf="@+id/order_tv_delivery_title"/>
 
-            <EditText
-                android:id="@+id/order_et_price_reciver"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="60dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="5dp"
-                android:background="@drawable/round_shape_order"
-                app:layout_constraintStart_toEndOf="@+id/order_tv_price_reciver_title"
-                app:layout_constraintEnd_toEndOf="@id/order_iv_delivery_line"
-                app:layout_constraintTop_toTopOf="@id/order_iv_delivery_line"/>
+                    <TextView
+                        android:id="@+id/order_tv_price_reciver_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="10dp"
+                        android:textColor="#000000"
+                        android:text="수령인"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="@+id/order_tv_delivery_title"
+                        app:layout_constraintTop_toBottomOf="@id/order_iv_delivery_line"/>
 
-            <TextView
-                android:id="@+id/order_tv_price_phone_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="10dp"
-                android:textColor="#000000"
-                android:text="휴대폰"
-                android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="@+id/order_tv_price_reciver_title"
-                app:layout_constraintTop_toTopOf="@id/order_et_price_phone"/>
+                    <EditText
+                        android:id="@+id/order_et_price_reciver"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="60dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="5dp"
+                        android:paddingStart="10dp"
+                        android:textSize="14sp"
+                        android:maxLines="1"
+                        android:inputType="text"
+                        android:imeOptions="actionNext"
+                        android:background="@drawable/round_shape_order"
+                        app:layout_constraintStart_toEndOf="@+id/order_tv_price_reciver_title"
+                        app:layout_constraintEnd_toEndOf="@id/order_iv_delivery_line"
+                        app:layout_constraintTop_toTopOf="@id/order_iv_delivery_line"/>
 
-            <EditText
-                android:id="@+id/order_et_price_phone"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/round_shape_order"
-                app:layout_constraintStart_toStartOf="@+id/order_et_price_reciver"
-                app:layout_constraintEnd_toEndOf="@id/order_et_price_reciver"
-                app:layout_constraintTop_toBottomOf="@+id/order_et_price_reciver"/>
+                    <TextView
+                        android:id="@+id/order_tv_price_phone_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="10dp"
+                        android:textColor="#000000"
+                        android:text="휴대폰"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="@+id/order_tv_price_reciver_title"
+                        app:layout_constraintTop_toTopOf="@id/order_et_price_phone"/>
 
-            <TextView
-                android:id="@+id/order_tv_price_address_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="10dp"
-                android:textColor="#000000"
-                android:text="주소지"
-                android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="@+id/order_tv_price_phone_title"
-                app:layout_constraintTop_toTopOf="@id/order_et_price_address"/>
+                    <EditText
+                        android:id="@+id/order_et_price_phone"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingStart="10dp"
+                        android:textSize="14sp"
+                        android:maxLines="1"
+                        android:inputType="text"
+                        android:imeOptions="actionNext"
+                        android:background="@drawable/round_shape_order"
+                        app:layout_constraintStart_toStartOf="@+id/order_et_price_reciver"
+                        app:layout_constraintEnd_toEndOf="@id/order_et_price_reciver"
+                        app:layout_constraintTop_toBottomOf="@+id/order_et_price_reciver"/>
+                    <TextView
+                        android:id="@+id/order_tv_price_roadaddress_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="10dp"
+                        android:textColor="#000000"
+                        android:text="도로명주소"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="@+id/order_tv_price_phone_title"
+                        app:layout_constraintTop_toTopOf="@id/order_et_price_roadaddress"/>
 
-            <EditText
-                android:id="@+id/order_et_price_address"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/round_shape_order"
-                app:layout_constraintStart_toStartOf="@+id/order_et_price_phone"
-                app:layout_constraintEnd_toEndOf="@id/order_et_price_phone"
-                app:layout_constraintTop_toBottomOf="@+id/order_et_price_phone"/>
+                    <EditText
+                        android:id="@+id/order_et_price_roadaddress"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingStart="10dp"
+                        android:layout_marginEnd="5dp"
+                        android:textSize="14sp"
+                        android:maxLines="1"
+                        android:text=""
+                        android:inputType="text"
+                        android:imeOptions="actionDone"
+                        android:background="@drawable/round_shape_order_gray"
+                        app:layout_constraintStart_toStartOf="@+id/order_et_price_phone"
+                        app:layout_constraintEnd_toStartOf="@id/order_iv_findaddress"
+                        app:layout_constraintTop_toBottomOf="@+id/order_et_price_phone"/>
 
-            <TextView
-                android:id="@+id/order_tv_price_memo_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="10dp"
-                android:textColor="#000000"
-                android:text="배송메모"
-                android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="@+id/order_tv_price_phone_title"
-                app:layout_constraintTop_toTopOf="@id/order_sp_delivery_memo"/>
 
-            <Spinner
-                android:id="@+id/order_sp_delivery_memo"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:paddingStart="10dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/round_shape_order"
-                app:layout_constraintStart_toStartOf="@+id/order_et_price_address"
-                app:layout_constraintEnd_toEndOf="@id/order_et_price_address"
-                app:layout_constraintTop_toBottomOf="@+id/order_et_price_address"/>
+                    <ImageButton
+                        android:id="@+id/order_iv_findaddress"
+                        android:layout_width="100dp"
+                        android:scaleType="fitXY"
+                        android:background="#FFFFFF"
+                        android:layout_height="0dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/order_et_price_roadaddress"
+                        app:layout_constraintTop_toTopOf="@id/order_et_price_roadaddress"
+                        android:src="@drawable/order_btn_post"
+                        app:layout_constraintEnd_toEndOf="@+id/order_et_price_phone"
+                        app:layout_constraintStart_toEndOf="@+id/order_et_price_roadaddress"/>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                app:layout_constraintBottom_toBottomOf="@+id/order_sp_delivery_memo"
-                app:layout_constraintEnd_toEndOf="@+id/order_sp_delivery_memo"
-                app:layout_constraintTop_toTopOf="@+id/order_sp_delivery_memo"
-                android:src="@drawable/order_icon_spinner"/>
+                    <TextView
+                        android:id="@+id/order_tv_price_address_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="10dp"
+                        android:textColor="#000000"
+                        android:text="주소지"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="@+id/order_tv_price_phone_title"
+                        app:layout_constraintTop_toTopOf="@id/order_et_price_address"/>
+
+                    <EditText
+                        android:id="@+id/order_et_price_address"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingStart="10dp"
+                        android:textSize="14sp"
+                        android:maxLines="1"
+                        android:inputType="text"
+                        android:imeOptions="actionDone"
+                        android:background="@drawable/round_shape_order"
+                        app:layout_constraintStart_toStartOf="@+id/order_et_price_roadaddress"
+                        app:layout_constraintEnd_toEndOf="@id/order_et_price_phone"
+                        app:layout_constraintTop_toBottomOf="@+id/order_et_price_roadaddress"/>
+
+                    <TextView
+                        android:id="@+id/order_tv_price_memo_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="10dp"
+                        android:textColor="#000000"
+                        android:text="배송메모"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="@+id/order_tv_price_phone_title"
+                        app:layout_constraintTop_toTopOf="@id/order_sp_delivery_memo"/>
+
+                    <Spinner
+                        android:id="@+id/order_sp_delivery_memo"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:paddingStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/round_shape_order"
+                        app:layout_constraintStart_toStartOf="@+id/order_et_price_address"
+                        app:layout_constraintEnd_toEndOf="@id/order_et_price_address"
+                        app:layout_constraintTop_toBottomOf="@+id/order_et_price_address"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/order_sp_delivery_memo"
+                        app:layout_constraintEnd_toEndOf="@+id/order_sp_delivery_memo"
+                        app:layout_constraintTop_toTopOf="@+id/order_sp_delivery_memo"
+                        android:src="@drawable/order_icon_spinner"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.core.widget.NestedScrollView>
 
             <View
                 android:id="@+id/order_v_pay"
                 android:layout_width="0dp"
-                android:layout_height="460dp"
+                android:layout_height="440dp"
                 android:layout_marginTop="10dp"
                 android:background="#FFFFFF"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/order_v_delivery" />
+                app:layout_constraintTop_toBottomOf="@+id/order_ns_delivery" />
 
 
             <TextView
@@ -353,6 +429,7 @@
                 android:id="@+id/order_iv_pay_account"
                 android:layout_width="0dp"
                 android:layout_height="60dp"
+                android:layout_marginStart="10dp"
                 app:layout_constraintStart_toStartOf="@+id/order_tv_pay_title"
                 android:src="@drawable/order_btn_pay_account"
                 app:layout_constraintEnd_toStartOf="@+id/order_iv_pay_phone"
@@ -407,12 +484,13 @@
                 android:id="@+id/order_iv_pay_check"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:scaleType="centerInside"
                 android:background="#FFFFFF"
-                app:layout_constraintStart_toStartOf="@+id/order_iv_pay_account"
-                app:layout_constraintTop_toBottomOf="@id/order_iv_pay_line3"
+                android:scaleType="centerInside"
+                android:onClick="agreeOnClick"
                 android:src="@drawable/order_check_no"
-                app:layout_constraintBottom_toBottomOf="@id/order_v_pay"/>
+                app:layout_constraintBottom_toBottomOf="@id/order_v_pay"
+                app:layout_constraintStart_toStartOf="@+id/order_iv_pay_account"
+                app:layout_constraintTop_toBottomOf="@id/order_iv_pay_line3" />
 
             <TextView
                 android:id="@+id/order_tv_pay_checktext"
@@ -425,7 +503,7 @@
                 app:layout_constraintTop_toTopOf="@+id/order_iv_pay_check"
                 app:layout_constraintStart_toEndOf="@+id/order_iv_pay_check"
                 app:layout_constraintBottom_toBottomOf="@+id/order_iv_pay_check"
-                android:textSize="13sp"/>
+                android:textSize="14sp"/>
 
 
             <View
@@ -444,6 +522,7 @@
                 android:layout_height="35dp"
                 android:scaleType="centerInside"
                 android:background="#FFFFFF"
+                android:onClick="agreeOnClick"
                 android:layout_marginVertical="5dp"
                 app:layout_constraintStart_toStartOf="@+id/order_iv_pay_check"
                 app:layout_constraintTop_toTopOf="@id/order_v_agree"
@@ -476,6 +555,7 @@
                 android:layout_height="35dp"
                 android:scaleType="centerInside"
                 android:background="#FFFFFF"
+                android:onClick="agreeOnClick"
                 android:layout_marginVertical="5dp"
                 app:layout_constraintStart_toStartOf="@+id/order_iv_agree_check1"
                 app:layout_constraintTop_toBottomOf="@id/order_iv_agree_line1"
@@ -528,6 +608,7 @@
 
             
             <ImageButton
+                android:id="@+id/order_iv_pay"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:src="@drawable/order_btn_buy"
@@ -538,6 +619,6 @@
                 app:layout_constraintTop_toBottomOf="@id/order_iv_agree_line3"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

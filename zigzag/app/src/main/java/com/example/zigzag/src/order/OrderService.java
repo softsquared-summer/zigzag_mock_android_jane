@@ -41,7 +41,7 @@ class OrderService {
                 }
                 // 통신 성공, api통신으로 반환된 response를 액티비티에 반환해준다.
                 mOrderActivityView.getOrderSuccess(orderResponse.isIs_success(), orderResponse.getCode(), orderResponse.getMessage(),
-                         orderResponse.getOrdersResult().getOrderItems());
+                         orderResponse.getOrdersResult());
             }
 
 

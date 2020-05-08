@@ -34,6 +34,8 @@ public class AdPagerAdapter extends PagerAdapter {
 
             ImageView imageView = view.findViewById(R.id.banner_iv_image);
             imageView.setImageResource(images.get(position));
+            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+
         }
 
         container.addView(view);

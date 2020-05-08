@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 import com.bumptech.glide.Glide;
 import com.example.zigzag.R;
@@ -15,6 +16,7 @@ import com.example.zigzag.src.bascket.models.BasketResponse;
 import com.example.zigzag.src.main.today.models.ItemsResponse;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -68,18 +70,26 @@ public class BasketAdapter extends RecyclerView.Adapter<BasketAdapter.ViewHolder
 //        holder.mImage.setScaleType(ImageView.ScaleType.FIT_XY);
 
         //이미지 둥글게게
-        holder.mImage.setImageResource(R.drawable.default_image);
+        holder.mImage1.setImageResource(R.drawable.default_image);
+        holder.mImage2.setImageResource(R.drawable.default_image2);
 
+        int offtime = new Random().nextInt(200) + 800;
+        holder.viewFlipper.setFlipInterval(offtime);
+        holder.viewFlipper.startFlipping();
+
+
+        //이미지 둥글게
         GradientDrawable drawable=
                 (GradientDrawable) mContext.getDrawable(R.drawable.round_shape_transparent);
-        holder.mImage.setBackground(drawable);
-        holder.mImage.setClipToOutline(true);
-
+        holder.mImage1.setBackground(drawable);
+        holder.mImage1.setClipToOutline(true);
+        holder.mImage2.setBackground(drawable);
+        holder.mImage2.setClipToOutline(true);
 
 
 
         holder.mProductName.setText(productVO.getItem_name());
-        holder.mPrice.setText(productVO.getPrice());
+        holder.mPrice.setText(productVO.getPrice()+"원");
         holder.mLayoutProduct.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -110,6 +120,9 @@ public class BasketAdapter extends RecyclerView.Adapter<BasketAdapter.ViewHolder
         private TextView mPrice;
         private ImageView mImage;
         private TextView mOption;
+        private ImageView mImage1;
+        private ImageView mImage2;
+        private ViewFlipper viewFlipper;
 
         public ViewHolder(View convertView) {
             super(convertView);
@@ -118,9 +131,11 @@ public class BasketAdapter extends RecyclerView.Adapter<BasketAdapter.ViewHolder
             //img_thumb = (ImageView) convertView.findViewById(R.id.img_thumb);
             mProductName = (TextView) convertView.findViewById(R.id.bascketitem_tv_name);
             mPrice = (TextView) convertView.findViewById(R.id.bascketitem_tv_price);
-            mImage = (ImageView) convertView.findViewById(R.id.bascketitem_iv_image);
             mBtnDelete = (ImageButton) convertView.findViewById(R.id.bascketitem_ib_cut);
             mOption = (TextView) convertView.findViewById(R.id.bascketitem_tv_option);
+            mImage1 = (ImageView) convertView.findViewById(R.id.product_iv1);
+            mImage2 = (ImageView) convertView.findViewById(R.id.product_iv2);
+            viewFlipper = (ViewFlipper)convertView.findViewById(R.id.bascketitem_iv_image);
 
 
         }

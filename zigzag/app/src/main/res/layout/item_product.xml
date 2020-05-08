@@ -28,6 +28,12 @@
             android:layout_height="match_parent"
             android:scaleType="fitXY"
             android:src="@drawable/default_image2"/>
+        <ImageView
+            android:id="@+id/product_iv3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/default_image2"/>
 
 
     </ViewFlipper>

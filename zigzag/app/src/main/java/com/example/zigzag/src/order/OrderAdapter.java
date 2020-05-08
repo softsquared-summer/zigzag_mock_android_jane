@@ -8,12 +8,15 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 import com.example.zigzag.R;
 import com.example.zigzag.src.order.models.OrderItem;
 import com.example.zigzag.src.order.models.OrderResponse;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Random;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -21,17 +24,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> {
 
-    private ArrayList<OrderItem> mListProduct;
+    private ArrayList<OrderResponse.OrderResult> mListProduct;
     private Context mContext;
     public OnItemClickListener mOnItemClickListener = null;
 
-    public OrderAdapter(ArrayList<OrderItem> mListProduct, Context mContext) {
+    public OrderAdapter(ArrayList<OrderResponse.OrderResult> mListProduct, Context mContext) {
         this.mContext=mContext;
         this.mListProduct = mListProduct;
     }
 
     public interface OnItemClickListener {
-        void onItemClick(View view, OrderItem productVO);
+        void onItemClick(View view, OrderResponse.OrderResult productVO);
     }
 
 
@@ -52,13 +55,13 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull OrderAdapter.ViewHolder holder, int position) {
 
-        final OrderItem productVO = mListProduct.get(position);
+        final OrderResponse.OrderResult productVO = mListProduct.get(position);
 
 
-        String url1 = productVO.getImage().getImage_url1();
+        //String url1 = productVO.getImage().getImage_url1();
         //String url2=productVO.getImage().get(0).getImage_url2();
 
-        System.out.println(url1);
+       // System.out.println(url1);
 //        Glide.with(mContext)
 //                .load(url1)
 //                .thumbnail(0.5f)
@@ -67,18 +70,31 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
 //        holder.mImage.setScaleType(ImageView.ScaleType.FIT_XY);
 
         //이미지 둥글게게
-        holder.mImage.setImageResource(R.drawable.default_image);
+        //이미지 둥글게게
+        holder.mImage1.setImageResource(R.drawable.default_image);
+        holder.mImage2.setImageResource(R.drawable.default_image2);
 
+        int offtime = new Random().nextInt(200) + 800;
+        holder.viewFlipper.setFlipInterval(offtime);
+        holder.viewFlipper.startFlipping();
+
+
+        //이미지 둥글게
         GradientDrawable drawable=
                 (GradientDrawable) mContext.getDrawable(R.drawable.round_shape_transparent);
-        holder.mImage.setBackground(drawable);
-        holder.mImage.setClipToOutline(true);
-
-
+        holder.mImage1.setBackground(drawable);
+        holder.mImage1.setClipToOutline(true);
+        holder.mImage2.setBackground(drawable);
+        holder.mImage2.setClipToOutline(true);
 
 
 //        holder.mProductName.setText(productVO.getItem_name());
-        holder.mPrice.setText(productVO.getPrice());
+        holder.mPrice.setText(productVO.getOrderItems().getPrice());
+        holder.mProductName.setText(productVO.getOrderItems().getItemName());
+
+        DecimalFormat formatter=new DecimalFormat("###,###");
+        String mSumPrice=formatter.format(productVO.getOrderItems().getShip());
+        holder.mShip.setText(mSumPrice+"원");
         holder.mLayoutProduct.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -90,7 +106,9 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
 
         });
 
-        holder.mOption.setText(productVO.getColor()+"/"+productVO.getSize());
+        String color=productVO.getOrderItems().getColor();
+        String size=productVO.getOrderItems().getSize();
+        holder.mOption.setText(color+"/"+size);
 
     }
 
@@ -107,7 +125,9 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
         private TextView mProductName,mAmount;
         private TextView mOrderNum;
         private TextView mPrice,mShip;
-        private ImageView mImage;
+        private ImageView mImage1;
+        private ImageView mImage2;
+        private ViewFlipper viewFlipper;
         private TextView mOption;
 
         public ViewHolder(View convertView) {
@@ -117,7 +137,9 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
             //img_thumb = (ImageView) convertView.findViewById(R.id.img_thumb);
             mProductName = (TextView) convertView.findViewById(R.id.orderitem_tv_name);
             mPrice = (TextView) convertView.findViewById(R.id.orderitem_tv_price);
-            mImage = (ImageView) convertView.findViewById(R.id.orderitem_iv_image);
+            mImage1 = (ImageView) convertView.findViewById(R.id.product_iv1);
+            mImage2 = (ImageView) convertView.findViewById(R.id.product_iv2);
+            viewFlipper = (ViewFlipper)convertView.findViewById(R.id.orderitem_iv_image);
             mOption = (TextView) convertView.findViewById(R.id.orderitem_tv_option);
             mAmount = (TextView) convertView.findViewById(R.id.orderitem_tv_amount);
             mShip = (TextView) convertView.findViewById(R.id.orderitem_tv_delivery_price);

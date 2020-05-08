@@ -4,13 +4,17 @@ import com.google.gson.annotations.SerializedName;
 
 
 public class OrderItem {
+    @SerializedName("ordered_item_id")
+    private int orderID;
     @SerializedName("item_id")
     private int itemID;
     @SerializedName("mall_name")
     private String mallName;
     @SerializedName("item_name")
     private String itemName;
-    @SerializedName("image")
+    @SerializedName("mall_image")
+    private MallImage mallImage;
+    @SerializedName("item_image")
     private ImageList image;
     @SerializedName("size")
     private String size;
@@ -23,7 +27,7 @@ public class OrderItem {
     @SerializedName("ship")
     private int ship;
     @SerializedName("status")
-    private int status;
+    private String status;
 
     public int getItemID() {
         return itemID;
@@ -37,7 +41,11 @@ public class OrderItem {
         return itemName;
     }
 
-    public int getStatus() {
+    public int getOrderID() {
+        return orderID;
+    }
+
+    public String getStatus() {
         return status;
     }
 
@@ -77,6 +85,14 @@ public class OrderItem {
 
         public String getImage_url2() {
             return image_url2;
+        }
+    }
+    public class MallImage {
+        @SerializedName("image_url")
+        private String image_url;
+
+        public String getImage_url() {
+            return image_url;
         }
     }
 }

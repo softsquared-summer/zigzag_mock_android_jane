@@ -12,24 +12,24 @@ public class OrderResponse {
         @SerializedName("date")
         private String date;
         @SerializedName("order_id")
-        private int orderId;
-        @SerializedName("")
-        private ArrayList<OrderItem> orderItems;
+        private int completionId;
+        @SerializedName("list")
+        private OrderItem orderItems;
 
         public String getDate() {
             return date;
         }
 
-        public int getOrderId() {
-            return orderId;
+        public int getCompletionId() {
+            return completionId;
         }
 
-        public ArrayList<OrderItem> getOrderItems() {
+        public OrderItem getOrderItems() {
             return orderItems;
         }
     }
     @SerializedName("result")
-    private OrderResult ordersResult;
+    private ArrayList<OrderResult> ordersResult;
 
     @SerializedName("code")
     private int code;
@@ -48,8 +48,7 @@ public class OrderResponse {
         return message;
     }
 
-
-    public OrderResult getOrdersResult() {
+    public ArrayList<OrderResult> getOrdersResult() {
         return ordersResult;
     }
 

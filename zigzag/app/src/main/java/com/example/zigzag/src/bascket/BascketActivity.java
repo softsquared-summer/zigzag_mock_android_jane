@@ -27,7 +27,7 @@ public class BascketActivity extends BaseActivity implements BascketActivityView
     private BasketAdapter mBasketAdapter;
     private Button mBtnBuy;
     private ImageButton mIbBack;
-    private TextView mTvSumPrice;
+    private TextView mTvSumPrice,mSumAmount,mCntAmount;
     private String mSumPrice;
     private int mCntList;
 
@@ -69,6 +69,8 @@ public class BascketActivity extends BaseActivity implements BascketActivityView
         mBtnBuy=findViewById(R.id.basket_btn_buy);
         mTvSumPrice=findViewById(R.id.basket_tv_price);
         mIbBack=findViewById(R.id.bascket_ib_back);
+        mSumAmount=findViewById(R.id.basket_select_sumnum);
+        mCntAmount=findViewById(R.id.basket_select_num);
 
         mRvBasketList.addItemDecoration(new DividerItemDecoration(this, 1));
         mRvBasketList.setLayoutManager(new LinearLayoutManager(this)) ;
@@ -96,6 +98,10 @@ public class BascketActivity extends BaseActivity implements BascketActivityView
                 mBasketList.clear();
                 mBasketList.addAll(basekesResult);
                 mBasketAdapter.notifyDataSetChanged();
+
+
+                mSumAmount.setText(mBasketList.size()+")");
+                mCntAmount.setText(mBasketList.size()+"/");
 
                 System.out.println("아이템 리스트 조회 결과:"+mBasketList.toString());
 

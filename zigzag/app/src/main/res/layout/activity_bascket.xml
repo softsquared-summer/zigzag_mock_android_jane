@@ -15,25 +15,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/bascket_sv_list"/>
+        app:layout_constraintBottom_toTopOf="@id/basket_v_select"/>
 
     <TextView
         android:id="@+id/bascket_tv_title"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginVertical="10dp"
         android:text="장바구니"
         android:textColor="#FFFFFF"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:gravity="center_vertical"
         android:textStyle="bold"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="25dp"
         android:textAlignment="center"
         app:layout_constraintTop_toTopOf="@+id/bascket_v_top"
-        app:layout_constraintBottom_toTopOf="@+id/bascket_sv_list"
+        app:layout_constraintBottom_toBottomOf="@+id/bascket_v_top"
         app:layout_constraintEnd_toEndOf="@+id/bascket_v_top"
         app:layout_constraintStart_toStartOf="@+id/bascket_v_top"
         tools:ignore="RtlCompat" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="5dp"
+        android:src="@drawable/order_icon_top"
+        app:layout_constraintEnd_toStartOf="@+id/bascket_tv_title"
+        app:layout_constraintTop_toTopOf="@+id/bascket_tv_title"
+        app:layout_constraintBottom_toBottomOf="@+id/bascket_tv_title"/>
+
     <ImageButton
         android:id="@+id/bascket_ib_back"
         android:layout_width="wrap_content"
@@ -45,20 +54,79 @@
         android:background="@color/colorMenuBackground"
         android:paddingLeft="10dp"/>
 
+
+    <ImageView
+        android:id="@+id/basket_v_select"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/basket_top_bar"
+        app:layout_constraintTop_toBottomOf="@+id/bascket_v_top"
+        app:layout_constraintBottom_toTopOf="@id/bascket_sv_list"
+        app:layout_constraintVertical_weight="1"/>
+
+
+
+    <ImageButton
+        android:id="@+id/bascketitem_ib_check"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="5dp"
+        android:background="#FFFFFF"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="@+id/basket_v_select"
+        android:src="@drawable/bascket_check_ok"
+        android:layout_marginStart="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <TextView
+    android:id="@+id/basket_select_title"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="전체선택("
+    app:layout_constraintStart_toEndOf="@+id/bascketitem_ib_check"
+    android:textColor="@color/colorDarkGray"
+    app:layout_constraintTop_toTopOf="@+id/bascketitem_ib_check"
+    android:layout_marginTop="5dp"
+    android:textSize="15sp"
+    android:layout_marginStart="5dp"/>
+
+    <TextView
+        android:id="@+id/basket_select_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0/"
+        app:layout_constraintStart_toEndOf="@+id/basket_select_title"
+        android:textColor="@color/colorDarkGray"
+        app:layout_constraintTop_toTopOf="@+id/basket_select_title"
+        android:textSize="15sp" />
+    <TextView
+        android:id="@+id/basket_select_sumnum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0)"
+        app:layout_constraintStart_toEndOf="@+id/basket_select_num"
+        android:textColor="@color/colorDarkGray"
+        app:layout_constraintTop_toTopOf="@+id/basket_select_num"
+        android:textSize="15sp" />
+
+
+
     <ScrollView
         android:id="@+id/bascket_sv_list"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintVertical_weight="10"
+        app:layout_constraintVertical_weight="11"
         android:background="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/basket_btn_buy"
-        app:layout_constraintTop_toBottomOf="@+id/bascket_v_top">
+        app:layout_constraintTop_toBottomOf="@+id/basket_v_select">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:padding="15dp"
+            android:layout_margin="15dp"
             android:layout_height="wrap_content">
 
 
@@ -157,10 +225,10 @@
     <Button
         android:id="@+id/basket_btn_buy"
         android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:text="총 00,000원 구매하기"
         android:textColor="#FFFFFF"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         android:layout_marginBottom="10dp"
         app:layout_constraintStart_toStartOf="parent"

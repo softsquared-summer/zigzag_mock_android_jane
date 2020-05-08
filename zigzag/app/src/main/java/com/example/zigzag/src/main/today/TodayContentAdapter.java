@@ -61,7 +61,7 @@ public class TodayContentAdapter extends RecyclerView.Adapter<TodayContentAdapte
 
 
         System.out.println("어댑터 아이템: "+position);
-        String url1 = productVO.getImage().getImage_url1();
+        //String url1 = productVO.getImage().getImage_url1();
         //String url2=productVO.getImage().get(0).getImage_url2();
         holder.mImage1.setImageResource(R.drawable.default_image);
         holder.mImage2.setImageResource(R.drawable.default_image2);

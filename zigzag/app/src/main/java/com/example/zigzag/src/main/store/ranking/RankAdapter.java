@@ -59,26 +59,25 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
 
 
 
-        String url1 = productVO.getImage_url();
+        //String url1 = productVO.getImage_url();
         //String url2=productVO.getImage().get(0).getImage_url2();
 
         holder.mRankNum.setText(position+1+"");
         holder.mImage.setImageResource(R.drawable.default_image);
 
-        if(productVO.getTags().size()>0){
-            //String tagtmp=holder.mTag.getText().toString();
-            holder.mTag.setText("10대/20대 " +productVO.getTags().get(0).getTag_name());
-
-        }else{
+        if(productVO.getTags().getTag_name().equals("없음")){
             holder.mTag.setText("10대/20대");
             holder.mTag.setTextColor(Color.parseColor("#8F9DF8"));
+
+        }else{
+            holder.mTag.setText("10대/20대 " +productVO.getTags().getTag_name());
         }
 
         //이미지 둥글게
         holder.mImage.setBackground(new ShapeDrawable(new OvalShape()));
         holder.mImage.setClipToOutline(true);
 
-        System.out.println(url1);
+        //System.out.println(url1);
 //        Glide.with(mContext)
 //                .load(url1)
 //                .thumbnail(0.5f)

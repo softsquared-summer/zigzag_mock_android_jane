@@ -2,6 +2,7 @@ package com.example.zigzag.src.main.store.ranking;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -51,7 +52,11 @@ public class RankingFragment extends Fragment implements RankActivityView {
         initView(view);
 
         //랭킹 조회 통신 시작
+        System.out.println("랭킹 통신 시작");
         getStoreRank();
+
+
+
         return view;
     }
 
@@ -79,17 +84,23 @@ public class RankingFragment extends Fragment implements RankActivityView {
 
     @Override
     public void validateSuccess(String text) {
+        System.out.println("랭킹 통신 성공");
 
     }
 
     @Override
     public void validateFailure(String message) {
+        System.out.println("랭킹 통신 실패");
 
     }
 
     @Override
     public void validateRank(boolean isSuccess, int code, String message,
                              ArrayList<RankResponse.RankResult> rankResult) {
+        System.out.println("코드: "+code);
+        System.out.println("성공여부: "+isSuccess);
+        System.out.println("메시지: "+message);
+
         if (isSuccess) {
             if (code == 100) {
                 System.out.println("스토어 랭킹 리스트 조회 성공");

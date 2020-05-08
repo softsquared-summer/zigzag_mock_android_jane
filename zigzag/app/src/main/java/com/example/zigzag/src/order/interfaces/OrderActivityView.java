@@ -14,7 +14,7 @@ public interface OrderActivityView {
     void validateFailure(String message);
 
     //로그인 성공 시, reuslt 자체를 넘긴다.
-    void getOrderSuccess(boolean isSuccess, int code, String message, ArrayList<OrderItem> ordersResult);
+    void getOrderSuccess(boolean isSuccess, int code, String message, ArrayList<OrderResponse.OrderResult> ordersResult);
     void getTotalPaySuccess(boolean isSuccess, int code, String message, TotalPayResponse.TotalPayResult payResult);
 
 }

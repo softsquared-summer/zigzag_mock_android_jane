@@ -17,10 +17,13 @@ public class RankResponse {
         @SerializedName("mall_name")
         private String mall_name;
         @SerializedName("mall_rank")
-        private String mall_rank;
+        private int mall_rank;
         @SerializedName("tags")
-        private ArrayList<TagList> tags;
+        private TagList tags;
 
+        public TagList getTags() {
+            return tags;
+        }
 
         public int getMall_id() {
             return mall_id;
@@ -38,23 +41,18 @@ public class RankResponse {
             return mall_name;
         }
 
-        public String getMall_rank() {
+        public int getMall_rank() {
             return mall_rank;
         }
 
-        public ArrayList<TagList> getTags() {
-            return tags;
-        }
 
         public class TagList {
             @SerializedName("tag_id")
-            private int tag_id;
+            private String tag_id;
             @SerializedName("tag_name")
             private String tag_name;
 
-            public int getTag_id() {
-                return tag_id;
-            }
+
 
             public String getTag_name() {
                 return tag_name;

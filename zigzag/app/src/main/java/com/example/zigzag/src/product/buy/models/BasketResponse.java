@@ -5,9 +5,9 @@ import com.google.gson.annotations.SerializedName;
 public class BasketResponse {
 
 
-
     @SerializedName("result")
-    private String basketResult;
+    private String result;
+
 
     @SerializedName("code")
     private int code;
@@ -31,9 +31,6 @@ public class BasketResponse {
     //}
 
 
-    public String getBasketResult() {
-        return basketResult;
-    }
 
     public boolean isIs_success() {
         return is_success;

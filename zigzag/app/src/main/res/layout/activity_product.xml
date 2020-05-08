@@ -19,8 +19,9 @@
 
     <ImageButton
         android:id="@+id/product_detail_iv_end"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:scaleType="centerInside"
         app:layout_constraintTop_toTopOf="@id/product_detail_v_title"
         app:layout_constraintBottom_toBottomOf="@id/product_detail_v_title"
         android:src="@drawable/product_btn_end"
@@ -34,7 +35,7 @@
         android:layout_marginVertical="10dp"
         android:text="아우터"
         android:textColor="#FFFFFF"
-        android:textSize="20sp"
+        android:textSize="17sp"
         android:gravity="center_vertical"
         android:textStyle="bold"
         android:textAlignment="center"
@@ -53,7 +54,7 @@
         android:src="@drawable/product_icon_shop"/>
 
     <ImageButton
-        android:layout_width="35dp"
+        android:layout_width="30dp"
         android:layout_height="0dp"
         android:scaleType="centerInside"
         android:layout_marginStart="10dp"
@@ -70,6 +71,7 @@
         android:layout_height="0dp"
         android:scaleType="centerInside"
         app:layout_constraintTop_toTopOf="@+id/product_detail_v_title"
+
         app:layout_constraintBottom_toBottomOf="@+id/product_detail_v_title"
         android:src="@drawable/mybagt"
         android:background="@color/colorMenuBackground"
@@ -82,7 +84,7 @@
         android:id="@+id/product_detail_v_body"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintVertical_weight="10"
+        app:layout_constraintVertical_weight="11"
         app:layout_constraintTop_toBottomOf="@+id/product_detail_v_title"
         app:layout_constraintBottom_toTopOf="@+id/product_detail_v_bottombar"
         app:layout_constraintStart_toStartOf="parent"
@@ -144,11 +146,11 @@
         android:textStyle="bold"
         android:layout_marginTop="20dp"
         android:layout_marginStart="10dp"
-        android:textSize="20sp"/>
+        android:textSize="17sp"/>
     <ImageView
         android:id="@+id/product_detail_iv_cupon"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginEnd="10dp"
         android:scaleType="fitXY"
         android:layout_marginTop="10dp"
@@ -184,7 +186,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_weight="1.5"
+        app:layout_constraintVertical_weight="1.3"
         app:layout_constraintTop_toBottomOf="@id/product_detail_v_body"
         android:background="@color/colorMenuBackground"/>
 
@@ -208,7 +210,7 @@
         app:layout_constraintEnd_toEndOf="@+id/product_detail_bottombar_left"        app:layout_constraintTop_toTopOf="@id/product_detail_v_bottombar"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginHorizontal="20dp"/>
     <TextView
         android:id="@+id/product_detail_tv_review"
@@ -242,7 +244,7 @@
         app:layout_constraintStart_toStartOf="@+id/product_detail_bottombar_right"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginHorizontal="10dp"/>
     <TextView
         android:id="@+id/product_detail_tv_discount"
@@ -268,7 +270,7 @@
         app:layout_constraintEnd_toEndOf="@id/product_detail_v_bottombar"
         android:scaleType="fitXY"
         android:background="@color/colorMenuBackground"
-        android:layout_marginVertical="15dp"
+        android:layout_marginVertical="10dp"
         android:layout_marginStart="5dp"/>
 
 

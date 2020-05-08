@@ -75,6 +75,8 @@ public class TodayFragment extends Fragment implements TodayTopContentAdapter.On
         });
 
 
+
+
         return view;
     }
 
